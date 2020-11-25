@@ -16,7 +16,7 @@ public class Student {
 	private int currentYearOfStudy;
 	private StatusOfStudent statusOfStudent;
 	private double averageGrade;
-	//private ArrayList<Grade> passedSubjects;
+	private ArrayList<Grade> passedSubjects;
 	//private ArrayList<Subject> nonPassedSubjects;
 	
 	// Konstruktori:
@@ -24,7 +24,7 @@ public class Student {
 	
 	public Student(String lastName, String firstName, LocalDate dateOfBirth, Address residence, String contactPhone,
 			String emailAddress, String indexNumber, int yearOfEnrollment, int currentYearOfStudy,
-			StatusOfStudent statusOfStudent, double averageGrade) {
+			StatusOfStudent statusOfStudent, double averageGrade, ArrayList<Grade> passedSubjects) {
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.dateOfBirth = dateOfBirth;
@@ -36,6 +36,7 @@ public class Student {
 		this.currentYearOfStudy = currentYearOfStudy;
 		this.statusOfStudent = statusOfStudent;
 		this.averageGrade = averageGrade;
+		this.passedSubjects = passedSubjects;
 	}
 	
 	// Dobavljačke i postavljačke radnje:
@@ -127,7 +128,6 @@ public class Student {
 		this.averageGrade = averageGrade;
 	}
 	
-	/*
 	public ArrayList<Grade> getPassedSubjects() {
 		return this.passedSubjects;
 	}
@@ -135,7 +135,6 @@ public class Student {
 	public void setPassedSubjects(ArrayList<Grade> passedSubjects) {
 		this.passedSubjects = passedSubjects;
 	}
-	*/
 	
 	/*
 	public ArrayList<Subject> getNonPassedSubjects() {
