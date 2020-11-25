@@ -5,6 +5,7 @@ import java.time.LocalDate;
 public class Grade {
 	// Polja:
 	private long id;
+	private Student student;
 	//private Subject subject;
 	private int value;
 	private LocalDate dateOfPassing;
@@ -12,24 +13,33 @@ public class Grade {
 	// Konstruktori:
 	public Grade() {}
 	
-	public Grade(long id, int value, LocalDate dateOfPassing) {
+	public Grade(long id, Student student, int value, LocalDate dateOfPassing) {
 		this.id = id;
+		this.student = student;
 		this.value = value;
 		this.dateOfPassing = dateOfPassing;
 	}
 	
 	// Dobavljačke i postavljačke radnje:
 	public long getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(long id) {
 		this.id = id;
 	}
 	
+	public Student getStudent() {
+		return this.student;
+	}
+	
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+	
 	/*
 	public Subject getSubject() {
-		return subject;
+		return this.subject;
 	}
 	
 	public void setSubject(Subject subject) {
@@ -38,7 +48,7 @@ public class Grade {
 	*/
 	
 	public int getValue() {
-		return value;
+		return this.value;
 	}
 
 	public void setValue(int value) {
@@ -46,7 +56,7 @@ public class Grade {
 	}
 
 	public LocalDate getDateOfPassing() {
-		return dateOfPassing;
+		return this.dateOfPassing;
 	}
 
 	public void setDateOfPassing(LocalDate dateOfPassing) {
