@@ -40,7 +40,7 @@ public class Student {
 	
 	// Dobavljačke i postavljačke radnje:
 	public String getLastName() {
-		return lastName;
+		return this.lastName;
 	}
 
 	public void setLastName(String lastName) {
@@ -48,7 +48,7 @@ public class Student {
 	}
 
 	public String getFirstName() {
-		return firstName;
+		return this.firstName;
 	}
 
 	public void setFirstName(String firstName) {
@@ -56,7 +56,7 @@ public class Student {
 	}
 
 	public LocalDate getDateOfBirth() {
-		return dateOfBirth;
+		return this.dateOfBirth;
 	}
 
 	public void setDateOfBirth(LocalDate dateOfBirth) {
@@ -64,7 +64,7 @@ public class Student {
 	}
 
 	public Address getResidence() {
-		return residence;
+		return this.residence;
 	}
 
 	public void setResidence(Address residence) {
@@ -72,7 +72,7 @@ public class Student {
 	}
 
 	public String getContactPhone() {
-		return contactPhone;
+		return this.contactPhone;
 	}
 
 	public void setContactPhone(String contactPhone) {
@@ -80,7 +80,7 @@ public class Student {
 	}
 
 	public String getEmailAddress() {
-		return emailAddress;
+		return this.emailAddress;
 	}
 
 	public void setEmailAddress(String emailAddress) {
@@ -88,7 +88,7 @@ public class Student {
 	}
 
 	public String getIndexNumber() {
-		return indexNumber;
+		return this.indexNumber;
 	}
 
 	public void setIndexNumber(String indexNumber) {
@@ -96,7 +96,7 @@ public class Student {
 	}
 
 	public int getYearOfEnrollment() {
-		return yearOfEnrollment;
+		return this.yearOfEnrollment;
 	}
 
 	public void setYearOfEnrollment(int yearOfEnrollment) {
@@ -104,7 +104,7 @@ public class Student {
 	}
 
 	public int getCurrentYearOfStudy() {
-		return currentYearOfStudy;
+		return this.currentYearOfStudy;
 	}
 
 	public void setCurrentYearOfStudy(int currentYearOfStudy) {
@@ -112,7 +112,7 @@ public class Student {
 	}
 
 	public StatusOfStudent getStatusOfStudent() {
-		return statusOfStudent;
+		return this.statusOfStudent;
 	}
 
 	public void setStatusOfStudent(StatusOfStudent statusOfStudent) {
@@ -120,7 +120,7 @@ public class Student {
 	}
 
 	public double getAverageGrade() {
-		return averageGrade;
+		return this.averageGrade;
 	}
 
 	public void setAverageGrade(double averageGrade) {
@@ -129,7 +129,7 @@ public class Student {
 	
 	/*
 	public ArrayList<Grade> getPassedSubjects() {
-		return passedSubjects;
+		return this.passedSubjects;
 	}
 
 	public void setPassedSubjects(ArrayList<Grade> passedSubjects) {
@@ -139,7 +139,7 @@ public class Student {
 	
 	/*
 	public ArrayList<Subject> getNonPassedSubjects() {
-		return nonPassedSubjects;
+		return this.nonPassedSubjects;
 	}
 
 	public void setNonPassedSubjects(ArrayList<Subject> nonPassedSubjects) {
