@@ -117,7 +117,7 @@ public class MenuBar extends JMenuBar {
 	}
 	
 	private void setUpAboutMenuItem() {
-		ImageIcon aboutMenuItemIcon = ImageIconScaler.scaleImageIcon("images/menuBar/About/icon.png", 16, 16);
+		ImageIcon aboutMenuItemIcon = ImageIconScaler.scaleImageIcon("images/menuBar/About_icon.png", 16, 16);
 		
 		this.aboutMenuItem = new JMenuItem("About", aboutMenuItemIcon);
 		this.aboutMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_DOWN_MASK));
