@@ -3,6 +3,9 @@ package view;
 import java.awt.*;
 import java.awt.event.*;
 
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -22,153 +25,71 @@ public class ToolBar extends JToolBar implements ActionListener {
 	
 	
 	public ToolBar() {
+		/** REFERENCA: Materijali za vežbe (v3 -> Termin5 - Layout.pdf) */
+		BoxLayout boxLayout = new BoxLayout(this, BoxLayout.X_AXIS);
+		this.setLayout(boxLayout);
 		
-		super(SwingConstants.HORIZONTAL);
-		btnNew = new JButton();
+		this.setBorder(BorderFactory.createLineBorder(Color.GRAY,2));
+		
+		this.btnNew = new JButton();
 		btnNew.setToolTipText("New");
 		btnNew.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnNew.setIcon(new ImageIcon("images/toolBar/new-icon.jpg"));
 		add(btnNew);
-		btnNew.addActionListener(this);
 		
-		addSeparator();
+		this.add(Box.createHorizontalStrut(5));
+		this.add(btnNew);
+		
+		btnNew.addActionListener(this);
 
-		btnEdit = new JButton();
+		this.btnEdit = new JButton();
 		btnEdit.setToolTipText("Edit");
 		btnEdit.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnEdit.setIcon(new ImageIcon("images/toolBar/edit-icon.png"));
 		add(btnEdit);
-		btnEdit.addActionListener(this);
 		
-		addSeparator();
+		this.add(Box.createHorizontalStrut(5));
+		this.add(btnEdit);
+		
+		btnEdit.addActionListener(this);
 
-		btnDelete = new JButton();
+		this.btnDelete = new JButton();
 		btnDelete.setToolTipText("Delete");
 		btnDelete.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnDelete.setIcon(new ImageIcon("images/toolBar/delete-icon.png"));
 		add(btnDelete);
+		
+		this.add(Box.createHorizontalStrut(5));
+		this.add(btnDelete);
+		
 		btnDelete.addActionListener(this);
 		
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
-		addSeparator();
+		this.add(new JToolBar.Separator(new Dimension(1000,0)));
 		
 		JTextField t = new JTextField("Unesite korisnika");
-		add(t);
+		this.add(t);
 		
-		addSeparator();
+		this.add(Box.createHorizontalStrut(5));
 		
-		btnFind = new JButton();
+		this.btnFind = new JButton();
 		btnFind.setToolTipText("Find");
 		btnFind.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnFind.setIcon(new ImageIcon("images/toolBar/find-icon.png"));
 		add(btnFind);
+		
+		this.add(Box.createHorizontalStrut(5));
+		this.add(btnFind);
+		
 		btnFind.addActionListener(this);
 		
 		
 		setBackground(new Color(255, 255, 204));
-
+		setFloatable(false);
 
 
 		
 	}
-	
+	/** REFERENCA: https://www.youtube.com/watch?v=2KQ2ryPS4Kg */
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == btnNew) {
 			JOptionPane.showMessageDialog(null, "Pritisnuli ste dugme New");
