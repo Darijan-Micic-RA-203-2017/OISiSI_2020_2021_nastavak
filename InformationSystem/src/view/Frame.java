@@ -14,7 +14,7 @@ import view.ToolBar;
 
 public class Frame extends JFrame {
 	
-
+//prvi put je pogresno odradjen commit
 	private static final long serialVersionUID = 4L;
 	
 	public Frame() {
@@ -44,6 +44,7 @@ public class Frame extends JFrame {
 		
 		StatusBar statusbar = new StatusBar();
 		add(statusbar, BorderLayout.SOUTH);
+
 	}
 
 }
