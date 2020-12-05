@@ -38,12 +38,13 @@ public class StatusBar extends JPanel {
 	// Radnja:
 	/** REFERENCA: https://www.youtube.com/watch?v=tpQAslXjNKU */
 	private void setUpCurrentTimeAndDateLabel(JLabel currentTimeAndDateLabel) {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm dd.MM.yyyy.");
+		
 		Thread timeAndDateThread = new Thread() {
 			@Override
 			public void run() {
 				try {
 					while (true) {
-						DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm dd.MM.yyyy.");
 						LocalDateTime currentTimeAndDate = LocalDateTime.now();
 						currentTimeAndDateLabel.setText(dtf.format(currentTimeAndDate));
 						sleep(1000);
