@@ -22,8 +22,6 @@ public class MenuBar extends JMenuBar {
 	
 	// Konstruktor:
 	public MenuBar() {
-		super();
-		
 		setUpFileMenu();
 		setUpEditMenu();
 		setUpHelpMenu();
@@ -51,6 +49,7 @@ public class MenuBar extends JMenuBar {
 		ImageIcon newMenuItemIcon = ImageIconScaler.scaleImageIcon("images/menuBar/New_icon.jpg", 16, 16);
 		
 		this.newMenuItem = new JMenuItem("New", newMenuItemIcon);
+		this.newMenuItem.setMnemonic(KeyEvent.VK_N);
 		this.newMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_DOWN_MASK));
 	}
 	
@@ -58,6 +57,7 @@ public class MenuBar extends JMenuBar {
 		ImageIcon closeMenuItemIcon = ImageIconScaler.scaleImageIcon("images/menuBar/Close_icon.jpg", 16, 16);
 		
 		this.closeMenuItem = new JMenuItem("Close", closeMenuItemIcon);
+		this.closeMenuItem.setMnemonic(KeyEvent.VK_C);
 		this.closeMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, KeyEvent.CTRL_DOWN_MASK));
 	}
 	
@@ -82,6 +82,7 @@ public class MenuBar extends JMenuBar {
 		ImageIcon editMenuItemIcon = ImageIconScaler.scaleImageIcon("images/menuBar/Edit_icon.png", 16, 16);
 		
 		this.editMenuItem = new JMenuItem("Edit", editMenuItemIcon);
+		this.editMenuItem.setMnemonic(KeyEvent.VK_I);
 		this.editMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.CTRL_DOWN_MASK));
 	}
 	
@@ -89,6 +90,7 @@ public class MenuBar extends JMenuBar {
 		ImageIcon deleteMenuItemIcon = ImageIconScaler.scaleImageIcon("images/menuBar/Delete_icon.png", 16, 16);
 		
 		this.deleteMenuItem = new JMenuItem("Delete", deleteMenuItemIcon);
+		this.deleteMenuItem.setMnemonic(KeyEvent.VK_D);
 		this.deleteMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, KeyEvent.CTRL_DOWN_MASK));
 	}
 	
@@ -113,6 +115,7 @@ public class MenuBar extends JMenuBar {
 		ImageIcon helpMenuItemIcon = ImageIconScaler.scaleImageIcon("images/menuBar/Help_icon.png", 16, 16);
 		
 		this.helpMenuItem = new JMenuItem("Help", helpMenuItemIcon);
+		this.helpMenuItem.setMnemonic(KeyEvent.VK_L);
 		this.helpMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, KeyEvent.CTRL_DOWN_MASK));
 	}
 	
@@ -120,6 +123,7 @@ public class MenuBar extends JMenuBar {
 		ImageIcon aboutMenuItemIcon = ImageIconScaler.scaleImageIcon("images/menuBar/About_icon.png", 16, 16);
 		
 		this.aboutMenuItem = new JMenuItem("About", aboutMenuItemIcon);
+		this.aboutMenuItem.setMnemonic(KeyEvent.VK_A);
 		this.aboutMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_DOWN_MASK));
 	}
 }
