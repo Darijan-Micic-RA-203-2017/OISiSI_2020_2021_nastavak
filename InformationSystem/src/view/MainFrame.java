@@ -12,13 +12,12 @@ import javax.swing.JPanel;
 import view.MenuBar;
 import view.ToolBar;
 
-public class Frame extends JFrame {
+public class MainFrame extends JFrame {
 	
-//prvi put je pogresno odradjen commit
 	private static final long serialVersionUID = 4L;
 	
-	public Frame() {
-		
+	public MainFrame() {
+		/** REFERENCA: Materijali za vežbe (v2 -> Termin3 - Swing komponente.pdf) */
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		Dimension screenSize = kit.getScreenSize();
 		int screenHeight = screenSize.height;
