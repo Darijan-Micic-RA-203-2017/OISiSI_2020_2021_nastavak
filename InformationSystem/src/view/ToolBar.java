@@ -25,7 +25,7 @@ public class ToolBar extends JToolBar implements ActionListener {
 	
 	
 	public ToolBar() {
-		/** REFERENCA: Materijali za vežbe (v3 -> Termin5 - Layout.pdf) */
+		/** REFERENCA: Materijali za vežbe (v2 -> Termin3 - Swing komponente.pdf ,v3 -> Termin5 - Layout.pdf) */
 		BoxLayout boxLayout = new BoxLayout(this, BoxLayout.X_AXIS);
 		this.setLayout(boxLayout);
 		
