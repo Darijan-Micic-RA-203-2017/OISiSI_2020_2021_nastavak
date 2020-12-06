@@ -8,6 +8,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
+import listeners.HelpDialogOpeningListener;
+
 public class MenuBar extends JMenuBar {
 	// Polja:
 	private JMenu fileMenu;
@@ -117,6 +119,9 @@ public class MenuBar extends JMenuBar {
 		this.helpMenuItem = new JMenuItem("Help", helpMenuItemIcon);
 		this.helpMenuItem.setMnemonic(KeyEvent.VK_L);
 		this.helpMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, KeyEvent.CTRL_DOWN_MASK));
+		
+		HelpDialogOpeningListener helpDialogOpeningListener = new HelpDialogOpeningListener();
+		this.helpMenuItem.addActionListener(helpDialogOpeningListener);
 	}
 	
 	private void setUpAboutMenuItem() {
