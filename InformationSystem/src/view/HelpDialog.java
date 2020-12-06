@@ -30,16 +30,7 @@ public class HelpDialog extends JDialog {
 	// Radnje:
 	private void setUpAplicationDescription() {
 		this.workDescriptionArea = new JTextArea();
-		this.workDescriptionArea.setEditable(false);
-/*
-Pitanje: Da li Help dijalog treba da bude kompletan za domaci-1?
-Odgovor: Opisati ukratko šta je odrađeno. Navesti iz čega se sastoji glavni pozor (MenuBar, 
-ToolBar, StatusBar, ...). Objasniti koje stavke menija/toolbara postoje, koji su akceleratori i 
-mnemonici registrovani. Šta bi svaka od stavki menija/toolbara trebalo da radi. Za stavke koje 
-nisu implementirane navesti komentar da će Help dijalog biti naknadno proširen. Opisati šta se 
-sve nalazi u status baru, ...
-Kopirati ovaj znak kada zatreba u opisu: \n
-*/
+		
 		String applicationUsageDescription = "Studentska služba\n\n" + 
 		"Glavni prozor aplikacije sadrži sledeće komponente:\n" + 
 		"1) Traka sa menijima\n" + 
@@ -84,5 +75,7 @@ Kopirati ovaj znak kada zatreba u opisu: \n
 		"aplikacije, kratak opis aplikacije i sažeta biografija svakog autora.";
 		
 		this.workDescriptionArea.setText(applicationUsageDescription);
+		
+		this.workDescriptionArea.setEditable(false);
 	}
 }
