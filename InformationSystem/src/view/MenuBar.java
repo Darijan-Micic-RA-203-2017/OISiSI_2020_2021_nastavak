@@ -8,6 +8,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
+import listeners.AboutDialogOpeningListener;
 import listeners.HelpDialogOpeningListener;
 
 public class MenuBar extends JMenuBar {
@@ -130,5 +131,8 @@ public class MenuBar extends JMenuBar {
 		this.aboutMenuItem = new JMenuItem("About", aboutMenuItemIcon);
 		this.aboutMenuItem.setMnemonic(KeyEvent.VK_A);
 		this.aboutMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_DOWN_MASK));
+		
+		AboutDialogOpeningListener aboutDialogOpeningListener = new AboutDialogOpeningListener();
+		this.aboutMenuItem.addActionListener(aboutDialogOpeningListener);
 	}
 }
