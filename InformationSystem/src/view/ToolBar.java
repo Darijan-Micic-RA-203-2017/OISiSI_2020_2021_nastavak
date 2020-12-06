@@ -64,9 +64,9 @@ public class ToolBar extends JToolBar implements ActionListener {
 		
 		btnDelete.addActionListener(this);
 		
-		this.add(new JToolBar.Separator(new Dimension(1000,0)));
-		
 		JTextField t = new JTextField("Unesite korisnika");
+		t.setMaximumSize(new Dimension(t.getPreferredSize().width, Integer.MAX_VALUE));
+		this.add(Box.createHorizontalGlue());
 		this.add(t);
 		
 		this.add(Box.createHorizontalStrut(5));
