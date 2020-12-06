@@ -9,6 +9,7 @@ public class HelpDialogOpeningListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// Izmeniti na grani development.
+		// I dalje cekam da Ognjen pretvori klasu MainFrame u Singleton klasu.
 		//HelpDialog helpDialog = new HelpDialog();
 		
 		//helpDialog.setVisible(true);
