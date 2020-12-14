@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.event.KeyEvent;
+import java.io.File;
 
 import javax.swing.ImageIcon;
 import javax.swing.JMenu;
@@ -32,7 +33,8 @@ public class MenuBar extends JMenuBar {
 	
 	// Ostale radnje:
 	private void setUpFileMenu() {
-		ImageIcon fileMenuIcon = ImageIconScaler.scaleImageIcon("images/menuBar/File_icon.png", 16, 16);
+		String imagePath = getImagePath("File_icon.png");
+		ImageIcon fileMenuIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
 		this.fileMenu = new JMenu("File");
 		this.fileMenu.setIcon(fileMenuIcon);
@@ -49,7 +51,8 @@ public class MenuBar extends JMenuBar {
 	}
 
 	private void setUpNewMenuItem() {
-		ImageIcon newMenuItemIcon = ImageIconScaler.scaleImageIcon("images/menuBar/New_icon.jpg", 16, 16);
+		String imagePath = getImagePath("New_icon.jpg");
+		ImageIcon newMenuItemIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
 		this.newMenuItem = new JMenuItem("New", newMenuItemIcon);
 		this.newMenuItem.setMnemonic(KeyEvent.VK_N);
@@ -57,7 +60,8 @@ public class MenuBar extends JMenuBar {
 	}
 	
 	private void setUpCloseMenuItem() {
-		ImageIcon closeMenuItemIcon = ImageIconScaler.scaleImageIcon("images/menuBar/Close_icon.jpg", 16, 16);
+		String imagePath = getImagePath("Close_icon.jpg");
+		ImageIcon closeMenuItemIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
 		this.closeMenuItem = new JMenuItem("Close", closeMenuItemIcon);
 		this.closeMenuItem.setMnemonic(KeyEvent.VK_C);
@@ -65,7 +69,8 @@ public class MenuBar extends JMenuBar {
 	}
 	
 	private void setUpEditMenu() {
-		ImageIcon editMenuIcon = ImageIconScaler.scaleImageIcon("images/menuBar/Edit_icon.png", 16, 16);
+		String imagePath = getImagePath("Edit_icon.png");
+		ImageIcon editMenuIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
 		this.editMenu = new JMenu("Edit");
 		this.editMenu.setIcon(editMenuIcon);
@@ -82,7 +87,8 @@ public class MenuBar extends JMenuBar {
 	}
 	
 	private void setUpEditMenuItem() {
-		ImageIcon editMenuItemIcon = ImageIconScaler.scaleImageIcon("images/menuBar/Edit_icon.png", 16, 16);
+		String imagePath = getImagePath("Edit_icon.png");
+		ImageIcon editMenuItemIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
 		this.editMenuItem = new JMenuItem("Edit", editMenuItemIcon);
 		this.editMenuItem.setMnemonic(KeyEvent.VK_I);
@@ -90,7 +96,8 @@ public class MenuBar extends JMenuBar {
 	}
 	
 	private void setUpDeleteMenuItem() {
-		ImageIcon deleteMenuItemIcon = ImageIconScaler.scaleImageIcon("images/menuBar/Delete_icon.png", 16, 16);
+		String imagePath = getImagePath("Delete_icon.png");
+		ImageIcon deleteMenuItemIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
 		this.deleteMenuItem = new JMenuItem("Delete", deleteMenuItemIcon);
 		this.deleteMenuItem.setMnemonic(KeyEvent.VK_D);
@@ -98,7 +105,8 @@ public class MenuBar extends JMenuBar {
 	}
 	
 	private void setUpHelpMenu() {
-		ImageIcon helpMenuIcon = ImageIconScaler.scaleImageIcon("images/menuBar/Help_icon.png", 16, 16);
+		String imagePath = getImagePath("Help_icon.png");
+		ImageIcon helpMenuIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
 		this.helpMenu = new JMenu("Help");
 		this.helpMenu.setIcon(helpMenuIcon);
@@ -115,7 +123,8 @@ public class MenuBar extends JMenuBar {
 	}
 	
 	private void setUpHelpMenuItem() {
-		ImageIcon helpMenuItemIcon = ImageIconScaler.scaleImageIcon("images/menuBar/Help_icon.png", 16, 16);
+		String imagePath = getImagePath("Help_icon.png");
+		ImageIcon helpMenuItemIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
 		this.helpMenuItem = new JMenuItem("Help", helpMenuItemIcon);
 		this.helpMenuItem.setMnemonic(KeyEvent.VK_L);
@@ -126,7 +135,8 @@ public class MenuBar extends JMenuBar {
 	}
 	
 	private void setUpAboutMenuItem() {
-		ImageIcon aboutMenuItemIcon = ImageIconScaler.scaleImageIcon("images/menuBar/About_icon.png", 16, 16);
+		String imagePath = getImagePath("About_icon.png");
+		ImageIcon aboutMenuItemIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
 		this.aboutMenuItem = new JMenuItem("About", aboutMenuItemIcon);
 		this.aboutMenuItem.setMnemonic(KeyEvent.VK_A);
@@ -134,5 +144,16 @@ public class MenuBar extends JMenuBar {
 		
 		AboutDialogOpeningListener aboutDialogOpeningListener = new AboutDialogOpeningListener();
 		this.aboutMenuItem.addActionListener(aboutDialogOpeningListener);
+	}
+	
+	// Radnja za izgradnju putanje do slike:
+	private String getImagePath(String nameOfImage) {
+		StringBuilder imagePathBuilder = new StringBuilder("images");
+		imagePathBuilder.append(File.separator).append("menuBar");
+		imagePathBuilder.append(File.separator).append(nameOfImage);
+		
+		String imagePath = imagePathBuilder.toString();
+		
+		return imagePath;
 	}
 }
