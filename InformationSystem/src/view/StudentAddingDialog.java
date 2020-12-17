@@ -1,13 +1,14 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -18,7 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-public class StudentAddingDialog extends JDialog {
+public class StudentAddingDialog extends JDialog implements ActionListener {
 	// Polja:
 	private JPanel mainPanel;
 	
@@ -47,7 +48,7 @@ public class StudentAddingDialog extends JDialog {
 	
 	private JPanel buttonsPanel;
 	private JButton confirmationButton;
-	private JButton cancelationButton;
+	private JButton cancellationButton;
 	
 	private JScrollPane scrollPane;
 	
@@ -99,6 +100,12 @@ public class StudentAddingDialog extends JDialog {
 	private void setUpFirstNameComponents() {
 		firstNameLabel = new JLabel("Ime*");
 		firstNameTextField = new JTextField();
+		
+		/* Podešavanjem željene širine prvog polja za unos teksta biće podešena i širina 
+		 * komponenti u drugoj koloni donjih redova.
+		*/
+		Dimension textFieldPreferredSize = new Dimension(this.getWidth() *9 / 20, 20);
+		firstNameTextField.setPreferredSize(textFieldPreferredSize);
 		
 		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */
 		Insets labelInsets = new Insets(10, 10, 10, 10);
@@ -252,7 +259,7 @@ public class StudentAddingDialog extends JDialog {
 				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, labelInsets, 0, 0);
 		upperPanel.add(statusOfStudentLabel, labelConstraints);
 		
-		Insets comboBoxInsets = new Insets(10, 10, 10, 10);
+		Insets comboBoxInsets = new Insets(10, 10, 0, 10);
 		GridBagConstraints comboBoxConstraints = new GridBagConstraints(1, 9, 1, 1, 0, 0, 
 				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, comboBoxInsets, 0, 0);
 		upperPanel.add(statusOfStudentComboBox, comboBoxConstraints);
@@ -267,15 +274,24 @@ public class StudentAddingDialog extends JDialog {
 		setUpCancellationButton();
 		
 		buttonsPanel.add(confirmationButton);
-		buttonsPanel.add(cancelationButton);
+		buttonsPanel.add(cancellationButton);
 	}
 	
 	private void setUpConfirmationButton() {
 		confirmationButton = new JButton("Potvrdi");
+		
 		confirmationButton.setEnabled(false);
 	}
 	
 	private void setUpCancellationButton() {
-		cancelationButton = new JButton("Odustani");
+		cancellationButton = new JButton("Odustani");
+		
+		cancellationButton.addActionListener(this);
+	}
+	
+	/** REFERENCA: Materijali za vežbe (v4 -> a - Unutrasnje klase i dogadjaji -> Interfejsi i unutrasnje klase.pdf) */
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		dispose();
 	}
 }
