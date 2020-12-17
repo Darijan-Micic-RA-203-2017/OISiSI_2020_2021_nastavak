@@ -30,14 +30,8 @@ public class StudentAddingDialog extends JDialog {
 	private JTextField lastNameTextField;
 	private JLabel dateOfBirthLabel;
 	private JTextField dateOfBirthTextField;
-	private JLabel streetLabel;
-	private JTextField streetTextField;
-	private JLabel numberLabel;
-	private JTextField numberTextField;
-	private JLabel populatedPlaceLabel;
-	private JTextField populatedPlaceTextField;
-	private JLabel postalCodeLabel;
-	private JTextField postalCodeTextField;
+	private JLabel addressLabel;
+	private JTextField addressTextField;
 	private JLabel contactPhoneLabel;
 	private JTextField contactPhoneTextField;
 	private JLabel emailAddressLabel;
@@ -93,10 +87,7 @@ public class StudentAddingDialog extends JDialog {
 		setUpFirstNameComponents();
 		setUpLastNameComponents();
 		setUpDateOfBirthComponents();
-		setUpStreetComponents();
-		setUpNumberComponents();
-		setUpPopulatedPlaceComponents();
-		setUpPostalCodeComponents();
+		setUpAddressComponents();
 		setUpContactPhoneComponents();
 		setUpEmailAddressComponents();
 		setUpIndexNumberComponents();
@@ -153,68 +144,20 @@ public class StudentAddingDialog extends JDialog {
 		upperPanel.add(dateOfBirthTextField, textFieldConstraints);
 	}
 	
-	private void setUpStreetComponents() {
-		streetLabel = new JLabel("Ulica*");
-		streetTextField = new JTextField();
+	private void setUpAddressComponents() {
+		addressLabel = new JLabel("Adresa*");
+		addressTextField = new JTextField();
 		
 		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */
 		Insets labelInsets = new Insets(10, 10, 10, 10);
 		GridBagConstraints labelConstraints = new GridBagConstraints(0, 3, 1, 1, 0, 0, 
 				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, labelInsets, 0, 0);
-		upperPanel.add(streetLabel, labelConstraints);
+		upperPanel.add(addressLabel, labelConstraints);
 		
 		Insets textFieldInsets = new Insets(10, 10, 10, 10);
 		GridBagConstraints textFieldConstraints = new GridBagConstraints(1, 3, 1, 1, 0, 0, 
 				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textFieldInsets, 0, 0);
-		upperPanel.add(streetTextField, textFieldConstraints);
-	}
-	
-	private void setUpNumberComponents() {
-		numberLabel = new JLabel("Broj*");
-		numberTextField = new JTextField();
-		
-		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */
-		Insets labelInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints labelConstraints = new GridBagConstraints(0, 4, 1, 1, 0, 0, 
-				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, labelInsets, 0, 0);
-		upperPanel.add(numberLabel, labelConstraints);
-		
-		Insets textFieldInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints textFieldConstraints = new GridBagConstraints(1, 4, 1, 1, 0, 0, 
-				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textFieldInsets, 0, 0);
-		upperPanel.add(numberTextField, textFieldConstraints);
-	}
-	
-	private void setUpPopulatedPlaceComponents() {
-		populatedPlaceLabel = new JLabel("Naseljeno mesto*");
-		populatedPlaceTextField = new JTextField();
-		
-		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */
-		Insets labelInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints labelConstraints = new GridBagConstraints(0, 5, 1, 1, 0, 0, 
-				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, labelInsets, 0, 0);
-		upperPanel.add(populatedPlaceLabel, labelConstraints);
-		
-		Insets textFieldInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints textFieldConstraints = new GridBagConstraints(1, 5, 1, 1, 0, 0, 
-				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textFieldInsets, 0, 0);
-		upperPanel.add(populatedPlaceTextField, textFieldConstraints);
-	}
-	
-	private void setUpPostalCodeComponents() {
-		postalCodeLabel = new JLabel("Poštanski broj*");
-		postalCodeTextField = new JTextField();
-		
-		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */
-		Insets labelInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints labelConstraints = new GridBagConstraints(0, 6, 1, 1, 0, 0, 
-				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, labelInsets, 0, 0);
-		upperPanel.add(postalCodeLabel, labelConstraints);
-		
-		Insets textFieldInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints textFieldConstraints = new GridBagConstraints(1, 6, 1, 1, 0, 0, 
-				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textFieldInsets, 0, 0);
-		upperPanel.add(postalCodeTextField, textFieldConstraints);
+		upperPanel.add(addressTextField, textFieldConstraints);
 	}
 	
 	private void setUpContactPhoneComponents() {
@@ -223,12 +166,12 @@ public class StudentAddingDialog extends JDialog {
 		
 		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */
 		Insets labelInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints labelConstraints = new GridBagConstraints(0, 7, 1, 1, 0, 0, 
+		GridBagConstraints labelConstraints = new GridBagConstraints(0, 4, 1, 1, 0, 0, 
 				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, labelInsets, 0, 0);
 		upperPanel.add(contactPhoneLabel, labelConstraints);
 		
 		Insets textFieldInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints textFieldConstraints = new GridBagConstraints(1, 7, 1, 1, 0, 0, 
+		GridBagConstraints textFieldConstraints = new GridBagConstraints(1, 4, 1, 1, 0, 0, 
 				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textFieldInsets, 0, 0);
 		upperPanel.add(contactPhoneTextField, textFieldConstraints);
 	}
@@ -239,12 +182,12 @@ public class StudentAddingDialog extends JDialog {
 		
 		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */
 		Insets labelInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints labelConstraints = new GridBagConstraints(0, 8, 1, 1, 0, 0, 
+		GridBagConstraints labelConstraints = new GridBagConstraints(0, 5, 1, 1, 0, 0, 
 				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, labelInsets, 0, 0);
 		upperPanel.add(emailAddressLabel, labelConstraints);
 		
 		Insets textFieldInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints textFieldConstraints = new GridBagConstraints(1, 8, 1, 1, 0, 0, 
+		GridBagConstraints textFieldConstraints = new GridBagConstraints(1, 5, 1, 1, 0, 0, 
 				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textFieldInsets, 0, 0);
 		upperPanel.add(emailAddressTextField, textFieldConstraints);
 	}
@@ -255,12 +198,12 @@ public class StudentAddingDialog extends JDialog {
 		
 		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */
 		Insets labelInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints labelConstraints = new GridBagConstraints(0, 9, 1, 1, 0, 0, 
+		GridBagConstraints labelConstraints = new GridBagConstraints(0, 6, 1, 1, 0, 0, 
 				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, labelInsets, 0, 0);
 		upperPanel.add(indexNumberLabel, labelConstraints);
 		
 		Insets textFieldInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints textFieldConstraints = new GridBagConstraints(1, 9, 1, 1, 0, 0, 
+		GridBagConstraints textFieldConstraints = new GridBagConstraints(1, 6, 1, 1, 0, 0, 
 				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textFieldInsets, 0, 0);
 		upperPanel.add(indexNumberTextField, textFieldConstraints);
 	}
@@ -271,12 +214,12 @@ public class StudentAddingDialog extends JDialog {
 		
 		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */
 		Insets labelInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints labelConstraints = new GridBagConstraints(0, 10, 1, 1, 0, 0, 
+		GridBagConstraints labelConstraints = new GridBagConstraints(0, 7, 1, 1, 0, 0, 
 				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, labelInsets, 0, 0);
 		upperPanel.add(yearOfEnrollmentLabel, labelConstraints);
 		
 		Insets textFieldInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints textFieldConstraints = new GridBagConstraints(1, 10, 1, 1, 0, 0, 
+		GridBagConstraints textFieldConstraints = new GridBagConstraints(1, 7, 1, 1, 0, 0, 
 				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, textFieldInsets, 0, 0);
 		upperPanel.add(yearOfEnrollmentTextField, textFieldConstraints);
 	}
@@ -288,12 +231,12 @@ public class StudentAddingDialog extends JDialog {
 		
 		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */
 		Insets labelInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints labelConstraints = new GridBagConstraints(0, 11, 1, 1, 0, 0, 
+		GridBagConstraints labelConstraints = new GridBagConstraints(0, 8, 1, 1, 0, 0, 
 				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, labelInsets, 0, 0);
 		upperPanel.add(currentYearOfStudyLabel, labelConstraints);
 		
 		Insets comboBoxInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints comboBoxConstraints = new GridBagConstraints(1, 11, 1, 1, 0, 0, 
+		GridBagConstraints comboBoxConstraints = new GridBagConstraints(1, 8, 1, 1, 0, 0, 
 				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, comboBoxInsets, 0, 0);
 		upperPanel.add(currentYearOfStudyComboBox, comboBoxConstraints);
 	}
@@ -305,12 +248,12 @@ public class StudentAddingDialog extends JDialog {
 		
 		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */
 		Insets labelInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints labelConstraints = new GridBagConstraints(0, 12, 1, 1, 0, 0, 
+		GridBagConstraints labelConstraints = new GridBagConstraints(0, 9, 1, 1, 0, 0, 
 				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, labelInsets, 0, 0);
 		upperPanel.add(statusOfStudentLabel, labelConstraints);
 		
 		Insets comboBoxInsets = new Insets(10, 10, 10, 10);
-		GridBagConstraints comboBoxConstraints = new GridBagConstraints(1, 12, 1, 1, 0, 0, 
+		GridBagConstraints comboBoxConstraints = new GridBagConstraints(1, 9, 1, 1, 0, 0, 
 				GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, comboBoxInsets, 0, 0);
 		upperPanel.add(statusOfStudentComboBox, comboBoxConstraints);
 	}
@@ -329,6 +272,7 @@ public class StudentAddingDialog extends JDialog {
 	
 	private void setUpConfirmationButton() {
 		confirmationButton = new JButton("Potvrdi");
+		confirmationButton.setEnabled(false);
 	}
 	
 	private void setUpCancellationButton() {
