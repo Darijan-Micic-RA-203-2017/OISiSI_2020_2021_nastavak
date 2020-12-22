@@ -8,7 +8,7 @@ public class Student {
 	private String lastName;
 	private String firstName;
 	private LocalDate dateOfBirth;
-	private Address residence;
+	private String residence;
 	private String contactPhone;
 	private String emailAddress;
 	private String indexNumber;
@@ -22,9 +22,9 @@ public class Student {
 	// Konstruktori:
 	public Student() {}
 	
-	public Student(String lastName, String firstName, LocalDate dateOfBirth, Address residence, String contactPhone,
-			String emailAddress, String indexNumber, int yearOfEnrollment, int currentYearOfStudy,
-			StatusOfStudent statusOfStudent, double averageGrade) {
+	public Student(String lastName, String firstName, LocalDate dateOfBirth, String residence, 
+			String contactPhone, String emailAddress, String indexNumber, int yearOfEnrollment, 
+			int currentYearOfStudy, StatusOfStudent statusOfStudent, double averageGrade) {
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.dateOfBirth = dateOfBirth;
@@ -63,11 +63,11 @@ public class Student {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public Address getResidence() {
+	public String getResidence() {
 		return this.residence;
 	}
 
-	public void setResidence(Address residence) {
+	public void setResidence(String residence) {
 		this.residence = residence;
 	}
 
