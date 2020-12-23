@@ -6,16 +6,17 @@ public class Grade {
 	// Polja:
 	private long id;
 	private Student student;
-	//private Subject subject;
+	private Subject subject;
 	private int value;
 	private LocalDate dateOfPassing;
 	
 	// Konstruktori:
 	public Grade() {}
 	
-	public Grade(long id, Student student, int value, LocalDate dateOfPassing) {
+	public Grade(long id, Student student, Subject subject, int value, LocalDate dateOfPassing) {
 		this.id = id;
 		this.student = student;
+		this.subject = subject;
 		this.value = value;
 		this.dateOfPassing = dateOfPassing;
 	}
@@ -37,7 +38,6 @@ public class Grade {
 		this.student = student;
 	}
 	
-	/*
 	public Subject getSubject() {
 		return this.subject;
 	}
@@ -45,7 +45,6 @@ public class Grade {
 	public void setSubject(Subject subject) {
 		this.subject = subject;
 	}
-	*/
 	
 	public int getValue() {
 		return this.value;
