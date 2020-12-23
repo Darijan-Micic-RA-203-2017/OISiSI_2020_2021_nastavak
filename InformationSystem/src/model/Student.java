@@ -8,7 +8,7 @@ public class Student {
 	private String lastName;
 	private String firstName;
 	private LocalDate dateOfBirth;
-	private Address residence;
+	private String residence;
 	private String contactPhone;
 	private String emailAddress;
 	private String indexNumber;
@@ -17,14 +17,15 @@ public class Student {
 	private StatusOfStudent statusOfStudent;
 	private double averageGrade;
 	private ArrayList<Grade> passedSubjects;
-	//private ArrayList<Subject> nonPassedSubjects;
+	private ArrayList<Subject> nonPassedSubjects;
 	
 	// Konstruktori:
 	public Student() {}
 	
-	public Student(String lastName, String firstName, LocalDate dateOfBirth, Address residence, String contactPhone,
-			String emailAddress, String indexNumber, int yearOfEnrollment, int currentYearOfStudy,
-			StatusOfStudent statusOfStudent, double averageGrade, ArrayList<Grade> passedSubjects) {
+	public Student(String lastName, String firstName, LocalDate dateOfBirth, String residence, 
+			String contactPhone, String emailAddress, String indexNumber, int yearOfEnrollment, 
+			int currentYearOfStudy, StatusOfStudent statusOfStudent, double averageGrade, 
+			ArrayList<Grade> passedSubjects, ArrayList<Subject> nonPassedSubjects) {
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.dateOfBirth = dateOfBirth;
@@ -37,6 +38,7 @@ public class Student {
 		this.statusOfStudent = statusOfStudent;
 		this.averageGrade = averageGrade;
 		this.passedSubjects = passedSubjects;
+		this.nonPassedSubjects = nonPassedSubjects;
 	}
 	
 	// Dobavljačke i postavljačke radnje:
@@ -64,11 +66,11 @@ public class Student {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public Address getResidence() {
+	public String getResidence() {
 		return this.residence;
 	}
 
-	public void setResidence(Address residence) {
+	public void setResidence(String residence) {
 		this.residence = residence;
 	}
 
@@ -136,7 +138,6 @@ public class Student {
 		this.passedSubjects = passedSubjects;
 	}
 	
-	/*
 	public ArrayList<Subject> getNonPassedSubjects() {
 		return this.nonPassedSubjects;
 	}
@@ -144,5 +145,4 @@ public class Student {
 	public void setNonPassedSubjects(ArrayList<Subject> nonPassedSubjects) {
 		this.nonPassedSubjects = nonPassedSubjects;
 	}
-	*/
 }
