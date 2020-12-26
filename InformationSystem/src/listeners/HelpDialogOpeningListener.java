@@ -4,14 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import view.HelpDialog;
+import view.MainFrame;
 
 public class HelpDialogOpeningListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// Izmeniti na grani development.
-		// I dalje cekam da Ognjen pretvori klasu MainFrame u Singleton klasu.
-		//HelpDialog helpDialog = new HelpDialog();
-		
-		//helpDialog.setVisible(true);
+		HelpDialog helpDialog = new HelpDialog(MainFrame.getInstance());
+		helpDialog.setVisible(true);
 	}
 }
