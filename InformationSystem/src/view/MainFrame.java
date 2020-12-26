@@ -12,6 +12,9 @@ import javax.swing.JPanel;
 import view.MenuBar;
 import view.ToolBar;
 
+import controller.StudentsController;
+import model.StudentsCollection;
+
 public class MainFrame extends JFrame {
 	
 	private static final long serialVersionUID = 4L;
@@ -25,11 +28,13 @@ public class MainFrame extends JFrame {
 		return instance;
 	}
 	
-	private MainFrame() {
-		initialise();
-	}
+	private MenuBar menuBar;
+	private ToolBar toolBar;
+	private TabbedPane tabbedPane;
+	private StatusBar statusBar;
 	
-	private void initialise() {
+	
+	private MainFrame() {
 		/** REFERENCA: Materijali za vežbe (v2 -> Termin3 - Swing komponente.pdf) */
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		Dimension screenSize = kit.getScreenSize();
@@ -41,23 +46,29 @@ public class MainFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(true);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
-		this.add(panel);
+		setLayout(new BorderLayout());
 		
-		JLabel lbl = new JLabel("TODO: Prikaz entiteta sistema");
-		lbl.setToolTipText("Prikaz entiteta sistema ce biti naknadno uradjen");
-		panel.add(lbl);
+		menuBar = new MenuBar();
+		this.setJMenuBar(menuBar);
 		
-		MenuBar menu = new MenuBar();
-		this.setJMenuBar(menu);
+		toolBar = new ToolBar();
+		add(toolBar, BorderLayout.NORTH);
 		
-		ToolBar toolbar = new ToolBar();
-		add(toolbar, BorderLayout.NORTH);
+		statusBar = new StatusBar();
+		add(statusBar, BorderLayout.SOUTH);
 		
-		StatusBar statusbar = new StatusBar();
-		add(statusbar, BorderLayout.SOUTH);
+		tabbedPane = new TabbedPane();
+		add(tabbedPane, BorderLayout.CENTER);
+		refreshView(null,-1);
 
+	}
+	
+	public void refreshView(String action, int value) {
+		AbstractStudentsTableModel studentsTableModel = 
+				(AbstractStudentsTableModel) tabbedPane.getStudentsTab().getStudentsTable().getModel();
+		
+		studentsTableModel.fireTableDataChanged();
+		validate();
 	}
 
 }
