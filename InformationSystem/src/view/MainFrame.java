@@ -15,8 +15,21 @@ import view.ToolBar;
 public class MainFrame extends JFrame {
 	
 	private static final long serialVersionUID = 4L;
+	/** REFERENCA: Materijali za vežbe (v5 -> a - Singleton -> Singleton.pdf) */
+	private static MainFrame instance = null;
 	
-	public MainFrame() {
+	public static MainFrame getInstance() {
+		if(instance == null) {
+			instance = new MainFrame();
+		}
+		return instance;
+	}
+	
+	private MainFrame() {
+		initialise();
+	}
+	
+	private void initialise() {
 		/** REFERENCA: Materijali za vežbe (v2 -> Termin3 - Swing komponente.pdf) */
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		Dimension screenSize = kit.getScreenSize();
@@ -26,6 +39,7 @@ public class MainFrame extends JFrame {
 		setTitle("Studentska služba");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
+		setVisible(true);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
