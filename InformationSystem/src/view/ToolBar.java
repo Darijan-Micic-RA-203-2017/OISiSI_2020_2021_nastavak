@@ -2,6 +2,7 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -31,10 +32,12 @@ public class ToolBar extends JToolBar implements ActionListener {
 		
 		this.setBorder(BorderFactory.createLineBorder(Color.GRAY,2));
 		
+		String imagePath1 = getImagePath("new-icon.jpg");
+		ImageIcon newToolBarIcon = ImageIconScaler.scaleImageIcon(imagePath1, 20, 20);
 		this.btnNew = new JButton();
 		btnNew.setToolTipText("New");
 		btnNew.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		btnNew.setIcon(new ImageIcon("images/toolBar/new-icon.jpg"));
+		this.btnNew.setIcon(newToolBarIcon);
 		add(btnNew);
 		
 		this.add(Box.createHorizontalStrut(5));
@@ -42,10 +45,12 @@ public class ToolBar extends JToolBar implements ActionListener {
 		
 		btnNew.addActionListener(this);
 
+		String imagePath2 = getImagePath("edit-icon.png");
+		ImageIcon editToolBarIcon = ImageIconScaler.scaleImageIcon(imagePath2, 20, 20);
 		this.btnEdit = new JButton();
 		btnEdit.setToolTipText("Edit");
 		btnEdit.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		btnEdit.setIcon(new ImageIcon("images/toolBar/edit-icon.png"));
+		this.btnEdit.setIcon(editToolBarIcon);
 		add(btnEdit);
 		
 		this.add(Box.createHorizontalStrut(5));
@@ -53,10 +58,12 @@ public class ToolBar extends JToolBar implements ActionListener {
 		
 		btnEdit.addActionListener(this);
 
+		String imagePath3 = getImagePath("delete-icon.png");
+		ImageIcon deleteToolBarIcon = ImageIconScaler.scaleImageIcon(imagePath3, 20, 20);
 		this.btnDelete = new JButton();
 		btnDelete.setToolTipText("Delete");
 		btnDelete.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		btnDelete.setIcon(new ImageIcon("images/toolBar/delete-icon.png"));
+		this.btnDelete.setIcon(deleteToolBarIcon);
 		add(btnDelete);
 		
 		this.add(Box.createHorizontalStrut(5));
@@ -71,10 +78,12 @@ public class ToolBar extends JToolBar implements ActionListener {
 		
 		this.add(Box.createHorizontalStrut(5));
 		
+		String imagePath4 = getImagePath("find-icon.png");
+		ImageIcon findToolBarIcon = ImageIconScaler.scaleImageIcon(imagePath4, 20, 20);
 		this.btnFind = new JButton();
 		btnFind.setToolTipText("Find");
 		btnFind.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		btnFind.setIcon(new ImageIcon("images/toolBar/find-icon.png"));
+		this.btnFind.setIcon(findToolBarIcon);
 		add(btnFind);
 		
 		this.add(Box.createHorizontalStrut(5));
@@ -104,5 +113,16 @@ public class ToolBar extends JToolBar implements ActionListener {
 			JOptionPane.showMessageDialog(null, "Pritisnuli ste dugme Find");
 		}
 	}
+	
+	// Radnja za izgradnju putanje do slike:
+		private String getImagePath(String nameOfImage) {
+			StringBuilder imagePathBuilder = new StringBuilder("images");
+			imagePathBuilder.append(File.separator).append("toolBar");
+			imagePathBuilder.append(File.separator).append(nameOfImage);
+			
+			String imagePath = imagePathBuilder.toString();
+			
+			return imagePath;
+		}
 
 }
