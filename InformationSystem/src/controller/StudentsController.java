@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import model.StatusOfStudent;
 import model.Student;
 import model.StudentsCollection;
-import view.MainFrameForTesting;
+import view.MainFrame;
 
 /** REFERENCA: Materijali za vežbe (v6 -> JTableMVCSimple -> controller -> IgraciController.java) */
 public class StudentsController {
@@ -30,7 +30,7 @@ public class StudentsController {
 				"in-88-2019", 2019, 2, StatusOfStudent.S);
 		
 		// Osvežavanje prikaza:
-		MainFrameForTesting.getInstance().refreshView("ADDED", -1);
+		//MainFrame.getInstance().refreshView("ADDED", -1);
 	}
 
 	public void deleteStudent(int rowSelectedIndex) {
@@ -40,11 +40,11 @@ public class StudentsController {
 			StudentsCollection.getInstance().deleteStudent(student.getIndexNumber());
 			
 			// Osvežavanje prikaza:
-			MainFrameForTesting.getInstance().refreshView("DELETED", rowSelectedIndex);
+			//MainFrame.getInstance().refreshView("DELETED", rowSelectedIndex);
 		}
 	}
 
-	public void modifyStudentsNonGradeData(int rowSelectedIndex) {
+	public void modifyStudentNonGradesData(int rowSelectedIndex) {
 		if (rowSelectedIndex >= 0) {
 			// Izmena modela:
 			Student student = StudentsCollection.getInstance().getRow(rowSelectedIndex);
@@ -53,7 +53,7 @@ public class StudentsController {
 					"0624560318", "marko.vitas@yahoo.com", 2019, 2, StatusOfStudent.S);
 			
 			// Osvežavanje prikaza:
-			MainFrameForTesting.getInstance().refreshView(null, -1);
+			//MainFrame.getInstance().refreshView(null, -1);
 		}
 	}
 }
