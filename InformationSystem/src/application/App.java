@@ -1,5 +1,6 @@
 package application;
 
+import controller.ProfessorsController;
 import controller.StudentsController;
 import model.ProfessorsCollection;
 import model.StudentsCollection;
