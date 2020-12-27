@@ -3,25 +3,6 @@ package model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-
-enum Titles{
-	BSC,
-	MSC,
-	MR,
-	DR,
-	PROF_DR
-}
-
-enum Callings{
-	SARADNIK_U_NASTAVI,
-	ASISTENT,
-	ASISTENT_SA_DOKTORATOM,
-	DOCENT,
-	VANREDNI_PROFESOR,
-	REDOVNI_PROFESOR,
-	PROFESOR_EMERITUS
-}
-
 //na grani professor bez polja koja predstavljaju objekte drugih klasa, oni sa javljaju na grani refactor/professor
 
 public class Professor {
@@ -34,14 +15,14 @@ public class Professor {
 	private String emailAddress;
 	private String officeAddress;
 	private int nationalID;
-	private Titles title;
-	private Callings calling;
+	private TitleOfProfessor title;
+	private CallingOfProfessor calling;
 	private ArrayList<Subject> teachingSubjects;
 	
 	public Professor() {}
 	
 	public Professor(String lastName, String firstName, LocalDate dateOfBirth, String residence, String contactPhone,
-			String emailAddress, String officeAddress, int nationalID, Titles title, Callings calling, ArrayList<Subject> teachingSubjects) {
+			String emailAddress, String officeAddress, int nationalID, TitleOfProfessor title, CallingOfProfessor calling, ArrayList<Subject> teachingSubjects) {
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.dateOfBirth = dateOfBirth;
@@ -136,7 +117,7 @@ public class Professor {
 		}
 	}
 	
-	public void setTitle(Titles title) {
+	public void setTitle(TitleOfProfessor title) {
 		this.title = title;
 	}
 	
@@ -162,7 +143,7 @@ public class Professor {
 		}
 	}
 	
-	public void setCalling(Callings calling) {
+	public void setCalling(CallingOfProfessor calling) {
 		this.calling = calling;
 	}
 	
