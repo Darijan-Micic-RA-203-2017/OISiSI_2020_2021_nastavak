@@ -15,6 +15,8 @@ import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 
+import controller.AddEntityAction;
+
 
 public class ToolBar extends JToolBar implements ActionListener {
 	
@@ -34,7 +36,9 @@ public class ToolBar extends JToolBar implements ActionListener {
 		
 		String imagePath1 = getImagePath("new-icon.jpg");
 		ImageIcon newToolBarIcon = ImageIconScaler.scaleImageIcon(imagePath1, 20, 20);
-		this.btnNew = new JButton();
+		
+		AddEntityAction addEntityAction = new AddEntityAction();
+		this.btnNew = new JButton(addEntityAction);
 		btnNew.setToolTipText("New");
 		btnNew.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		this.btnNew.setIcon(newToolBarIcon);
@@ -42,8 +46,6 @@ public class ToolBar extends JToolBar implements ActionListener {
 		
 		this.add(Box.createHorizontalStrut(5));
 		this.add(btnNew);
-		
-		btnNew.addActionListener(this);
 
 		String imagePath2 = getImagePath("edit-icon.png");
 		ImageIcon editToolBarIcon = ImageIconScaler.scaleImageIcon(imagePath2, 20, 20);
@@ -100,10 +102,7 @@ public class ToolBar extends JToolBar implements ActionListener {
 	}
 	/** REFERENCA: https://www.youtube.com/watch?v=2KQ2ryPS4Kg */
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == btnNew) {
-			JOptionPane.showMessageDialog(null, "Pritisnuli ste dugme New");
-		}
-		else if(e.getSource() == btnEdit) {
+		if(e.getSource() == btnEdit) {
 			JOptionPane.showMessageDialog(null, "Pritisnuli ste dugme Edit");
 		}
 		else if(e.getSource() == btnDelete) {
