@@ -1,6 +1,7 @@
 package application;
 
 import controller.StudentsController;
+import model.ProfessorsCollection;
 import model.StudentsCollection;
 import view.MainFrame;
 
@@ -12,5 +13,6 @@ public class App {
 		StudentsController.getInstance();
 		ProfessorsCollection.getInstance();
 		MainFrame.getInstance();
+
 	}
 }
