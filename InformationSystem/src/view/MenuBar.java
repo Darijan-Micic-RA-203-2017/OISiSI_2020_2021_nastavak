@@ -9,6 +9,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
+import controller.AddEntityAction;
 import listeners.AboutDialogOpeningListener;
 import listeners.HelpDialogOpeningListener;
 
@@ -54,9 +55,10 @@ public class MenuBar extends JMenuBar {
 		String imagePath = getImagePath("New_icon.jpg");
 		ImageIcon newMenuItemIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
-		this.newMenuItem = new JMenuItem("New", newMenuItemIcon);
-		this.newMenuItem.setMnemonic(KeyEvent.VK_N);
-		this.newMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_DOWN_MASK));
+		AddEntityAction addEntityAction = new AddEntityAction();
+		this.newMenuItem = new JMenuItem(addEntityAction);
+		this.newMenuItem.setText("New");
+		this.newMenuItem.setIcon(newMenuItemIcon);
 	}
 	
 	private void setUpCloseMenuItem() {
