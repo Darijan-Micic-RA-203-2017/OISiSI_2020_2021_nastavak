@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+import listeners.StudentAddingListener;
 import listeners.StudentDataEntryListener;
 
 public class StudentAddingDialog extends JDialog implements ActionListener {
@@ -112,6 +113,10 @@ public class StudentAddingDialog extends JDialog implements ActionListener {
 		return incorrectDateOfBirthMessageLabel;
 	}
 	
+	public JTextField getAddressTextField() {
+		return addressTextField;
+	}
+	
 	public JTextField getContactPhoneTextField() {
 		return contactPhoneTextField;
 	}
@@ -142,6 +147,14 @@ public class StudentAddingDialog extends JDialog implements ActionListener {
 	
 	public JLabel getIncorrectYearOfEnrollmentMessageLabel() {
 		return incorrectYearOfEnrollmentMessageLabel;
+	}
+	
+	public JComboBox<String> getCurrentYearOfStudyComboBox() {
+		return currentYearOfStudyComboBox;
+	}
+	
+	public JComboBox<String> getStatusOfStudentComboBox() {
+		return statusOfStudentComboBox;
 	}
 	
 	public JButton getConfirmationButton() {
@@ -437,6 +450,9 @@ public class StudentAddingDialog extends JDialog implements ActionListener {
 		confirmationButton = new JButton("Potvrdi");
 		
 		confirmationButton.setEnabled(false);
+		
+		StudentAddingListener studentAddingListener = new StudentAddingListener();
+		confirmationButton.addActionListener(studentAddingListener);
 	}
 	
 	private void setUpCancellationButton() {
