@@ -1,7 +1,9 @@
 package model;
 
-import java.time.LocalDate;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /** REFERENCA: Materijali za vežbe (v6 -> JTableMVCSimple -> model -> BazaIgraca.java) */
 public class StudentsCollection {
@@ -34,326 +36,26 @@ public class StudentsCollection {
 	// Radnje:
 	private void initStudents() {
 		students = new ArrayList<Student>();
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
 		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
+		/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy.");
+
+		String dateOfBirth1StringRepresentation = "30.12.1999.";
+		String dateOfBirth2StringRepresentation = "09.05.1999.";
+		Date dateOfBirth1 = null;
+		Date dateOfBirth2 = null;
+		try {
+			dateOfBirth1 = simpleDateFormat.parse(dateOfBirth1StringRepresentation);
+			dateOfBirth2 = simpleDateFormat.parse(dateOfBirth2StringRepresentation);
+		} catch (ParseException pE) {
+			pE.printStackTrace();
+		}
 		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
+		students.add(new Student("Mišković", "Žarko", dateOfBirth1, 
 				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
 				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
 				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
-				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		
-		students.add(new Student("Mišković", "Žarko", LocalDate.now(), 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
-				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
-				new ArrayList<Subject>()));
-		students.add(new Student("Vitas", "Ilija", LocalDate.now(), 
+		students.add(new Student("Vitas", "Ilija", dateOfBirth2, 
 				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
 				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
 				new ArrayList<Subject>()));
@@ -401,7 +103,7 @@ public class StudentsCollection {
 		}
 	}
 
-	public void addStudent(String lastName, String firstName, LocalDate dateOfBirth, 
+	public void addStudent(String lastName, String firstName, Date dateOfBirth, 
 			String residence, String contactPhone, String emailAddress, String indexNumber, 
 			int yearOfEnrollment, int currentYearOfStudy, StatusOfStudent statusOfStudent) {
 		Student newStudent = new Student(lastName, firstName, dateOfBirth, residence, 
@@ -420,7 +122,7 @@ public class StudentsCollection {
 	}
 
 	public void modifyStudentNonGradesData(String indexNumber, String lastName, 
-			String firstName, LocalDate dateOfBirth, String residence, String contactPhone, 
+			String firstName, Date dateOfBirth, String residence, String contactPhone, 
 			String emailAddress, int yearOfEnrollment, int currentYearOfStudy, 
 			StatusOfStudent statusOfStudent) {
 		for (Student s : students) {

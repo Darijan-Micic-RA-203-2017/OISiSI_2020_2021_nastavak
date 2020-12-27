@@ -1,6 +1,8 @@
 package controller;
 
-import java.time.LocalDate;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import model.StatusOfStudent;
 import model.Student;
@@ -24,8 +26,19 @@ public class StudentsController {
 	
 	// Radnje:
 	public void addStudent() {
+		/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+		
+		String dateOfBirthStringRepresentation = "26.08.1998.";
+		Date dateOfBirth = null;
+		try {
+			dateOfBirth = simpleDateFormat.parse(dateOfBirthStringRepresentation);
+		} catch (ParseException pE) {
+			pE.printStackTrace();
+		}
+		
 		// Izmena modela:
-		StudentsCollection.getInstance().addStudent("Vitas", "Marko", LocalDate.now(), 
+		StudentsCollection.getInstance().addStudent("Vitas", "Marko", dateOfBirth, 
 				"Starca Vujadina 7, Kragujevac", "0624560318", "marko.vitas@yahoo.com", 
 				"in-88-2019", 2019, 2, StatusOfStudent.S);
 		
@@ -48,8 +61,20 @@ public class StudentsController {
 		if (rowSelectedIndex >= 0) {
 			// Izmena modela:
 			Student student = StudentsCollection.getInstance().getRow(rowSelectedIndex);
+			
+			/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+			
+			String modifiedDateOfBirthStringRepresentation = "03.01.1998.";
+			Date modifiedDateOfBirth = null;
+			try {
+				modifiedDateOfBirth = simpleDateFormat.parse(modifiedDateOfBirthStringRepresentation);
+			} catch (ParseException pE) {
+				pE.printStackTrace();
+			}
+			
 			StudentsCollection.getInstance().modifyStudentNonGradesData(student.getIndexNumber(), 
-					"Peka", "Stanislav", LocalDate.now(), "Starca Vujadina 7, Kragujevac", 
+					"Peka", "Stanislav", modifiedDateOfBirth, "Starca Vujadina 7, Kragujevac", 
 					"0624560318", "marko.vitas@yahoo.com", 2019, 2, StatusOfStudent.S);
 			
 			// Osvežavanje prikaza:
