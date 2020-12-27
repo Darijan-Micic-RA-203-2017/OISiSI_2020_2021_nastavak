@@ -13,6 +13,5 @@ public class App {
 		StudentsController.getInstance();
 		ProfessorsCollection.getInstance();
 		MainFrame.getInstance();
-		
 	}
 }
