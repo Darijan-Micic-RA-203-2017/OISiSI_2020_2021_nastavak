@@ -10,6 +10,8 @@ import javax.swing.KeyStroke;
 import view.MainFrame;
 import view.StudentAddingDialog;
 import view.StudentsTab;
+import view.ProfessorsTab;
+import view.ProfessorAddingDialog;
 
 public class AddEntityAction extends AbstractAction {
 	public AddEntityAction() {
@@ -23,6 +25,10 @@ public class AddEntityAction extends AbstractAction {
 		
 		if (selectedTab instanceof StudentsTab) {
 			StudentAddingDialog addingDialog = new StudentAddingDialog(MainFrame.getInstance());
+			addingDialog.setVisible(true);
+		}
+		else if(selectedTab instanceof ProfessorsTab) {
+			ProfessorAddingDialog addingDialog = new ProfessorAddingDialog(MainFrame.getInstance());
 			addingDialog.setVisible(true);
 		}
 	}
