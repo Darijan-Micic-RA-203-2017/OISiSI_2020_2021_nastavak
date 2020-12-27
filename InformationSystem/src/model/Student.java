@@ -1,13 +1,13 @@
 package model;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Student {
 	// Polja:
 	private String lastName;
 	private String firstName;
-	private LocalDate dateOfBirth;
+	private Date dateOfBirth;
 	private String residence;
 	private String contactPhone;
 	private String emailAddress;
@@ -22,7 +22,7 @@ public class Student {
 	// Konstruktori:
 	public Student() {}
 	
-	public Student(String lastName, String firstName, LocalDate dateOfBirth, String residence, 
+	public Student(String lastName, String firstName, Date dateOfBirth, String residence, 
 			String contactPhone, String emailAddress, String indexNumber, int yearOfEnrollment, 
 			int currentYearOfStudy, StatusOfStudent statusOfStudent, double averageGrade, 
 			ArrayList<Grade> passedSubjects, ArrayList<Subject> nonPassedSubjects) {
@@ -58,11 +58,11 @@ public class Student {
 		this.firstName = firstName;
 	}
 
-	public LocalDate getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return this.dateOfBirth;
 	}
 
-	public void setDateOfBirth(LocalDate dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
