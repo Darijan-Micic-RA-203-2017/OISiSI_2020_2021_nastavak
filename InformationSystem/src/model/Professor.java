@@ -9,7 +9,7 @@ enum Titles{
 	MSC,
 	MR,
 	DR,
-	PROF
+	PROF_DR
 }
 
 enum Callings{
@@ -17,7 +17,7 @@ enum Callings{
 	ASISTENT,
 	ASISTENT_SA_DOKTORATOM,
 	DOCENT,
-	VANDREDNI_PROFESOR,
+	VANREDNI_PROFESOR,
 	REDOVNI_PROFESOR,
 	PROFESOR_EMERITUS
 }
@@ -119,16 +119,47 @@ public class Professor {
 		this.nationalID = nationalID;
 	}
 	
-	public Titles getTitle() {
-		return this.title;
+	public String getTitle() {
+		switch(this.title){
+		case BSC:
+			return "BSc";
+		case MSC:
+			return "MSc";
+		case MR:
+			return "mr";
+		case DR:
+			return "dr";
+		case PROF_DR:
+			return "prof. dr";
+		default:
+			return null;
+		}
 	}
 	
 	public void setTitle(Titles title) {
 		this.title = title;
 	}
 	
-	public Callings getCalling() {
-		return this.calling;
+	public String getCalling() {
+		switch(this.calling) {
+		case SARADNIK_U_NASTAVI:
+			return "saradnik u nastavi";
+		case ASISTENT:
+			return "asistent";
+		case ASISTENT_SA_DOKTORATOM:
+			return "asistent sa doktoratom";
+		case DOCENT:
+			return "docent";
+		case VANREDNI_PROFESOR:
+			return "vanredni profesor";
+		case REDOVNI_PROFESOR:
+			return "redovni profesor";
+		case PROFESOR_EMERITUS:
+			return "profesor emeritus";
+		default:
+			return null;
+		
+		}
 	}
 	
 	public void setCalling(Callings calling) {
