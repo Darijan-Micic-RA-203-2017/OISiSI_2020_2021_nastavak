@@ -1,6 +1,6 @@
 package model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Grade {
 	// Polja:
@@ -8,12 +8,12 @@ public class Grade {
 	private Student student;
 	private Subject subject;
 	private int value;
-	private LocalDate dateOfPassing;
+	private Date dateOfPassing;
 	
 	// Konstruktori:
 	public Grade() {}
 	
-	public Grade(long id, Student student, Subject subject, int value, LocalDate dateOfPassing) {
+	public Grade(long id, Student student, Subject subject, int value, Date dateOfPassing) {
 		this.id = id;
 		this.student = student;
 		this.subject = subject;
@@ -54,11 +54,11 @@ public class Grade {
 		this.value = value;
 	}
 
-	public LocalDate getDateOfPassing() {
+	public Date getDateOfPassing() {
 		return this.dateOfPassing;
 	}
 
-	public void setDateOfPassing(LocalDate dateOfPassing) {
+	public void setDateOfPassing(Date dateOfPassing) {
 		this.dateOfPassing = dateOfPassing;
 	}
 }
