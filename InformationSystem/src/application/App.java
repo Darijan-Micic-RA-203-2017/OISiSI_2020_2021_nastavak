@@ -10,6 +10,7 @@ public class App {
 		/** REFERENCA: Materijali za vežbe (v6 -> JTableMVCSimple -> igraci -> MainApp.java) */
 		StudentsCollection.getInstance();
 		StudentsController.getInstance();
+		ProfessorsCollection.getInstance();
 		MainFrame.getInstance();
 	}
 }
