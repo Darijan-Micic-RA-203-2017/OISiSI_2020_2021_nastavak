@@ -12,6 +12,7 @@ public class App {
 		StudentsCollection.getInstance();
 		StudentsController.getInstance();
 		ProfessorsCollection.getInstance();
+		ProfessorsController.getInstance();
 		MainFrame.getInstance();
 
 	}
