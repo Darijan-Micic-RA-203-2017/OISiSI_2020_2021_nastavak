@@ -62,6 +62,10 @@ public class MainFrame extends JFrame {
 		refreshView(null,-1);
 
 	}
+
+	public TabbedPane getTabbedPane() {
+		return tabbedPane;
+	}
 	
 	public void refreshView(String action, int value) {
 		AbstractStudentsTableModel studentsTableModel = 
