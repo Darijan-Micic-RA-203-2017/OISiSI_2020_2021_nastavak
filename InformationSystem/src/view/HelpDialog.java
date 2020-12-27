@@ -91,8 +91,9 @@ public class HelpDialog extends JDialog {
 		"Dijalog sa informacijama o načinu korišćenja aplikacije biće naknadno proširen " + 
 		"kada budu napravljene dodatne funkcionalnosti.\n\n" + 
 		"Odabirom stavke New u meniju File, ili klikom na dugme New u traci sa alatkama, " + 
-		"treba da se otvori dijalog za unos podataka o novom entitetu u trenutno odabranu " + 
-		"tabelu entiteta (studenti, profesori ili predmeti).\n\n" + 
+		"otvora se dijalog za unos podataka o novom entitetu u trenutno odabranu " + 
+		"tabelu entiteta (studenti, profesori ili predmeti). Klikom na dugme \"Potvrdi\", " + 
+		"nakon što su uneti podaci u ispravnom obliku, entitet se dodaje u tabelu.\n\n" + 
 		"Odabirom stavke Edit u meniju Edit, ili klikom na dugme Edit u traci sa alatkama, " + 
 		"treba da se otvori dijalog sa podacima o trenutno izabranom entitetu.\n" + 
 		"Odabirom stavke Delete u meniju Edit, ili klikom na dugme Delete u traci sa " + 
