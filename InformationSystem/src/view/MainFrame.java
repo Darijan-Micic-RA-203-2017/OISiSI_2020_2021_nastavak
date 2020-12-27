@@ -15,6 +15,9 @@ import view.ToolBar;
 import controller.StudentsController;
 import model.StudentsCollection;
 
+import controller.ProfessorsController;
+import model.ProfessorsCollection;
+
 public class MainFrame extends JFrame {
 	
 	private static final long serialVersionUID = 4L;
@@ -68,11 +71,21 @@ public class MainFrame extends JFrame {
 	}
 	
 	public void refreshView(String action, int value) {
-		AbstractStudentsTableModel studentsTableModel = 
-				(AbstractStudentsTableModel) tabbedPane.getStudentsTab().getStudentsTable().getModel();
+		int selectedTabIndex = tabbedPane.getSelectedIndex();
 		
-		studentsTableModel.fireTableDataChanged();
-		validate();
+		if(selectedTabIndex == 0) {
+			AbstractStudentsTableModel studentsTableModel = 
+					(AbstractStudentsTableModel) tabbedPane.getStudentsTab().getStudentsTable().getModel();
+			
+			studentsTableModel.fireTableDataChanged();
+			validate();
+		} else if(selectedTabIndex == 1) {
+			AbstractProfessorsTableModel professorsTableModel =
+					(AbstractProfessorsTableModel) tabbedPane.getProfessorsTab().getProfessorsTable().getModel();
+			
+			professorsTableModel.fireTableDataChanged();
+			validate();
+		}
 	}
 
 }
