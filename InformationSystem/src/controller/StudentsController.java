@@ -26,10 +26,7 @@ public class StudentsController {
 	private StudentsController() {}
 	
 	// Radnje:
-	public void addStudent() {
-		StudentAddingDialog studentAddingDialog = 
-				(StudentAddingDialog) MainFrame.getInstance().getOwnedWindows()[0];
-		
+	public void addStudent(StudentAddingDialog studentAddingDialog) {
 		String lastName = studentAddingDialog.getLastNameTextField().getText();
 		String firstName = studentAddingDialog.getFirstNameTextField().getText();
 		String dateOfBirthStringRepresentation = 

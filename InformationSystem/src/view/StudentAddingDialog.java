@@ -470,7 +470,7 @@ public class StudentAddingDialog extends JDialog implements ActionListener {
 		
 		switch (clickedButton.getName()) {
 			case "confirmationButton":
-				StudentsController.getInstance().addStudent();
+				StudentsController.getInstance().addStudent(this);
 				dispose();
 				break;
 			case "cancellationButton":
