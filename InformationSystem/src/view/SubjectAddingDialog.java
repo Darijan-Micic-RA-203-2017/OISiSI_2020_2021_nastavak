@@ -20,12 +20,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+import listeners.SubjectDataEntryListener;
+
 public class SubjectAddingDialog extends JDialog implements ActionListener {
 	// Polja:
 	private JPanel mainPanel;
 	
 	private JPanel upperPanel;
-	//private SubjectDataEntryListener subjectDataEntryListener;
+	private SubjectDataEntryListener subjectDataEntryListener;
 	
 	private JLabel idLabel;
 	private JTextField idTextField;
@@ -57,7 +59,7 @@ public class SubjectAddingDialog extends JDialog implements ActionListener {
 		setResizable(false);
 		setLocationRelativeTo(parent);
 		
-		//subjectDataEntryListener = new SubjectDataEntryListener(this);
+		subjectDataEntryListener = new SubjectDataEntryListener(this);
 		
 		setUpMainPanel();
 		
@@ -129,7 +131,7 @@ public class SubjectAddingDialog extends JDialog implements ActionListener {
 		idLabel = new JLabel("Šifra predmeta*");
 		idTextField = new JTextField();
 		
-		//idTextField.addKeyListener(subjectDataEntryListener);
+		idTextField.addKeyListener(subjectDataEntryListener);
 		
 		incorrectIdMessageLabel = new JLabel("Šifra predmeta nije ispravno uneta!");
 		incorrectIdMessageLabel.setForeground(Color.RED);
@@ -162,7 +164,7 @@ public class SubjectAddingDialog extends JDialog implements ActionListener {
 		nameLabel = new JLabel("Naziv predmeta*");
 		nameTextField = new JTextField();
 		
-		//nameTextField.addKeyListener(subjectDataEntryListener);
+		nameTextField.addKeyListener(subjectDataEntryListener);
 		
 		incorrectNameMessageLabel = new JLabel("Naziv predmeta nije ispravno unet!");
 		incorrectNameMessageLabel.setForeground(Color.RED);
@@ -224,7 +226,7 @@ public class SubjectAddingDialog extends JDialog implements ActionListener {
 		espbLabel = new JLabel("Broj ESPB bodova*");
 		espbTextField = new JTextField();
 		
-		//espbTextField.addKeyListener(subjectDataEntryListener);
+		espbTextField.addKeyListener(subjectDataEntryListener);
 		
 		incorrectEspbMessageLabel = 
 				new JLabel("Broj ESPB bodova mora biti unet kao ceo broj!");
