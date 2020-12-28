@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-import listeners.StudentAddingListener;
+import controller.StudentsController;
 import listeners.StudentDataEntryListener;
 
 public class StudentAddingDialog extends JDialog implements ActionListener {
@@ -350,8 +350,8 @@ public class StudentAddingDialog extends JDialog implements ActionListener {
 		indexNumberTextField.addKeyListener(studentDataEntryListener);
 		
 		incorrectIndexNumberMessageLabel = 
-				new JLabel("Broj indeksa mora biti unet u jednom od sledeća dva oblika:\n" + 
-		"SS-xxx-yyyy, ili SS-xx-yyyy");
+				new JLabel("Broj indeksa mora biti unet u jednom od sledeća tri oblika: " + 
+		"SS-xxx-yyyy, SS-xx-yyyy ili SS-x-yyyy");
 		incorrectIndexNumberMessageLabel.setForeground(Color.RED);
 		
 		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */
@@ -402,7 +402,8 @@ public class StudentAddingDialog extends JDialog implements ActionListener {
 	
 	private void setUpCurrentYearOfStudyComponents() {
 		currentYearOfStudyLabel = new JLabel("Trenutna godina studija*");
-		String[] possibleYearsOfStudy = {"I (prva)", "II (druga)", "III (treća)", "IV (četvrta)"};
+		String[] possibleYearsOfStudy = {"I (prva)", "II (druga)", "III (treća)", 
+				"IV (četvrta)", "V (peta)", "VI (šesta)", "VII (sedma)", "VIII (osma)"};
 		currentYearOfStudyComboBox = new JComboBox<String>(possibleYearsOfStudy);
 		
 		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */
@@ -448,15 +449,16 @@ public class StudentAddingDialog extends JDialog implements ActionListener {
 	
 	private void setUpConfirmationButton() {
 		confirmationButton = new JButton("Potvrdi");
+		confirmationButton.setName("confirmationButton");
 		
 		confirmationButton.setEnabled(false);
 		
-		StudentAddingListener studentAddingListener = new StudentAddingListener();
-		confirmationButton.addActionListener(studentAddingListener);
+		confirmationButton.addActionListener(this);
 	}
 	
 	private void setUpCancellationButton() {
 		cancellationButton = new JButton("Odustani");
+		cancellationButton.setName("cancellationButton");
 		
 		cancellationButton.addActionListener(this);
 	}
@@ -464,6 +466,15 @@ public class StudentAddingDialog extends JDialog implements ActionListener {
 	/** REFERENCA: Materijali za vežbe (v4 -> a - Unutrasnje klase i dogadjaji -> Interfejsi i unutrasnje klase.pdf) */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		dispose();
+		JButton clickedButton = (JButton) e.getSource();
+		
+		switch (clickedButton.getName()) {
+			case "confirmationButton":
+				StudentsController.getInstance().addStudent();
+				dispose();
+				break;
+			case "cancellationButton":
+				dispose();
+		}
 	}
 }

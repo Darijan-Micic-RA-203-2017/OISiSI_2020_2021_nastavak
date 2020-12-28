@@ -95,7 +95,7 @@ public class StudentDataEntryListener implements KeyListener {
 		}
 
 		/** REFERENCA: https://www.logicbig.com/tutorials/core-java-tutorial/java-regular-expressions/java-regex-basic.html */
-		if (!Pattern.matches("[a-z]{2}-[0-9]{2,3}-[0-9]{4}", indexNumberTextField.getText())) {
+		if (!Pattern.matches("[a-z]{2}-[0-9]{1,3}-[0-9]{4}", indexNumberTextField.getText())) {
 			enteredDataValidity = false;
 
 			incorrectIndexNumberMessageLabel.setVisible(true);

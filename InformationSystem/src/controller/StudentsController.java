@@ -1,11 +1,8 @@
 package controller;
 
-import java.awt.Window;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import javax.swing.JTextField;
 
 import model.StatusOfStudent;
 import model.Student;
@@ -30,23 +27,15 @@ public class StudentsController {
 	
 	// Radnje:
 	public void addStudent() {
-		Window[] ownedWindows = MainFrame.getInstance().getOwnedWindows();
-		
-		StudentAddingDialog dialog = null;
-		for (Window w : ownedWindows) {
-			if (w instanceof StudentAddingDialog) {
-				dialog = (StudentAddingDialog) w;
-			}
-		}
-		
-		StudentAddingDialog studentAddingDialog = dialog;
+		StudentAddingDialog studentAddingDialog = 
+				(StudentAddingDialog) MainFrame.getInstance().getOwnedWindows()[0];
 		
 		String lastName = studentAddingDialog.getLastNameTextField().getText();
 		String firstName = studentAddingDialog.getFirstNameTextField().getText();
 		String dateOfBirthStringRepresentation = 
 				studentAddingDialog.getDateOfBirthTextField().getText();
 		/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
-		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy.");
 		Date dateOfBirth = null;
 		try {
 			dateOfBirth = sdf.parse(dateOfBirthStringRepresentation);
@@ -63,10 +52,10 @@ public class StudentsController {
 		int currentYearOfStudyComboBoxSelectedIndex = 
 				studentAddingDialog.getCurrentYearOfStudyComboBox().getSelectedIndex();
 		int currentYearOfStudy = currentYearOfStudyComboBoxSelectedIndex + 1;
-		String statusOfStudentStringRepresentation = 
-				(String) studentAddingDialog.getStatusOfStudentComboBox().getSelectedItem();
+		int statusOfStudentComboBoxSelectedIndex = 
+				studentAddingDialog.getStatusOfStudentComboBox().getSelectedIndex();
 		StatusOfStudent statusOfStudent = null;
-		if (statusOfStudentStringRepresentation.equals("B")) {
+		if (statusOfStudentComboBoxSelectedIndex == 0) {
 			statusOfStudent = StatusOfStudent.B;
 		} else {
 			statusOfStudent = StatusOfStudent.S;
@@ -97,7 +86,7 @@ public class StudentsController {
 			Student student = StudentsCollection.getInstance().getRow(rowSelectedIndex);
 			
 			/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy.");
 			
 			String modifiedDateOfBirthStringRepresentation = "03.01.1998.";
 			Date modifiedDateOfBirth = null;
