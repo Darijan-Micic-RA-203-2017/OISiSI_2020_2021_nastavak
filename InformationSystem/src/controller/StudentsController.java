@@ -9,6 +9,7 @@ import model.Student;
 import model.StudentsCollection;
 import view.MainFrame;
 import view.StudentAddingDialog;
+import view.StudentNonGradesDataPanel;
 
 /** REFERENCA: Materijali za vežbe (v6 -> JTableMVCSimple -> controller -> IgraciController.java) */
 public class StudentsController {
@@ -27,10 +28,13 @@ public class StudentsController {
 	
 	// Radnje:
 	public void addStudent(StudentAddingDialog studentAddingDialog) {
-		String lastName = studentAddingDialog.getLastNameTextField().getText();
-		String firstName = studentAddingDialog.getFirstNameTextField().getText();
+		StudentNonGradesDataPanel studentNonGradesDataPanel = 
+				studentAddingDialog.getStudentNonGradesDataPanel();
+		
+		String lastName = studentNonGradesDataPanel.getLastNameTextField().getText();
+		String firstName = studentNonGradesDataPanel.getFirstNameTextField().getText();
 		String dateOfBirthStringRepresentation = 
-				studentAddingDialog.getDateOfBirthTextField().getText();
+				studentNonGradesDataPanel.getDateOfBirthTextField().getText();
 		/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
 		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy.");
 		Date dateOfBirth = null;
@@ -39,18 +43,18 @@ public class StudentsController {
 		} catch (ParseException pE) {
 			pE.printStackTrace();
 		}
-		String residence = studentAddingDialog.getAddressTextField().getText();
-		String contactPhone = studentAddingDialog.getContactPhoneTextField().getText();
-		String emailAddress = studentAddingDialog.getEmailAddressTextField().getText();
-		String indexNumber = studentAddingDialog.getIndexNumberTextField().getText();
+		String residence = studentNonGradesDataPanel.getAddressTextField().getText();
+		String contactPhone = studentNonGradesDataPanel.getContactPhoneTextField().getText();
+		String emailAddress = studentNonGradesDataPanel.getEmailAddressTextField().getText();
+		String indexNumber = studentNonGradesDataPanel.getIndexNumberTextField().getText();
 		String yearOfEnrollmentStringRepresentation = 
-				studentAddingDialog.getYearOfEnrollmentTextField().getText();
+				studentNonGradesDataPanel.getYearOfEnrollmentTextField().getText();
 		int yearOfEnrollment = Integer.parseInt(yearOfEnrollmentStringRepresentation);
 		int currentYearOfStudyComboBoxSelectedIndex = 
-				studentAddingDialog.getCurrentYearOfStudyComboBox().getSelectedIndex();
+				studentNonGradesDataPanel.getCurrentYearOfStudyComboBox().getSelectedIndex();
 		int currentYearOfStudy = currentYearOfStudyComboBoxSelectedIndex + 1;
 		int statusOfStudentComboBoxSelectedIndex = 
-				studentAddingDialog.getStatusOfStudentComboBox().getSelectedIndex();
+				studentNonGradesDataPanel.getStatusOfStudentComboBox().getSelectedIndex();
 		StatusOfStudent statusOfStudent = null;
 		if (statusOfStudentComboBoxSelectedIndex == 0) {
 			statusOfStudent = StatusOfStudent.B;

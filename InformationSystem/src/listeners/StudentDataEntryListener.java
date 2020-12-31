@@ -8,16 +8,16 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import view.StudentAddingDialog;
+import view.StudentNonGradesDataPanel;
 
 /** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji -> listeners -> key -> MyKeyListener.java) */
 public class StudentDataEntryListener implements KeyListener {
 	// Polje:
-	private StudentAddingDialog studentAddingDialog;
+	private StudentNonGradesDataPanel studentNonGradesDataPanel;
 
 	// Konstruktor:
-	public StudentDataEntryListener(StudentAddingDialog dialog) {
-		studentAddingDialog = dialog;
+	public StudentDataEntryListener(StudentNonGradesDataPanel panel) {
+		studentNonGradesDataPanel = panel;
 	}
 
 	// Radnje:
@@ -29,28 +29,28 @@ public class StudentDataEntryListener implements KeyListener {
 	public void keyReleased(KeyEvent arg0) {
 		boolean enteredDataValidity = true;
 
-		JTextField firstNameTextField = studentAddingDialog.getFirstNameTextField();
-		JLabel incorrectFirstNameMessageLabel = studentAddingDialog.getIncorrectFirstNameMessageLabel();
+		JTextField firstNameTextField = studentNonGradesDataPanel.getFirstNameTextField();
+		JLabel incorrectFirstNameMessageLabel = studentNonGradesDataPanel.getIncorrectFirstNameMessageLabel();
 
-		JTextField lastNameTextField = studentAddingDialog.getLastNameTextField();
-		JLabel incorrectLastNameMessageLabel = studentAddingDialog.getIncorrectLastNameMessageLabel();
+		JTextField lastNameTextField = studentNonGradesDataPanel.getLastNameTextField();
+		JLabel incorrectLastNameMessageLabel = studentNonGradesDataPanel.getIncorrectLastNameMessageLabel();
 
-		JTextField dateOfBirthTextField = studentAddingDialog.getDateOfBirthTextField();
-		JLabel incorrectDateOfBirthMessageLabel = studentAddingDialog.getIncorrectDateOfBirthMessageLabel();
+		JTextField dateOfBirthTextField = studentNonGradesDataPanel.getDateOfBirthTextField();
+		JLabel incorrectDateOfBirthMessageLabel = studentNonGradesDataPanel.getIncorrectDateOfBirthMessageLabel();
 
-		JTextField contactPhoneTextField = studentAddingDialog.getContactPhoneTextField();
-		JLabel incorrectContactPhoneMessageLabel = studentAddingDialog.getIncorrectContactPhoneMessageLabel();
+		JTextField contactPhoneTextField = studentNonGradesDataPanel.getContactPhoneTextField();
+		JLabel incorrectContactPhoneMessageLabel = studentNonGradesDataPanel.getIncorrectContactPhoneMessageLabel();
 
-		JTextField emailAddressTextField = studentAddingDialog.getEmailAddressTextField();
-		JLabel incorrectEmailAddressMessageLabel = studentAddingDialog.getIncorrectEmailAddressMessageLabel();
+		JTextField emailAddressTextField = studentNonGradesDataPanel.getEmailAddressTextField();
+		JLabel incorrectEmailAddressMessageLabel = studentNonGradesDataPanel.getIncorrectEmailAddressMessageLabel();
 
-		JTextField indexNumberTextField = studentAddingDialog.getIndexNumberTextField();
-		JLabel incorrectIndexNumberMessageLabel = studentAddingDialog.getIncorrectIndexNumberMessageLabel();
+		JTextField indexNumberTextField = studentNonGradesDataPanel.getIndexNumberTextField();
+		JLabel incorrectIndexNumberMessageLabel = studentNonGradesDataPanel.getIncorrectIndexNumberMessageLabel();
 
-		JTextField yearOfEnrollmentTextField = studentAddingDialog.getYearOfEnrollmentTextField();
-		JLabel incorrectYearOfEnrollmentMessageLabel = studentAddingDialog.getIncorrectYearOfEnrollmentMessageLabel();
+		JTextField yearOfEnrollmentTextField = studentNonGradesDataPanel.getYearOfEnrollmentTextField();
+		JLabel incorrectYearOfEnrollmentMessageLabel = studentNonGradesDataPanel.getIncorrectYearOfEnrollmentMessageLabel();
 
-		JButton confirmationButton = studentAddingDialog.getConfirmationButton();
+		JButton confirmationButton = studentNonGradesDataPanel.getConfirmationButton();
 		
 		/** REFERENCA: https://stackoverflow.com/questions/10894122/java-regex-for-support-unicode */
 		if (!Pattern.matches("[A-Z\\p{L}][a-z\\p{L}]+([ -][A-Z\\p{L}][a-z\\p{L}]+)*", firstNameTextField.getText())) {
