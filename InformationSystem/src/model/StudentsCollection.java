@@ -121,18 +121,19 @@ public class StudentsCollection {
 		}
 	}
 
-	public void modifyStudentNonGradesData(String indexNumber, String lastName, 
+	public void editStudentNonGradesData(String oldIndexNumber, String lastName, 
 			String firstName, Date dateOfBirth, String residence, String contactPhone, 
-			String emailAddress, int yearOfEnrollment, int currentYearOfStudy, 
-			StatusOfStudent statusOfStudent) {
+			String emailAddress, String newIndexNumber, int yearOfEnrollment, 
+			int currentYearOfStudy, StatusOfStudent statusOfStudent) {
 		for (Student s : students) {
-			if (s.getIndexNumber().equals(indexNumber)) {
+			if (s.getIndexNumber().equals(oldIndexNumber)) {
 				s.setLastName(lastName);
 				s.setFirstName(firstName);
 				s.setDateOfBirth(dateOfBirth);
 				s.setResidence(residence);
 				s.setContactPhone(contactPhone);
 				s.setEmailAddress(emailAddress);
+				s.setIndexNumber(newIndexNumber);
 				s.setYearOfEnrollment(yearOfEnrollment);
 				s.setCurrentYearOfStudy(currentYearOfStudy);
 				s.setStatusOfStudent(statusOfStudent);
