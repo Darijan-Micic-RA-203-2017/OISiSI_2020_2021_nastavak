@@ -8,16 +8,16 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import view.SubjectAddingDialog;
+import view.SubjectNonStudentsDataPanel;
 
 /** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji -> listeners -> key -> MyKeyListener.java) */
 public class SubjectDataEntryListener implements KeyListener {
 	// Polje:
-	private SubjectAddingDialog subjectAddingDialog;
+	private SubjectNonStudentsDataPanel subjectNonStudentsDataPanel;
 
 	// Konstruktor:
-	public SubjectDataEntryListener(SubjectAddingDialog dialog) {
-		subjectAddingDialog = dialog;
+	public SubjectDataEntryListener(SubjectNonStudentsDataPanel panel) {
+		subjectNonStudentsDataPanel = panel;
 	}
 
 	// Radnje:
@@ -29,16 +29,18 @@ public class SubjectDataEntryListener implements KeyListener {
 	public void keyReleased(KeyEvent arg0) {
 		boolean enteredDataValidity = true;
 
-		JTextField idTextField = subjectAddingDialog.getIdTextField();
-		JLabel incorrectIdMessageLabel = subjectAddingDialog.getIncorrectIdMessageLabel();
+		JTextField idTextField = subjectNonStudentsDataPanel.getIdTextField();
+		JLabel incorrectIdMessageLabel = subjectNonStudentsDataPanel.getIncorrectIdMessageLabel();
 
-		JTextField nameTextField = subjectAddingDialog.getNameTextField();
-		JLabel incorrectNameMessageLabel = subjectAddingDialog.getIncorrectNameMessageLabel();
+		JTextField nameTextField = subjectNonStudentsDataPanel.getNameTextField();
+		JLabel incorrectNameMessageLabel = 
+				subjectNonStudentsDataPanel.getIncorrectNameMessageLabel();
 
-		JTextField espbTextField = subjectAddingDialog.getEspbTextField();
-		JLabel incorrectEspbMessageLabel = subjectAddingDialog.getIncorrectEspbMessageLabel();
+		JTextField espbTextField = subjectNonStudentsDataPanel.getEspbTextField();
+		JLabel incorrectEspbMessageLabel = 
+				subjectNonStudentsDataPanel.getIncorrectEspbMessageLabel();
 
-		JButton confirmationButton = subjectAddingDialog.getConfirmationButton();
+		JButton confirmationButton = subjectNonStudentsDataPanel.getConfirmationButton();
 		
 		/** REFERENCA: https://www.logicbig.com/tutorials/core-java-tutorial/java-regular-expressions/java-regex-basic.html */
 		if (!Pattern.matches("[A-Z][A-Z0-9\\-]+", idTextField.getText())) {
