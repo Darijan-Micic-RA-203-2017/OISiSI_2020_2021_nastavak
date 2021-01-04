@@ -6,7 +6,7 @@ public class TabbedPane extends JTabbedPane {
 
 	private StudentsTab studentsTab;
 	private ProfessorsTab professorsTab;
-	//private SubjectsTab subjectsTab;
+	private SubjectsTab subjectsTab;
 	
 	public TabbedPane() {
 		studentsTab = new StudentsTab();
@@ -17,10 +17,8 @@ public class TabbedPane extends JTabbedPane {
 		add("Profesori", professorsTab);
 
 		
-		/*
 		subjectsTab = new SubjectsTab();
 		add("Predmeti", subjectsTab);
-		*/
 	}
 	
 	public StudentsTab getStudentsTab() {
@@ -31,10 +29,8 @@ public class TabbedPane extends JTabbedPane {
 		return professorsTab;
 	}
 	
-	/*
 	public SubjectsTab getSubjectsTab() {
 		return subjectsTab;
 	}
-	*/
 
 }
