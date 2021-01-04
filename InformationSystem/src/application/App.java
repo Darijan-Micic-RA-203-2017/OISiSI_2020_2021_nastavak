@@ -4,6 +4,7 @@ import controller.ProfessorsController;
 import controller.StudentsController;
 import model.ProfessorsCollection;
 import model.StudentsCollection;
+import model.SubjectsCollection;
 import view.MainFrame;
 
 public class App {
@@ -14,6 +15,7 @@ public class App {
 		StudentsController.getInstance();
 		ProfessorsCollection.getInstance();
 		ProfessorsController.getInstance();
+		SubjectsCollection.getInstance();
 		MainFrame.getInstance();
 
 	}
