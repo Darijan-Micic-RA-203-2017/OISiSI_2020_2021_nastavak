@@ -1,35 +1,40 @@
 package model;
 
-enum Semesters{
-	LETNJI,
-	ZIMSKI
-}
+import java.util.ArrayList;
 
 //na grani subject bez polja koja predstavljaju objekte drugih klasa, oni sa javljaju na grani refactor/subject
 
 public class Subject {
 
-	private long id;
+	private String id;
 	private String name;
-	private Semesters semester;
+	private SemesterOfSubject semester;
 	private int yearOfStudy;
+	private Professor professor;
 	private int espb;
+	private ArrayList<Student> passedSubject;
+	private ArrayList<Student> failedSubject;
+	
 	
 	public Subject() {}
 	
-	public Subject(long id, String name, Semesters semester, int yearOfStudy, int espb) {
+	public Subject(String id, String name, SemesterOfSubject semester, int yearOfStudy, Professor professor, int espb,
+			ArrayList<Student> passedSubject, ArrayList<Student> failedSubject) {
 		this.id = id;
 		this.name = name;
 		this.semester = semester;
 		this.yearOfStudy = yearOfStudy;
+		this.professor = professor;
 		this.espb = espb;
+		this.passedSubject = passedSubject;
+		this.failedSubject = failedSubject;
 	}
 	
-	public long getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	
@@ -41,11 +46,18 @@ public class Subject {
 		this.name = name;
 	}
 	
-	public Semesters getSemester() {
-		return this.semester;
+	public String getSemester() {
+		switch(this.semester) {
+		case LETNJI:
+			return "letnji";
+		case ZIMSKI:
+			return "zimski";
+		default:
+			return null;
+		}
 	}
 	
-	public void setSemester(Semesters semester) {
+	public void setSemester(SemesterOfSubject semester) {
 		this.semester = semester;
 	}
 	
@@ -57,6 +69,14 @@ public class Subject {
 		this.yearOfStudy = yearOfStudy;
 	}
 	
+	public Professor getProfessor() {
+		return this.professor;
+	}
+	
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
+	
 	public int getEspb() {
 		return this.espb;
 	}
@@ -65,4 +85,19 @@ public class Subject {
 		this.espb = espb;
 	}
 	
+	public ArrayList<Student> getPassedSubject(){
+		return this.passedSubject;
+	}
+	
+	public void setPassedSubject(ArrayList<Student> passedSubject) {
+		this.passedSubject = passedSubject;
+	}
+	
+	public ArrayList<Student> getFailedSubject(){
+		return this.failedSubject;
+	}
+	
+	public void setFailedSubject(ArrayList<Student> failedSubject) {
+		this.failedSubject = failedSubject;
+	}
 }
