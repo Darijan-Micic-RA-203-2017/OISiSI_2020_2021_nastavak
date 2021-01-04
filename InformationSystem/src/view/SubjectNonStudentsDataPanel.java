@@ -26,6 +26,7 @@ public class SubjectNonStudentsDataPanel extends JPanel {
 	private JLabel idLabel;
 	private JTextField idTextField;
 	private JLabel incorrectIdMessageLabel;
+	private JLabel existingIdMessageLabel;
 	private JLabel nameLabel;
 	private JTextField nameTextField;
 	private JLabel incorrectNameMessageLabel;
@@ -67,6 +68,10 @@ public class SubjectNonStudentsDataPanel extends JPanel {
 	
 	public JLabel getIncorrectIdMessageLabel() {
 		return incorrectIdMessageLabel;
+	}
+	
+	public JLabel getExistingIdMessageLabel() {
+		return existingIdMessageLabel;
 	}
 	
 	public JTextField getNameTextField() {
@@ -143,6 +148,10 @@ public class SubjectNonStudentsDataPanel extends JPanel {
 		incorrectIdMessageLabel = new JLabel("Šifra predmeta nije ispravno uneta!");
 		incorrectIdMessageLabel.setForeground(Color.RED);
 		
+		existingIdMessageLabel = new JLabel("Uneta šifra predmeta već postoji!");
+		existingIdMessageLabel.setForeground(Color.RED);
+		existingIdMessageLabel.setVisible(false);
+		
 		/* Podešavanjem željene širine prvog polja za unos teksta biće podešena i širina 
 		 * komponenti u drugoj koloni donjih redova.
 		*/
@@ -165,6 +174,7 @@ public class SubjectNonStudentsDataPanel extends JPanel {
 				1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, 
 				incorrectMessageLabelInsets, 0, 0);
 		upperPanel.add(incorrectIdMessageLabel, incorrectMessageLabelConstraints);
+		upperPanel.add(existingIdMessageLabel, incorrectMessageLabelConstraints);
 	}
 	
 	private void setUpNameComponents() {

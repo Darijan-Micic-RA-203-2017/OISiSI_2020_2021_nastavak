@@ -106,4 +106,16 @@ public class SubjectsCollection {
 			}
 		}
 	}
+	
+	public boolean idExists(String id) {
+		boolean answer = false;
+		for (Subject s : subjects) {
+			if (s.getId().equals(id)) {
+				answer = true;
+				break;
+			}
+		}
+		
+		return answer;
+	}
 }
