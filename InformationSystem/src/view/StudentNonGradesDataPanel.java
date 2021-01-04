@@ -41,6 +41,7 @@ public class StudentNonGradesDataPanel extends JPanel {
 	private JLabel indexNumberLabel;
 	private JTextField indexNumberTextField;
 	private JLabel incorrectIndexNumberMessageLabel;
+	private JLabel existingIndexNumberMessageLabel;
 	private JLabel yearOfEnrollmentLabel;
 	private JTextField yearOfEnrollmentTextField;
 	private JLabel incorrectYearOfEnrollmentMessageLabel;
@@ -118,6 +119,10 @@ public class StudentNonGradesDataPanel extends JPanel {
 	
 	public JLabel getIncorrectIndexNumberMessageLabel() {
 		return incorrectIndexNumberMessageLabel;
+	}
+	
+	public JLabel getExistingIndexNumberMessageLabel() {
+		return existingIndexNumberMessageLabel;
 	}
 	
 	public JTextField getYearOfEnrollmentTextField() {
@@ -332,6 +337,10 @@ public class StudentNonGradesDataPanel extends JPanel {
 		"SS-xxx-yyyy, SS-xx-yyyy ili SS-x-yyyy");
 		incorrectIndexNumberMessageLabel.setForeground(Color.RED);
 		
+		existingIndexNumberMessageLabel = new JLabel("Uneti broj indeksa već postoji!");
+		existingIndexNumberMessageLabel.setForeground(Color.RED);
+		existingIndexNumberMessageLabel.setVisible(false);
+		
 		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */
 		Insets labelInsets = new Insets(10, 10, 10, 10);
 		GridBagConstraints labelConstraints = new GridBagConstraints(0, 11, 1, 1, 0, 0, 
@@ -348,6 +357,7 @@ public class StudentNonGradesDataPanel extends JPanel {
 				1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, 
 				incorrectMessageLabelInsets, 0, 0);
 		upperPanel.add(incorrectIndexNumberMessageLabel, incorrectMessageLabelConstraints);
+		upperPanel.add(existingIndexNumberMessageLabel, incorrectMessageLabelConstraints);
 	}
 	
 	private void setUpYearOfEnrollmentComponents() {

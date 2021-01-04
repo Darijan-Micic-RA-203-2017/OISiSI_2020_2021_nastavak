@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import model.StudentsCollection;
 import view.StudentNonGradesDataPanel;
 
 /** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji -> listeners -> key -> MyKeyListener.java) */
@@ -46,6 +47,7 @@ public class StudentDataEntryListener implements KeyListener {
 
 		JTextField indexNumberTextField = studentNonGradesDataPanel.getIndexNumberTextField();
 		JLabel incorrectIndexNumberMessageLabel = studentNonGradesDataPanel.getIncorrectIndexNumberMessageLabel();
+		JLabel existingIndexNumberMessageLabel = studentNonGradesDataPanel.getExistingIndexNumberMessageLabel();
 
 		JTextField yearOfEnrollmentTextField = studentNonGradesDataPanel.getYearOfEnrollmentTextField();
 		JLabel incorrectYearOfEnrollmentMessageLabel = studentNonGradesDataPanel.getIncorrectYearOfEnrollmentMessageLabel();
@@ -95,12 +97,22 @@ public class StudentDataEntryListener implements KeyListener {
 		}
 
 		/** REFERENCA: https://www.logicbig.com/tutorials/core-java-tutorial/java-regular-expressions/java-regex-basic.html */
-		if (!Pattern.matches("[a-z]{2}-[0-9]{1,3}-[0-9]{4}", indexNumberTextField.getText())) {
+		String enteredIndexNumber = indexNumberTextField.getText();
+		if (!Pattern.matches("[a-z]{2}-[0-9]{1,3}-[0-9]{4}", enteredIndexNumber)) {
 			enteredDataValidity = false;
 
 			incorrectIndexNumberMessageLabel.setVisible(true);
+			existingIndexNumberMessageLabel.setVisible(false);
 		} else {
-			incorrectIndexNumberMessageLabel.setVisible(false);
+			if (StudentsCollection.getInstance().indexNumberExists(enteredIndexNumber)) {
+				enteredDataValidity = false;
+				
+				incorrectIndexNumberMessageLabel.setVisible(false);
+				existingIndexNumberMessageLabel.setVisible(true);
+			} else {
+				incorrectIndexNumberMessageLabel.setVisible(false);
+				existingIndexNumberMessageLabel.setVisible(false);
+			}
 		}
 
 		if (!Pattern.matches("[0-9]{4}", yearOfEnrollmentTextField.getText())) {

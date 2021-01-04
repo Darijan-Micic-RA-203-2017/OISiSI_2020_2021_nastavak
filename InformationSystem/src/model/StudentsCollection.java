@@ -141,4 +141,16 @@ public class StudentsCollection {
 			}
 		}
 	}
+	
+	public boolean indexNumberExists(String indexNumber) {
+		boolean answer = false;
+		for (Student s : students) {
+			if (s.getIndexNumber().equals(indexNumber)) {
+				answer = true;
+				break;
+			}
+		}
+		
+		return answer;
+	}
 }
