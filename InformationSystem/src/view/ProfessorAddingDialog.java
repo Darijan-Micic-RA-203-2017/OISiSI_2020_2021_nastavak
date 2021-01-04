@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+import controller.ProfessorsController;
 import listeners.ProfessorDataEntryListener;
 
 public class ProfessorAddingDialog extends JDialog implements ActionListener {
@@ -108,6 +109,10 @@ public class ProfessorAddingDialog extends JDialog implements ActionListener {
 		return incorrectDateOfBirthMessageLabel;
 	}
 	
+	public JTextField getResidenceTextField() {
+		return residenceTextField;
+	}
+	
 	public JTextField getContactPhoneTextField() {
 		return contactPhoneTextField;
 	}
@@ -124,12 +129,24 @@ public class ProfessorAddingDialog extends JDialog implements ActionListener {
 		return incorrectEmailAddressMessageLabel;
 	}
 	
+	public JTextField getOfficeAddressTextField() {
+		return officeAddressTextField;
+	}
+	
 	public JTextField getNationalIdTextField() {
 		return nationalIdTextField;
 	}
 	
 	public JLabel getIncorrectNationalIdMessageLabel() {
 		return incorrectNationalIdMessageLabel;
+	}
+	
+	public JComboBox<String> getTitleComboBox(){
+		return titleComboBox;
+	}
+	
+	public JComboBox<String> getCallingComboBox(){
+		return callingComboBox;
 	}
 	
 	public JButton getConfirmationButton() {
@@ -408,12 +425,16 @@ public class ProfessorAddingDialog extends JDialog implements ActionListener {
 	
 	private void setUpConfirmationButton() {
 		confirmationButton = new JButton("Potvrdi");
+		confirmationButton.setName("confirmationButton");
 		
-		confirmationButton.setEnabled(false);;
+		confirmationButton.setEnabled(false);
+		
+		confirmationButton.addActionListener(this);
 	}
 	
 	private void setUpCancellationButton() {
 		cancellationButton = new JButton("Odustani");
+		cancellationButton.setName("cancellationButton");
 		
 		cancellationButton.addActionListener(this);
 	}
@@ -421,7 +442,16 @@ public class ProfessorAddingDialog extends JDialog implements ActionListener {
 	/** REFERENCA: Materijali za vežbe (v4 -> a - Unutrasnje klase i dogadjaji -> Interfejsi i unutrasnje klase.pdf) */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		dispose();
+		JButton clickedButton = (JButton) e.getSource();
+		
+		switch(clickedButton.getName()) {
+		case "confirmationButton":
+			ProfessorsController.getInstance().addProfessor(this);
+			dispose();
+			break;
+		case "cancellationButton":
+			dispose();
+		}
 	}
 	
 	
