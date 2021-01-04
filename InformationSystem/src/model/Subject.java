@@ -2,18 +2,13 @@ package model;
 
 import java.util.ArrayList;
 
-enum Semesters{
-	LETNJI,
-	ZIMSKI
-}
-
 //na grani subject bez polja koja predstavljaju objekte drugih klasa, oni sa javljaju na grani refactor/subject
 
 public class Subject {
 
-	private long id;
+	private String id;
 	private String name;
-	private Semesters semester;
+	private SemesterOfSubject semester;
 	private int yearOfStudy;
 	private Professor professor;
 	private int espb;
@@ -23,7 +18,7 @@ public class Subject {
 	
 	public Subject() {}
 	
-	public Subject(long id, String name, Semesters semester, int yearOfStudy, Professor professor, int espb,
+	public Subject(String id, String name, SemesterOfSubject semester, int yearOfStudy, Professor professor, int espb,
 			ArrayList<Student> passedSubject, ArrayList<Student> failedSubject) {
 		this.id = id;
 		this.name = name;
@@ -35,11 +30,11 @@ public class Subject {
 		this.failedSubject = failedSubject;
 	}
 	
-	public long getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	
@@ -51,11 +46,18 @@ public class Subject {
 		this.name = name;
 	}
 	
-	public Semesters getSemester() {
-		return this.semester;
+	public String getSemester() {
+		switch(this.semester) {
+		case LETNJI:
+			return "letnji";
+		case ZIMSKI:
+			return "zimski";
+		default:
+			return null;
+		}
 	}
 	
-	public void setSemester(Semesters semester) {
+	public void setSemester(SemesterOfSubject semester) {
 		this.semester = semester;
 	}
 	
