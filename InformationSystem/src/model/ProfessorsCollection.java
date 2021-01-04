@@ -1,6 +1,8 @@
 package model;
 
-import java.time.LocalDate;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ArrayList;
 
 /** REFERENCA: Materijali za vežbe (v6 -> JTableMVCSimple -> model -> BazaIgraca.java) */
@@ -30,13 +32,30 @@ public class ProfessorsCollection {
 	
 	private void initProfessors() {
 		professors = new ArrayList<Professor>();
-		professors.add(new Professor("Ban","Ivo",LocalDate.of(1970, 1, 8),
+		
+		/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy.");
+		
+		String dateOfBirth1StringRepresentation = "01.08.1970.";
+		String dateOfBirth2StringRepresentation = "11.04.1960.";
+		String dateOfBirth3StringRepresentation = "10.12.1987.";
+		Date dateOfBirth1 = null;
+		Date dateOfBirth2 = null;
+		Date dateOfBirth3 = null;
+		try {
+			dateOfBirth1 = simpleDateFormat.parse(dateOfBirth1StringRepresentation);
+			dateOfBirth2 = simpleDateFormat.parse(dateOfBirth2StringRepresentation);
+			dateOfBirth3 = simpleDateFormat.parse(dateOfBirth3StringRepresentation);
+		} catch(ParseException pE) {
+			pE.printStackTrace();
+		}
+		professors.add(new Professor("Ban","Ivo", dateOfBirth1,
 				"Nikole Tesle 13,Zrenjanin","0642000163","ivoban@gmail.com",
-				"Slavka Rodića 25,Zrenjanin",801970,TitleOfProfessor.BSC,CallingOfProfessor.VANREDNI_PROFESOR,new ArrayList<Subject>()));
-		professors.add(new Professor("Oroz","Savo",LocalDate.of(1960, 11, 4),
+				"Slavka Rodića 25,Zrenjanin",80119700,TitleOfProfessor.BSC,CallingOfProfessor.VANREDNI_PROFESOR,new ArrayList<Subject>()));
+		professors.add(new Professor("Oroz","Savo", dateOfBirth2,
 				"Marije Bursać 43,Zrenjanin","0652060813","ssavo_oroz@gmail.com",
-				"Slavka Rodića 25,Zrenjanin",411960,TitleOfProfessor.MSC,CallingOfProfessor.REDOVNI_PROFESOR,new ArrayList<Subject>()));
-		professors.add(new Professor("Kraljević","Ana",LocalDate.of(1987, 10, 12),
+				"Slavka Rodića 25,Zrenjanin",41119600,TitleOfProfessor.MSC,CallingOfProfessor.REDOVNI_PROFESOR,new ArrayList<Subject>()));
+		professors.add(new Professor("Kraljević","Ana",dateOfBirth3,
 				"Aradački atari BB,Zrenjanin","068783453","kraljvicana@gmail.com",
 				"Bulevar Evrope 46,Novi Sad",801970,TitleOfProfessor.DR,CallingOfProfessor.ASISTENT_SA_DOKTORATOM,new ArrayList<Subject>()));
 	}
@@ -78,7 +97,7 @@ public class ProfessorsCollection {
 		}
 	}
 	
-	public void addProfessor(String lastName, String firstName, LocalDate dateOfBirth,
+	public void addProfessor(String lastName, String firstName, Date dateOfBirth,
 			String residence, String contactPhone, String emailAddress, String officeAddress,
 			int id, TitleOfProfessor title, CallingOfProfessor calling) {
 		Professor newProfessor = new Professor(lastName, firstName, dateOfBirth, residence,
@@ -95,7 +114,7 @@ public class ProfessorsCollection {
 		}
 	}
 	
-	public void modifyProfessor(String lastName, String firstName, LocalDate dateOfBirth, String residence,
+	public void modifyProfessor(String lastName, String firstName, Date dateOfBirth, String residence,
 			String contactPhone, String emailAddress, String officeAddress, int id, TitleOfProfessor title, CallingOfProfessor calling) {
 		for(Professor p : professors) {
 			if(p.getNationalID() == id) {
