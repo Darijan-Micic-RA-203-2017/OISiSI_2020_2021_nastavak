@@ -1,6 +1,6 @@
 package model;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.ArrayList;
 
 //na grani professor bez polja koja predstavljaju objekte drugih klasa, oni sa javljaju na grani refactor/professor
@@ -9,7 +9,7 @@ public class Professor {
 
 	private String lastName;
 	private String firstName;
-	private LocalDate dateOfBirth;
+	private Date dateOfBirth;
 	private String residence;
 	private String contactPhone;
 	private String emailAddress;
@@ -21,7 +21,7 @@ public class Professor {
 	
 	public Professor() {}
 	
-	public Professor(String lastName, String firstName, LocalDate dateOfBirth, String residence, String contactPhone,
+	public Professor(String lastName, String firstName, Date dateOfBirth, String residence, String contactPhone,
 			String emailAddress, String officeAddress, int nationalID, TitleOfProfessor title, CallingOfProfessor calling, ArrayList<Subject> teachingSubjects) {
 		this.lastName = lastName;
 		this.firstName = firstName;
@@ -52,11 +52,11 @@ public class Professor {
 		this.firstName = firstName;
 	}
 
-	public LocalDate getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return this.dateOfBirth;
 	}
 
-	public void setDateOfBirth(LocalDate dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	
