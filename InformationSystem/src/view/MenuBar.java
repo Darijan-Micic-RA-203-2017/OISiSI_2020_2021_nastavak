@@ -10,6 +10,7 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
 import controller.AddEntityAction;
+import controller.EditEntityAction;
 import listeners.AboutDialogOpeningListener;
 import listeners.HelpDialogOpeningListener;
 
@@ -37,18 +38,18 @@ public class MenuBar extends JMenuBar {
 		String imagePath = getImagePath("File_icon.png");
 		ImageIcon fileMenuIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
-		this.fileMenu = new JMenu("File");
-		this.fileMenu.setIcon(fileMenuIcon);
-		this.fileMenu.setMnemonic(KeyEvent.VK_F);
+		fileMenu = new JMenu("File");
+		fileMenu.setIcon(fileMenuIcon);
+		fileMenu.setMnemonic(KeyEvent.VK_F);
 		
 		setUpNewMenuItem();
 		setUpCloseMenuItem();
 		
-		this.fileMenu.add(newMenuItem);
-		this.fileMenu.addSeparator();
-		this.fileMenu.add(closeMenuItem);
+		fileMenu.add(newMenuItem);
+		fileMenu.addSeparator();
+		fileMenu.add(closeMenuItem);
 		
-		this.add(fileMenu);
+		add(fileMenu);
 	}
 
 	private void setUpNewMenuItem() {
@@ -56,96 +57,97 @@ public class MenuBar extends JMenuBar {
 		ImageIcon newMenuItemIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
 		AddEntityAction addEntityAction = new AddEntityAction();
-		this.newMenuItem = new JMenuItem(addEntityAction);
-		this.newMenuItem.setText("New");
-		this.newMenuItem.setIcon(newMenuItemIcon);
+		newMenuItem = new JMenuItem(addEntityAction);
+		newMenuItem.setText("New");
+		newMenuItem.setIcon(newMenuItemIcon);
 	}
 	
 	private void setUpCloseMenuItem() {
 		String imagePath = getImagePath("Close_icon.jpg");
 		ImageIcon closeMenuItemIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
-		this.closeMenuItem = new JMenuItem("Close", closeMenuItemIcon);
-		this.closeMenuItem.setMnemonic(KeyEvent.VK_C);
-		this.closeMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, KeyEvent.CTRL_DOWN_MASK));
+		closeMenuItem = new JMenuItem("Close", closeMenuItemIcon);
+		closeMenuItem.setMnemonic(KeyEvent.VK_C);
+		closeMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, KeyEvent.CTRL_DOWN_MASK));
 	}
 	
 	private void setUpEditMenu() {
 		String imagePath = getImagePath("Edit_icon.png");
 		ImageIcon editMenuIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
-		this.editMenu = new JMenu("Edit");
-		this.editMenu.setIcon(editMenuIcon);
-		this.editMenu.setMnemonic(KeyEvent.VK_E);
+		editMenu = new JMenu("Edit");
+		editMenu.setIcon(editMenuIcon);
+		editMenu.setMnemonic(KeyEvent.VK_E);
 		
 		setUpEditMenuItem();
 		setUpDeleteMenuItem();
 		
-		this.editMenu.add(editMenuItem);
-		this.editMenu.addSeparator();
-		this.editMenu.add(deleteMenuItem);
+		editMenu.add(editMenuItem);
+		editMenu.addSeparator();
+		editMenu.add(deleteMenuItem);
 		
-		this.add(editMenu);
+		add(editMenu);
 	}
 	
 	private void setUpEditMenuItem() {
 		String imagePath = getImagePath("Edit_icon.png");
 		ImageIcon editMenuItemIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
-		this.editMenuItem = new JMenuItem("Edit", editMenuItemIcon);
-		this.editMenuItem.setMnemonic(KeyEvent.VK_I);
-		this.editMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, KeyEvent.CTRL_DOWN_MASK));
+		EditEntityAction editEntityAction = new EditEntityAction();
+		editMenuItem = new JMenuItem(editEntityAction);
+		editMenuItem.setText("Edit");
+		editMenuItem.setIcon(editMenuItemIcon);
 	}
 	
 	private void setUpDeleteMenuItem() {
 		String imagePath = getImagePath("Delete_icon.png");
 		ImageIcon deleteMenuItemIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
-		this.deleteMenuItem = new JMenuItem("Delete", deleteMenuItemIcon);
-		this.deleteMenuItem.setMnemonic(KeyEvent.VK_D);
-		this.deleteMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, KeyEvent.CTRL_DOWN_MASK));
+		deleteMenuItem = new JMenuItem("Delete", deleteMenuItemIcon);
+		deleteMenuItem.setMnemonic(KeyEvent.VK_D);
+		deleteMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, KeyEvent.CTRL_DOWN_MASK));
 	}
 	
 	private void setUpHelpMenu() {
 		String imagePath = getImagePath("Help_icon.png");
 		ImageIcon helpMenuIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
-		this.helpMenu = new JMenu("Help");
-		this.helpMenu.setIcon(helpMenuIcon);
-		this.helpMenu.setMnemonic(KeyEvent.VK_H);
+		helpMenu = new JMenu("Help");
+		helpMenu.setIcon(helpMenuIcon);
+		helpMenu.setMnemonic(KeyEvent.VK_H);
 		
 		setUpHelpMenuItem();
 		setUpAboutMenuItem();
 		
-		this.helpMenu.add(helpMenuItem);
-		this.helpMenu.addSeparator();
-		this.helpMenu.add(aboutMenuItem);
+		helpMenu.add(helpMenuItem);
+		helpMenu.addSeparator();
+		helpMenu.add(aboutMenuItem);
 		
-		this.add(helpMenu);
+		add(helpMenu);
 	}
 	
 	private void setUpHelpMenuItem() {
 		String imagePath = getImagePath("Help_icon.png");
 		ImageIcon helpMenuItemIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
-		this.helpMenuItem = new JMenuItem("Help", helpMenuItemIcon);
-		this.helpMenuItem.setMnemonic(KeyEvent.VK_L);
-		this.helpMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, KeyEvent.CTRL_DOWN_MASK));
+		helpMenuItem = new JMenuItem("Help", helpMenuItemIcon);
+		helpMenuItem.setMnemonic(KeyEvent.VK_L);
+		helpMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, KeyEvent.CTRL_DOWN_MASK));
 		
 		HelpDialogOpeningListener helpDialogOpeningListener = new HelpDialogOpeningListener();
-		this.helpMenuItem.addActionListener(helpDialogOpeningListener);
+		helpMenuItem.addActionListener(helpDialogOpeningListener);
 	}
 	
 	private void setUpAboutMenuItem() {
 		String imagePath = getImagePath("About_icon.png");
 		ImageIcon aboutMenuItemIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
-		this.aboutMenuItem = new JMenuItem("About", aboutMenuItemIcon);
-		this.aboutMenuItem.setMnemonic(KeyEvent.VK_A);
-		this.aboutMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_DOWN_MASK));
+		aboutMenuItem = new JMenuItem("About", aboutMenuItemIcon);
+		aboutMenuItem.setMnemonic(KeyEvent.VK_A);
+		aboutMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_DOWN_MASK));
 		
 		AboutDialogOpeningListener aboutDialogOpeningListener = new AboutDialogOpeningListener();
-		this.aboutMenuItem.addActionListener(aboutDialogOpeningListener);
+		aboutMenuItem.addActionListener(aboutDialogOpeningListener);
 	}
 	
 	// Radnja za izgradnju putanje do slike:
