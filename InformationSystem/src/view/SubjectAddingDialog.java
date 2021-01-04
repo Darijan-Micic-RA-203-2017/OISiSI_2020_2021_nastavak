@@ -10,6 +10,8 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
+import controller.SubjectsController;
+
 public class SubjectAddingDialog extends JDialog implements ActionListener {
 	// Polja:
 	private SubjectNonStudentsDataPanel subjectNonStudentsDataPanel;
@@ -27,8 +29,6 @@ public class SubjectAddingDialog extends JDialog implements ActionListener {
 		
 		subjectNonStudentsDataPanel = new SubjectNonStudentsDataPanel();
 		
-		setProfessorComponentsAsInvisible();
-		
 		JButton confirmationButton = subjectNonStudentsDataPanel.getConfirmationButton();
 		confirmationButton.setEnabled(false);
 		confirmationButton.addActionListener(this);
@@ -45,25 +45,18 @@ public class SubjectAddingDialog extends JDialog implements ActionListener {
 		return subjectNonStudentsDataPanel;
 	}
 	
-	private void setProfessorComponentsAsInvisible() {
-		subjectNonStudentsDataPanel.getProfessorLabel().setVisible(false);
-		subjectNonStudentsDataPanel.getProfessorPanel().setVisible(false);
-	}
-	
 	/** REFERENCA: Materijali za vežbe (v4 -> a - Unutrasnje klase i dogadjaji -> Interfejsi i unutrasnje klase.pdf) */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		/*
 		JButton clickedButton = (JButton) e.getSource();
 		
 		switch (clickedButton.getName()) {
 			case "confirmationButton":
-				//SubjectsController.getInstance().addSubject(this);
+				SubjectsController.getInstance().addSubject(this);
 				dispose();
 				break;
 			case "cancellationButton":
 				dispose();
 		}
-		*/
 	}
 }

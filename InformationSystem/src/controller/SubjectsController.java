@@ -1,5 +1,7 @@
 package controller;
 
+import model.SemesterOfSubject;
+import model.SubjectsCollection;
 import view.MainFrame;
 import view.SubjectAddingDialog;
 import view.SubjectNonStudentsDataPanel;
@@ -29,22 +31,20 @@ public class SubjectsController {
 		int yearOfStudyComboBoxSelectedIndex = 
 				subjectNonStudentsDataPanel.getYearOfStudyComboBox().getSelectedIndex();
 		int yearOfStudy = yearOfStudyComboBoxSelectedIndex + 1;
-		/*
 		int semesterComboBoxSelectedIndex = 
 				subjectNonStudentsDataPanel.getSemesterComboBox().getSelectedIndex();
-		Semester semester = null;
+		SemesterOfSubject semester = null;
 		if (semesterComboBoxSelectedIndex == 0) {
-			semester = Semester.LETNJI;
+			semester = SemesterOfSubject.LETNJI;
 		} else {
-			semester = Semester.ZIMSKI;
+			semester = SemesterOfSubject.ZIMSKI;
 		}
-		*/
 		
 		String espbStringRepresentation = 
 				subjectNonStudentsDataPanel.getEspbTextField().getText();
 		int espb = Integer.parseInt(espbStringRepresentation);
 		
-		//SubjectsCollection.getInstance().addSubject(id, name, yearOfStudy, semester, espb);
+		SubjectsCollection.getInstance().addSubject(id, name, semester, yearOfStudy, espb);
 		
 		// Osvežavanje prikaza:
 		MainFrame.getInstance().refreshView("ADDED", -1);

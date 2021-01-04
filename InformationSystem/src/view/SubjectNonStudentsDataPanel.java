@@ -8,6 +8,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -272,17 +274,22 @@ public class SubjectNonStudentsDataPanel extends JPanel {
 	}
 	
 	private void setUpProfessorPanel() {
-		FlowLayout professorPanelLayout = new FlowLayout(FlowLayout.LEFT, 5, 5);
-		professorPanel = new JPanel(professorPanelLayout);
+		professorPanel = new JPanel();
+		BoxLayout professorPanelLayout = new BoxLayout(professorPanel, BoxLayout.X_AXIS);
+		professorPanel.setLayout(professorPanelLayout);
 		
 		professorTextField = new JTextField();
 		Dimension textFieldPreferredSize = new Dimension(this.getWidth() * 9 / 25, 20);
 		professorTextField.setPreferredSize(textFieldPreferredSize);
 		professorPanel.add(professorTextField);
 		
+		professorPanel.add(Box.createHorizontalStrut(5));
+		
 		professorAddingButton = new JButton("+");
 		professorAddingButton.setName("professorAddingButton");
 		professorPanel.add(professorAddingButton);
+		
+		professorPanel.add(Box.createHorizontalStrut(5));
 		
 		professorRemovalButton = new JButton("-");
 		professorRemovalButton.setName("professorRemovalButton");
