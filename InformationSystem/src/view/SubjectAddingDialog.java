@@ -14,6 +14,7 @@ import controller.SubjectsController;
 
 public class SubjectAddingDialog extends JDialog implements ActionListener {
 	// Polja:
+	private boolean idUniquenessNeed;
 	private SubjectNonStudentsDataPanel subjectNonStudentsDataPanel;
 	private JScrollPane scrollPane;
 	
@@ -27,7 +28,8 @@ public class SubjectAddingDialog extends JDialog implements ActionListener {
 		setResizable(false);
 		setLocationRelativeTo(parent);
 		
-		subjectNonStudentsDataPanel = new SubjectNonStudentsDataPanel();
+		idUniquenessNeed = true;
+		subjectNonStudentsDataPanel = new SubjectNonStudentsDataPanel(idUniquenessNeed);
 		
 		JButton confirmationButton = subjectNonStudentsDataPanel.getConfirmationButton();
 		confirmationButton.setEnabled(false);
