@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import model.Student;
 import model.StudentsCollection;
 import view.StudentNonGradesDataPanel;
 
@@ -15,13 +16,15 @@ import view.StudentNonGradesDataPanel;
 public class StudentDataEntryListener implements KeyListener {
 	// Polja:
 	private StudentNonGradesDataPanel studentNonGradesDataPanel;
-	private boolean indexNumberUniquenessNeed;
+	private String typeOfParentDialog;
+	private int selectedRowIndex;
 	
 	// Konstruktor:
-	public StudentDataEntryListener(StudentNonGradesDataPanel panel, 
-			boolean indexNumberUniquenessNeed) {
+	public StudentDataEntryListener(StudentNonGradesDataPanel panel, String typeOfParentDialog, 
+			int selectedRowIndex) {
 		studentNonGradesDataPanel = panel;
-		this.indexNumberUniquenessNeed = indexNumberUniquenessNeed;
+		this.typeOfParentDialog = typeOfParentDialog;
+		this.selectedRowIndex = selectedRowIndex;
 	}
 
 	// Radnje:
@@ -31,6 +34,9 @@ public class StudentDataEntryListener implements KeyListener {
 	/** REFERENCA: https://www.javatpoint.com/java-regex */
 	@Override
 	public void keyReleased(KeyEvent arg0) {
+		JButton confirmationButton = studentNonGradesDataPanel.getConfirmationButton();
+		confirmationButton.setEnabled(false);
+		
 		boolean enteredDataValidity = true;
 
 		JTextField firstNameTextField = studentNonGradesDataPanel.getFirstNameTextField();
@@ -54,8 +60,6 @@ public class StudentDataEntryListener implements KeyListener {
 
 		JTextField yearOfEnrollmentTextField = studentNonGradesDataPanel.getYearOfEnrollmentTextField();
 		JLabel incorrectYearOfEnrollmentMessageLabel = studentNonGradesDataPanel.getIncorrectYearOfEnrollmentMessageLabel();
-
-		JButton confirmationButton = studentNonGradesDataPanel.getConfirmationButton();
 		
 		/** REFERENCA: https://stackoverflow.com/questions/10894122/java-regex-for-support-unicode */
 		if (!Pattern.matches("[A-Z\\p{L}][a-z\\p{L}]+([ -][A-Z\\p{L}][a-z\\p{L}]+)*", firstNameTextField.getText())) {
@@ -100,6 +104,8 @@ public class StudentDataEntryListener implements KeyListener {
 		}
 
 		/** REFERENCA: https://www.logicbig.com/tutorials/core-java-tutorial/java-regular-expressions/java-regex-basic.html */
+		Student selectedStudent = StudentsCollection.getInstance().getRow(selectedRowIndex);
+		String currentIndexNumber = selectedStudent.getIndexNumber();
 		String enteredIndexNumber = indexNumberTextField.getText();
 		if (!Pattern.matches("[a-z]{2}-[0-9]{1,3}-[0-9]{4}", enteredIndexNumber)) {
 			enteredDataValidity = false;
@@ -107,7 +113,7 @@ public class StudentDataEntryListener implements KeyListener {
 			incorrectIndexNumberMessageLabel.setVisible(true);
 			existingIndexNumberMessageLabel.setVisible(false);
 		} else {
-			if (indexNumberUniquenessNeed) {
+			if (typeOfParentDialog.equals("StudentAddingDialog")) {
 				if (StudentsCollection.getInstance().indexNumberExists(enteredIndexNumber)) {
 					enteredDataValidity = false;
 
@@ -118,8 +124,17 @@ public class StudentDataEntryListener implements KeyListener {
 					existingIndexNumberMessageLabel.setVisible(false);
 				}
 			} else {
-				incorrectIndexNumberMessageLabel.setVisible(false);
-				existingIndexNumberMessageLabel.setVisible(false);
+				if (StudentsCollection.getInstance().
+						editedIndexNumberMatchesWithExistingIndexNumber(currentIndexNumber, 
+								enteredIndexNumber)) {
+					enteredDataValidity = false;
+					
+					incorrectIndexNumberMessageLabel.setVisible(false);
+					existingIndexNumberMessageLabel.setVisible(true);
+				} else {
+					incorrectIndexNumberMessageLabel.setVisible(false);
+					existingIndexNumberMessageLabel.setVisible(false);
+				}
 			}
 		}
 
@@ -133,8 +148,6 @@ public class StudentDataEntryListener implements KeyListener {
 
 		if (enteredDataValidity) {
 			confirmationButton.setEnabled(true);
-		} else {
-			confirmationButton.setEnabled(false);
 		}
 	}
 	

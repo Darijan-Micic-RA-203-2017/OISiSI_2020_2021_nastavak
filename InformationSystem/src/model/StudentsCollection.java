@@ -153,4 +153,19 @@ public class StudentsCollection {
 		
 		return answer;
 	}
+	
+	public boolean editedIndexNumberMatchesWithExistingIndexNumber(String currentIndexNumber, 
+			String editedIndexNumber) {
+		boolean matchingIndexNumberFinding = false;
+		for (Student s : students) {
+			if (!s.getIndexNumber().equals(currentIndexNumber)) {
+				if (s.getIndexNumber().equals(editedIndexNumber)) {
+					matchingIndexNumberFinding = true;
+					break;
+				}
+			}
+		}
+		
+		return matchingIndexNumberFinding;
+	}
 }

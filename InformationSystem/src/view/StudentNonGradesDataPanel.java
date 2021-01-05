@@ -55,8 +55,9 @@ public class StudentNonGradesDataPanel extends JPanel {
 	private JButton cancellationButton;
 	
 	// Konstruktor:
-	public StudentNonGradesDataPanel(boolean indexNumberUniquenessNeed) {
-		studentDataEntryListener = new StudentDataEntryListener(this, indexNumberUniquenessNeed);
+	public StudentNonGradesDataPanel(String typeOfParentDialog, int selectedRowIndex) {
+		studentDataEntryListener = 
+				new StudentDataEntryListener(this, typeOfParentDialog, selectedRowIndex);
 		
 		BorderLayout layout = new BorderLayout(0, 10);
 		setLayout(layout);

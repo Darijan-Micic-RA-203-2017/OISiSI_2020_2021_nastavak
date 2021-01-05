@@ -13,7 +13,7 @@ import controller.StudentsController;
 
 public class StudentEditingDialog extends JDialog implements ActionListener {
 	// Polja:
-	private boolean indexNumberUniquenessNeed;
+	private String typeOfDialog;
 	private StudentEditingTabbedPane studentEditingTabbedPane;
 	
 	// Konstruktor:
@@ -26,9 +26,9 @@ public class StudentEditingDialog extends JDialog implements ActionListener {
 		setResizable(false);
 		setLocationRelativeTo(parent);
 		
-		indexNumberUniquenessNeed = false;
+		typeOfDialog = "StudentEditingDialog";
 		studentEditingTabbedPane = 
-				new StudentEditingTabbedPane(selectedRowIndex, indexNumberUniquenessNeed);
+				new StudentEditingTabbedPane(selectedRowIndex, typeOfDialog);
 		
 		JButton confirmationButton = 
 				studentEditingTabbedPane.getStudentNonGradesDataPanel().getConfirmationButton();
