@@ -13,12 +13,15 @@ import view.StudentNonGradesDataPanel;
 
 /** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji -> listeners -> key -> MyKeyListener.java) */
 public class StudentDataEntryListener implements KeyListener {
-	// Polje:
+	// Polja:
 	private StudentNonGradesDataPanel studentNonGradesDataPanel;
-
+	private boolean indexNumberUniquenessNeed;
+	
 	// Konstruktor:
-	public StudentDataEntryListener(StudentNonGradesDataPanel panel) {
+	public StudentDataEntryListener(StudentNonGradesDataPanel panel, 
+			boolean indexNumberUniquenessNeed) {
 		studentNonGradesDataPanel = panel;
+		this.indexNumberUniquenessNeed = indexNumberUniquenessNeed;
 	}
 
 	// Radnje:
@@ -104,11 +107,16 @@ public class StudentDataEntryListener implements KeyListener {
 			incorrectIndexNumberMessageLabel.setVisible(true);
 			existingIndexNumberMessageLabel.setVisible(false);
 		} else {
-			if (StudentsCollection.getInstance().indexNumberExists(enteredIndexNumber)) {
-				enteredDataValidity = false;
-				
-				incorrectIndexNumberMessageLabel.setVisible(false);
-				existingIndexNumberMessageLabel.setVisible(true);
+			if (indexNumberUniquenessNeed) {
+				if (StudentsCollection.getInstance().indexNumberExists(enteredIndexNumber)) {
+					enteredDataValidity = false;
+
+					incorrectIndexNumberMessageLabel.setVisible(false);
+					existingIndexNumberMessageLabel.setVisible(true);
+				} else {
+					incorrectIndexNumberMessageLabel.setVisible(false);
+					existingIndexNumberMessageLabel.setVisible(false);
+				}
 			} else {
 				incorrectIndexNumberMessageLabel.setVisible(false);
 				existingIndexNumberMessageLabel.setVisible(false);

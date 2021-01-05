@@ -12,7 +12,8 @@ import javax.swing.JFrame;
 import controller.StudentsController;
 
 public class StudentEditingDialog extends JDialog implements ActionListener {
-	// Polje:
+	// Polja:
+	private boolean indexNumberUniquenessNeed;
 	private StudentEditingTabbedPane studentEditingTabbedPane;
 	
 	// Konstruktor:
@@ -25,7 +26,9 @@ public class StudentEditingDialog extends JDialog implements ActionListener {
 		setResizable(false);
 		setLocationRelativeTo(parent);
 		
-		studentEditingTabbedPane = new StudentEditingTabbedPane(selectedRowIndex);
+		indexNumberUniquenessNeed = false;
+		studentEditingTabbedPane = 
+				new StudentEditingTabbedPane(selectedRowIndex, indexNumberUniquenessNeed);
 		
 		JButton confirmationButton = 
 				studentEditingTabbedPane.getStudentNonGradesDataPanel().getConfirmationButton();

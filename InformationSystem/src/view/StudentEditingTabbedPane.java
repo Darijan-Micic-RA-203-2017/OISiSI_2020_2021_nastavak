@@ -18,8 +18,8 @@ public class StudentEditingTabbedPane extends JTabbedPane {
 	private JPanel unpassedSubjectsPanel;
 	
 	// Konstruktor:
-	public StudentEditingTabbedPane(int selectedRowIndex) {
-		studentNonGradesDataPanel = new StudentNonGradesDataPanel();
+	public StudentEditingTabbedPane(int selectedRowIndex, boolean indexNumberUniquenessNeed) {
+		studentNonGradesDataPanel = new StudentNonGradesDataPanel(indexNumberUniquenessNeed);
 		fillStudentNonGradesDataPanel(selectedRowIndex);
 		
 		JScrollPane nonGradesDataScrollPane = new JScrollPane(studentNonGradesDataPanel);
