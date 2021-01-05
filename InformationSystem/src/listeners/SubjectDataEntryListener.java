@@ -9,16 +9,19 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import model.SubjectsCollection;
+
 import view.SubjectNonStudentsDataPanel;
 
 /** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji -> listeners -> key -> MyKeyListener.java) */
 public class SubjectDataEntryListener implements KeyListener {
-	// Polje:
+	// Polja:
 	private SubjectNonStudentsDataPanel subjectNonStudentsDataPanel;
-
+	private boolean idUniquenessNeed;
+	
 	// Konstruktor:
-	public SubjectDataEntryListener(SubjectNonStudentsDataPanel panel) {
+	public SubjectDataEntryListener(SubjectNonStudentsDataPanel panel, boolean idUniquenessNeed) {
 		subjectNonStudentsDataPanel = panel;
+		this.idUniquenessNeed = idUniquenessNeed;
 	}
 
 	// Radnje:
@@ -52,11 +55,16 @@ public class SubjectDataEntryListener implements KeyListener {
 			incorrectIdMessageLabel.setVisible(true);
 			existingIdMessageLabel.setVisible(false);
 		} else {
-			if (SubjectsCollection.getInstance().idExists(enteredId)) {
-				enteredDataValidity = false;
-				
-				incorrectIdMessageLabel.setVisible(false);
-				existingIdMessageLabel.setVisible(true);
+			if (idUniquenessNeed) {
+				if (SubjectsCollection.getInstance().idExists(enteredId)) {
+					enteredDataValidity = false;
+
+					incorrectIdMessageLabel.setVisible(false);
+					existingIdMessageLabel.setVisible(true);
+				} else {
+					incorrectIdMessageLabel.setVisible(false);
+					existingIdMessageLabel.setVisible(false);
+				}
 			} else {
 				incorrectIdMessageLabel.setVisible(false);
 				existingIdMessageLabel.setVisible(false);
