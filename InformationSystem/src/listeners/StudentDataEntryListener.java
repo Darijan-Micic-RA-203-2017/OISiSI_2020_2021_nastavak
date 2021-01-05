@@ -104,8 +104,6 @@ public class StudentDataEntryListener implements KeyListener {
 		}
 
 		/** REFERENCA: https://www.logicbig.com/tutorials/core-java-tutorial/java-regular-expressions/java-regex-basic.html */
-		Student selectedStudent = StudentsCollection.getInstance().getRow(selectedRowIndex);
-		String currentIndexNumber = selectedStudent.getIndexNumber();
 		String enteredIndexNumber = indexNumberTextField.getText();
 		if (!Pattern.matches("[a-z]{2}-[0-9]{1,3}-[0-9]{4}", enteredIndexNumber)) {
 			enteredDataValidity = false;
@@ -124,6 +122,9 @@ public class StudentDataEntryListener implements KeyListener {
 					existingIndexNumberMessageLabel.setVisible(false);
 				}
 			} else {
+				Student selectedStudent = StudentsCollection.getInstance().getRow(selectedRowIndex);
+				String currentIndexNumber = selectedStudent.getIndexNumber();
+				
 				if (StudentsCollection.getInstance().
 						editedIndexNumberMatchesWithExistingIndexNumber(currentIndexNumber, 
 								enteredIndexNumber)) {

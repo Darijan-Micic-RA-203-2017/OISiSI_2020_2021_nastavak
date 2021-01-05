@@ -14,7 +14,7 @@ import controller.StudentsController;
 
 public class StudentAddingDialog extends JDialog implements ActionListener {
 	// Polja:
-	private boolean indexNumberUniquenessNeed;
+	private String typeOfDialog;
 	private StudentNonGradesDataPanel studentNonGradesDataPanel;
 	private JScrollPane scrollPane;
 	
@@ -28,8 +28,8 @@ public class StudentAddingDialog extends JDialog implements ActionListener {
 		setResizable(false);
 		setLocationRelativeTo(parent);
 		
-		indexNumberUniquenessNeed = true;
-		studentNonGradesDataPanel = new StudentNonGradesDataPanel(indexNumberUniquenessNeed);
+		typeOfDialog = "StudentAddingDialog";
+		studentNonGradesDataPanel = new StudentNonGradesDataPanel(typeOfDialog, -1);
 		
 		JButton confirmationButton = studentNonGradesDataPanel.getConfirmationButton();
 		confirmationButton.setEnabled(false);
