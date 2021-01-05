@@ -119,4 +119,18 @@ public class SubjectsCollection {
 		
 		return answer;
 	}
+	
+	public boolean editedIdMatchesWithExistingId(String currentId, String editedId) {
+		boolean matchingIdFinding = false;
+		for (Subject s : subjects) {
+			if (!s.getId().equals(currentId)) {
+				if (s.getId().equals(editedId)) {
+					matchingIdFinding = true;
+					break;
+				}
+			}
+		}
+		
+		return matchingIdFinding;
+	}
 }

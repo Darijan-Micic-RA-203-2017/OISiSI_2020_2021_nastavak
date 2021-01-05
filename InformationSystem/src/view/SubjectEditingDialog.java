@@ -17,7 +17,7 @@ import model.SubjectsCollection;
 
 public class SubjectEditingDialog extends JDialog implements ActionListener {
 	// Polja:
-	private boolean idUniquenessNeed;
+	private String typeOfDialog;
 	private SubjectNonStudentsDataPanel subjectNonStudentsDataPanel;
 	private JScrollPane scrollPane;
 	
@@ -31,8 +31,9 @@ public class SubjectEditingDialog extends JDialog implements ActionListener {
 		setResizable(false);
 		setLocationRelativeTo(parent);
 		
-		idUniquenessNeed = false;
-		subjectNonStudentsDataPanel = new SubjectNonStudentsDataPanel(idUniquenessNeed);
+		typeOfDialog = "SubjectEditingDialog";
+		subjectNonStudentsDataPanel = 
+				new SubjectNonStudentsDataPanel(typeOfDialog, selectedRowIndex);
 		
 		fillSubjectNonStudentsDataPanel(selectedRowIndex);
 		

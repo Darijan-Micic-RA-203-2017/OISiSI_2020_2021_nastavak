@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import model.Subject;
 import model.SubjectsCollection;
 
 import view.SubjectNonStudentsDataPanel;
@@ -16,12 +17,15 @@ import view.SubjectNonStudentsDataPanel;
 public class SubjectDataEntryListener implements KeyListener {
 	// Polja:
 	private SubjectNonStudentsDataPanel subjectNonStudentsDataPanel;
-	private boolean idUniquenessNeed;
+	private String typeOfParentDialog;
+	private int selectedRowIndex;
 	
 	// Konstruktor:
-	public SubjectDataEntryListener(SubjectNonStudentsDataPanel panel, boolean idUniquenessNeed) {
+	public SubjectDataEntryListener(SubjectNonStudentsDataPanel panel, 
+			String typeOfParentDialog, int selectedRowIndex) {
 		subjectNonStudentsDataPanel = panel;
-		this.idUniquenessNeed = idUniquenessNeed;
+		this.typeOfParentDialog = typeOfParentDialog;
+		this.selectedRowIndex = selectedRowIndex;
 	}
 
 	// Radnje:
@@ -31,6 +35,9 @@ public class SubjectDataEntryListener implements KeyListener {
 	/** REFERENCA: https://www.javatpoint.com/java-regex */
 	@Override
 	public void keyReleased(KeyEvent arg0) {
+		JButton confirmationButton = subjectNonStudentsDataPanel.getConfirmationButton();
+		confirmationButton.setEnabled(false);
+		
 		boolean enteredDataValidity = true;
 
 		JTextField idTextField = subjectNonStudentsDataPanel.getIdTextField();
@@ -44,8 +51,6 @@ public class SubjectDataEntryListener implements KeyListener {
 		JTextField espbTextField = subjectNonStudentsDataPanel.getEspbTextField();
 		JLabel incorrectEspbMessageLabel = 
 				subjectNonStudentsDataPanel.getIncorrectEspbMessageLabel();
-
-		JButton confirmationButton = subjectNonStudentsDataPanel.getConfirmationButton();
 		
 		/** REFERENCA: https://www.logicbig.com/tutorials/core-java-tutorial/java-regular-expressions/java-regex-basic.html */
 		String enteredId = idTextField.getText();
@@ -55,7 +60,7 @@ public class SubjectDataEntryListener implements KeyListener {
 			incorrectIdMessageLabel.setVisible(true);
 			existingIdMessageLabel.setVisible(false);
 		} else {
-			if (idUniquenessNeed) {
+			if (typeOfParentDialog.equals("SubjectAddingDialog")) {
 				if (SubjectsCollection.getInstance().idExists(enteredId)) {
 					enteredDataValidity = false;
 
@@ -66,8 +71,19 @@ public class SubjectDataEntryListener implements KeyListener {
 					existingIdMessageLabel.setVisible(false);
 				}
 			} else {
-				incorrectIdMessageLabel.setVisible(false);
-				existingIdMessageLabel.setVisible(false);
+				Subject selectedSubject = SubjectsCollection.getInstance().getRow(selectedRowIndex);
+				String currentId = selectedSubject.getId();
+				
+				if (SubjectsCollection.getInstance().editedIdMatchesWithExistingId(currentId, 
+						enteredId)) {
+					enteredDataValidity = false;
+					
+					incorrectIdMessageLabel.setVisible(false);
+					existingIdMessageLabel.setVisible(true);
+				} else {
+					incorrectIdMessageLabel.setVisible(false);
+					existingIdMessageLabel.setVisible(false);
+				}
 			}
 		}
 		
@@ -90,8 +106,6 @@ public class SubjectDataEntryListener implements KeyListener {
 
 		if (enteredDataValidity) {
 			confirmationButton.setEnabled(true);
-		} else {
-			confirmationButton.setEnabled(false);
 		}
 	}
 	
