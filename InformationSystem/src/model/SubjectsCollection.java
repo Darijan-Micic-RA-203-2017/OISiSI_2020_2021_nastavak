@@ -93,15 +93,16 @@ public class SubjectsCollection {
 		}
 	}
 	
-	public void modifySubject(String id, String name, SemesterOfSubject semester,
-			int yearOfStudy, int espb) {
-		for(Subject s : subjects) {
-			if(s.getId()==id) {
-				s.setId(id);
+	public void editSubjectNonStudentsData(String oldId, String newId, String name, 
+			SemesterOfSubject semester, int yearOfStudy, int espb, Professor professor) {
+		for (Subject s : subjects) {
+			if (s.getId().equals(oldId)) {
+				s.setId(newId);
 				s.setName(name);
 				s.setSemester(semester);
 				s.setYearOfStudy(yearOfStudy);
 				s.setEspb(espb);
+				s.setProfessor(professor);
 				break;
 			}
 		}

@@ -48,8 +48,8 @@ public class SubjectNonStudentsDataPanel extends JPanel {
 	private JButton cancellationButton;
 	
 	// Konstruktor:
-	public SubjectNonStudentsDataPanel() {
-		subjectDataEntryListener = new SubjectDataEntryListener(this);
+	public SubjectNonStudentsDataPanel(boolean idUniquenessNeed) {
+		subjectDataEntryListener = new SubjectDataEntryListener(this, idUniquenessNeed);
 		
 		BorderLayout layout = new BorderLayout(0, 10);
 		setLayout(layout);
