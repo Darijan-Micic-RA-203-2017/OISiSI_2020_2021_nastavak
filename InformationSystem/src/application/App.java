@@ -2,6 +2,7 @@ package application;
 
 import controller.ProfessorsController;
 import controller.StudentsController;
+import controller.SubjectsController;
 import model.ProfessorsCollection;
 import model.StudentsCollection;
 import model.SubjectsCollection;
@@ -12,11 +13,13 @@ public class App {
 		/** REFERENCA: Materijali za vežbe (v5 -> a - Singleton -> Singleton.pdf) */
 		/** REFERENCA: Materijali za vežbe (v6 -> JTableMVCSimple -> igraci -> MainApp.java) */
 		StudentsCollection.getInstance();
-		StudentsController.getInstance();
 		ProfessorsCollection.getInstance();
-		ProfessorsController.getInstance();
 		SubjectsCollection.getInstance();
+		
+		StudentsController.getInstance();
+		ProfessorsController.getInstance();
+		SubjectsController.getInstance();
+		
 		MainFrame.getInstance();
-
 	}
 }

@@ -11,6 +11,8 @@ import javax.swing.KeyStroke;
 import view.MainFrame;
 import view.StudentEditingDialog;
 import view.StudentsTab;
+import view.SubjectEditingDialog;
+import view.SubjectsTab;
 
 public class EditEntityAction extends AbstractAction {
 	public EditEntityAction() {
@@ -34,6 +36,20 @@ public class EditEntityAction extends AbstractAction {
 				/** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji.pdf) */
 				JOptionPane.showMessageDialog(MainFrame.getInstance(), 
 						"Da bi se mogla izvršiti izmena studenta, on mora biti odabran u "
+						+ "tabeli.", "Upozorenje", JOptionPane.WARNING_MESSAGE);
+			}
+		} else if (selectedTab instanceof SubjectsTab) {
+			int selectedRowIndex = MainFrame.getInstance().getTabbedPane().
+					getSubjectsTab().getSubjectsTable().getSelectedRow();
+			
+			if (selectedRowIndex >= 0) {
+				SubjectEditingDialog editingDialog = 
+						new SubjectEditingDialog(MainFrame.getInstance(), selectedRowIndex);
+				editingDialog.setVisible(true);
+			} else {
+				/** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji.pdf) */
+				JOptionPane.showMessageDialog(MainFrame.getInstance(), 
+						"Da bi se mogla izvršiti izmena predmeta, on mora biti odabran u "
 						+ "tabeli.", "Upozorenje", JOptionPane.WARNING_MESSAGE);
 			}
 		}
