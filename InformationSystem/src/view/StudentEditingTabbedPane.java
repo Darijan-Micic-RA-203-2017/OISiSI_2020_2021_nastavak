@@ -14,7 +14,7 @@ import model.StudentsCollection;
 public class StudentEditingTabbedPane extends JTabbedPane {
 	// Polja:
 	private StudentNonGradesDataPanel studentNonGradesDataPanel;
-	private JPanel passedSubjectsPanel;
+	private PassedSubjectsPanel passedSubjectsPanel;
 	private JPanel unpassedSubjectsPanel;
 	
 	// Konstruktor:
@@ -26,7 +26,7 @@ public class StudentEditingTabbedPane extends JTabbedPane {
 		JScrollPane nonGradesDataScrollPane = new JScrollPane(studentNonGradesDataPanel);
 		add("Informacije", nonGradesDataScrollPane);
 		
-		passedSubjectsPanel = new JPanel();
+		passedSubjectsPanel = new PassedSubjectsPanel();
 		add("Položeni", passedSubjectsPanel);
 		
 		unpassedSubjectsPanel = new JPanel();
