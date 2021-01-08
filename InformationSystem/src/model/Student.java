@@ -145,4 +145,24 @@ public class Student {
 	public void setNonPassedSubjects(ArrayList<Subject> nonPassedSubjects) {
 		this.nonPassedSubjects = nonPassedSubjects;
 	}
+	
+	public double calculateNewAverageGrade() {
+		int gradeValuesSum = 0;
+		for (Grade g : passedSubjects) {
+			gradeValuesSum += g.getValue();
+		}
+		
+		double newAverageGrade = gradeValuesSum * 1.0 / passedSubjects.size();
+		
+		return newAverageGrade;
+	}
+	
+	public int getTotalEspb() {
+		int totalEspb = 0;
+		for (Grade g : passedSubjects) {
+			totalEspb += g.getSubject().getEspb();
+		}
+		
+		return totalEspb;
+	}
 }

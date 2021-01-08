@@ -3,6 +3,7 @@ package application;
 import controller.ProfessorsController;
 import controller.StudentsController;
 import controller.SubjectsController;
+import model.GradesCollection;
 import model.ProfessorsCollection;
 import model.StudentsCollection;
 import model.SubjectsCollection;
@@ -15,6 +16,7 @@ public class App {
 		StudentsCollection.getInstance();
 		ProfessorsCollection.getInstance();
 		SubjectsCollection.getInstance();
+		GradesCollection.getInstance();
 		
 		StudentsController.getInstance();
 		ProfessorsController.getInstance();
