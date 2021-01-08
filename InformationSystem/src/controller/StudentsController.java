@@ -131,4 +131,8 @@ public class StudentsController {
 			MainFrame.getInstance().refreshView(null, -1);
 		}
 	}
+	
+	public void cancelGrade(String indexNumber, long cancelledGradeId) {
+		StudentsCollection.getInstance().cancelGrade(indexNumber, cancelledGradeId);
+	}
 }

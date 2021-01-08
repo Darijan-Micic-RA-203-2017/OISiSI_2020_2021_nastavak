@@ -88,4 +88,8 @@ public class SubjectsController {
 			MainFrame.getInstance().refreshView(null, -1);
 		}
 	}
+	
+	public void moveStudentToNonPassedList(String subjectId, String indexNumber) {
+		SubjectsCollection.getInstance().moveStudentToNonPassedList(subjectId, indexNumber);
+	}
 }
