@@ -142,6 +142,34 @@ public class StudentsCollection {
 		}
 	}
 	
+	public void cancelGrade(String indexNumber, long cancelledGradeId) {
+		Student student = findByIndexNumber(indexNumber);
+		
+		Subject nonPassedSubject = null;
+		for (Grade g : student.getPassedSubjects()) {
+			if (g.getId() == cancelledGradeId) {
+				student.getPassedSubjects().remove(g);
+				nonPassedSubject = g.getSubject();
+				break;
+			}
+		}
+		
+		student.getNonPassedSubjects().add(nonPassedSubject);
+	}
+	
+	public Student findByIndexNumber(String indexNumber) {
+		Student student = null;
+		
+		for (Student s : students) {
+			if (s.getIndexNumber().equals(indexNumber)) {
+				student = s;
+				break;
+			}
+		}
+		
+		return student;
+	}
+	
 	public boolean indexNumberExists(String indexNumber) {
 		boolean answer = false;
 		for (Student s : students) {

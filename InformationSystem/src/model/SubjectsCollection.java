@@ -108,6 +108,34 @@ public class SubjectsCollection {
 		}
 	}
 	
+	public void moveStudentToNonPassedList(String subjectId, String indexNumber) {
+		Subject subject = findById(subjectId);
+		
+		Student nonPassedStudent = null;
+		for (Student s : subject.getPassedSubject()) {
+			if (s.getIndexNumber().equals(indexNumber)) {
+				subject.getPassedSubject().remove(s);
+				nonPassedStudent = s;
+				break;
+			}
+		}
+		
+		subject.getFailedSubject().add(nonPassedStudent);
+	}
+	
+	public Subject findById(String id) {
+		Subject subject = null;
+		
+		for (Subject s : subjects) {
+			if (s.getId().equals(id)) {
+				subject = s;
+				break;
+			}
+		}
+		
+		return subject;
+	}
+	
 	public boolean idExists(String id) {
 		boolean answer = false;
 		for (Subject s : subjects) {
