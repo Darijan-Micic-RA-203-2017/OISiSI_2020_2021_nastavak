@@ -36,8 +36,16 @@ public class StudentEditingTabbedPane extends JTabbedPane {
 		add("Nepoloženi", unpassedSubjectsPanel);
 	}
 	
+	public Student getSelectedStudent() {
+		return selectedStudent;
+	}
+	
 	public StudentNonGradesDataPanel getStudentNonGradesDataPanel() {
 		return studentNonGradesDataPanel;
+	}
+	
+	public PassedSubjectsPanel getPassedSubjectsPanel() {
+		return passedSubjectsPanel;
 	}
 	
 	private void fillStudentNonGradesDataPanel() {

@@ -44,6 +44,14 @@ public class PassedSubjectsPanel extends JPanel {
 		add(passedSubjectsTableScrollPane, BorderLayout.CENTER);
 	}
 	
+	public JButton getGradeCancellationButton() {
+		return gradeCancellationButton;
+	}
+	
+	public PassedSubjectsTable getPassedSubjectsTable() {
+		return passedSubjectsTable;
+	}
+	
 	private void setUpUpperPanel() {
 		/** REFERENCA: Materijali za vežbe (v5 -> Termin5 - Layout.pdf) */
 		upperPanel = new JPanel();
@@ -51,6 +59,7 @@ public class PassedSubjectsPanel extends JPanel {
 		upperPanel.setLayout(upperPanelLayout);
 		
 		gradeCancellationButton = new JButton("Poništi ocenu");
+		gradeCancellationButton.setName("gradeCancellationButton");
 		
 		upperPanel.add(Box.createHorizontalStrut(5));
 		upperPanel.add(gradeCancellationButton);
@@ -72,14 +81,11 @@ public class PassedSubjectsPanel extends JPanel {
 		BoxLayout labelsPanelLayout = new BoxLayout(labelsPanel, BoxLayout.Y_AXIS);
 		labelsPanel.setLayout(labelsPanelLayout);
 		
-		double averageGrade = selectedStudent.getAverageGrade();
-		/** REFERENCA: https://java2blog.com/java-round-double-float-to-2-decimal-places/ */
-		String averageGradeInString = Double.toString(Math.round(averageGrade * 100.0) / 100.0);
-		averageGradeLabel = new JLabel("Prosečna ocena: " + averageGradeInString);
+		averageGradeLabel = new JLabel();
+		setAverageGradeLabelText();
 		
-		int totalEspb = selectedStudent.getTotalEspb();
-		String totalEspbInString = Integer.toString(totalEspb);
-		totalEspbLabel = new JLabel("Ukupno ESPB: " + totalEspbInString);
+		totalEspbLabel = new JLabel();
+		setTotalEspbLabelText();
 		
 		labelsPanel.add(averageGradeLabel);
 		labelsPanel.add(totalEspbLabel);
@@ -87,5 +93,19 @@ public class PassedSubjectsPanel extends JPanel {
 		bottomPanel.add(Box.createGlue());
 		bottomPanel.add(labelsPanel);
 		bottomPanel.add(Box.createHorizontalStrut(5));
+	}
+	
+	public void setAverageGradeLabelText() {
+		double newAverageGrade = selectedStudent.calculateNewAverageGrade();
+		selectedStudent.setAverageGrade(newAverageGrade);
+		/** REFERENCA: https://java2blog.com/java-round-double-float-to-2-decimal-places/ */
+		String averageGradeInString = Double.toString(Math.round(newAverageGrade * 100.0) / 100.0);
+		averageGradeLabel.setText("Prosečna ocena: " + averageGradeInString);
+	}
+	
+	public void setTotalEspbLabelText() {
+		int totalEspb = selectedStudent.getTotalEspb();
+		String totalEspbInString = Integer.toString(totalEspb);
+		totalEspbLabel.setText("Ukupno ESPB: " + totalEspbInString);
 	}
 }
