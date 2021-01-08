@@ -13,20 +13,23 @@ import model.StudentsCollection;
 
 public class StudentEditingTabbedPane extends JTabbedPane {
 	// Polja:
+	private Student selectedStudent;
 	private StudentNonGradesDataPanel studentNonGradesDataPanel;
 	private PassedSubjectsPanel passedSubjectsPanel;
 	private JPanel unpassedSubjectsPanel;
 	
 	// Konstruktor:
 	public StudentEditingTabbedPane(int selectedRowIndex, String typeOfParentDialog) {
+		selectedStudent = StudentsCollection.getInstance().getRow(selectedRowIndex);
+		
 		studentNonGradesDataPanel = 
 				new StudentNonGradesDataPanel(typeOfParentDialog, selectedRowIndex);
-		fillStudentNonGradesDataPanel(selectedRowIndex);
+		fillStudentNonGradesDataPanel();
 		
 		JScrollPane nonGradesDataScrollPane = new JScrollPane(studentNonGradesDataPanel);
 		add("Informacije", nonGradesDataScrollPane);
 		
-		passedSubjectsPanel = new PassedSubjectsPanel();
+		passedSubjectsPanel = new PassedSubjectsPanel(selectedStudent);
 		add("Položeni", passedSubjectsPanel);
 		
 		unpassedSubjectsPanel = new JPanel();
@@ -37,9 +40,7 @@ public class StudentEditingTabbedPane extends JTabbedPane {
 		return studentNonGradesDataPanel;
 	}
 	
-	private void fillStudentNonGradesDataPanel(int selectedRowIndex) {
-		Student selectedStudent = StudentsCollection.getInstance().getRow(selectedRowIndex);
-		
+	private void fillStudentNonGradesDataPanel() {
 		String firstName = selectedStudent.getFirstName();
 		studentNonGradesDataPanel.getFirstNameTextField().setText(firstName);
 		studentNonGradesDataPanel.getIncorrectFirstNameMessageLabel().setVisible(false);

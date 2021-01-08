@@ -28,6 +28,7 @@ public class GradesCollection {
 		columns = new ArrayList<String>();
 		columns.add("Šifra predmeta");
 		columns.add("Naziv predmeta");
+		columns.add("Broj indeksa studenta");
 		columns.add("ESPB");
 		columns.add("Ocena");
 		columns.add("Datum");
@@ -76,13 +77,32 @@ public class GradesCollection {
 			pE.printStackTrace();
 		}
 		
-		grades.add(new Grade(currentMaximumId, student1, subject1, value1, dateOfPassing1));
+		Grade grade1 = new Grade(currentMaximumId, student1, subject1, value1, dateOfPassing1);
+		grades.add(grade1);
+		student1.getPassedSubjects().add(grade1);
+		student1.setAverageGrade(student1.calculateNewAverageGrade());
+		subject1.getPassedSubject().add(student1);
 		currentMaximumId++;
-		grades.add(new Grade(currentMaximumId, student1, subject2, value2, dateOfPassing2));
+		
+		Grade grade2 = new Grade(currentMaximumId, student1, subject2, value2, dateOfPassing2);
+		grades.add(grade2);
+		student1.getPassedSubjects().add(grade2);
+		student1.setAverageGrade(student1.calculateNewAverageGrade());
+		subject2.getPassedSubject().add(student1);
 		currentMaximumId++;
-		grades.add(new Grade(currentMaximumId, student2, subject1, value1, dateOfPassing1));
+		
+		Grade grade3 = new Grade(currentMaximumId, student2, subject1, value1, dateOfPassing1);
+		grades.add(grade3);
+		student2.getPassedSubjects().add(grade3);
+		student2.setAverageGrade(student2.calculateNewAverageGrade());
+		subject1.getPassedSubject().add(student2);
 		currentMaximumId++;
-		grades.add(new Grade(currentMaximumId, student2, subject2, value2, dateOfPassing2));
+		
+		Grade grade4 = new Grade(currentMaximumId, student2, subject2, value2, dateOfPassing2);
+		grades.add(grade4);
+		student2.getPassedSubjects().add(grade4);
+		student2.setAverageGrade(student2.calculateNewAverageGrade());
+		subject2.getPassedSubject().add(student2);
 		currentMaximumId++;
 	}
 	
@@ -115,11 +135,13 @@ public class GradesCollection {
 		case 1:
 			return grade.getSubject().getName();
 		case 2:
-			return Integer.toString(grade.getSubject().getEspb());
+			return grade.getStudent().getIndexNumber();
 		case 3:
+			return Integer.toString(grade.getSubject().getEspb());
+		case 4:
 			return Integer.toString(grade.getValue());
 		/** REFERENCA: https://www.javatpoint.com/java-date-to-string */
-		case 4:
+		case 5:
 			Date dateOfPassing = grade.getDateOfPassing();
 			SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy.");
 			return sdf.format(dateOfPassing);
@@ -182,5 +204,17 @@ public class GradesCollection {
 		}
 		
 		return matchingIdFinding;
+	}
+	
+	public ArrayList<Grade> getGradesOfStudent(String indexNumber) {
+		ArrayList<Grade> gradesOfOneStudent = new ArrayList<Grade>();
+		
+		for (Grade g : grades) {
+			if (g.getStudent().getIndexNumber().equals(indexNumber)) {
+				gradesOfOneStudent.add(g);
+			}
+		}
+		
+		return gradesOfOneStudent;
 	}
 }
