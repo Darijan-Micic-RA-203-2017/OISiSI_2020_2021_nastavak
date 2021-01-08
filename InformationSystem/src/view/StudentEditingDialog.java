@@ -8,7 +8,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
+import controller.GradesController;
 import controller.StudentsController;
 
 public class StudentEditingDialog extends JDialog implements ActionListener {
@@ -34,15 +36,30 @@ public class StudentEditingDialog extends JDialog implements ActionListener {
 				studentEditingTabbedPane.getStudentNonGradesDataPanel().getConfirmationButton();
 		JButton cancellationButton = 
 				studentEditingTabbedPane.getStudentNonGradesDataPanel().getCancellationButton();
+		JButton gradeCancellationButton = studentEditingTabbedPane.getPassedSubjectsPanel().getGradeCancellationButton();
 		
 		confirmationButton.addActionListener(this);
 		cancellationButton.addActionListener(this);
+		gradeCancellationButton.addActionListener(this);
 		
 		add(studentEditingTabbedPane);
 	}
 	
 	public StudentEditingTabbedPane getStudentEditingTabbedPane() {
 		return studentEditingTabbedPane;
+	}
+	
+	public void refreshView(String action, int value) {
+		int selectedTabIndex = studentEditingTabbedPane.getSelectedIndex();
+		
+		if (selectedTabIndex == 1) {
+			AbstractPassedSubjectsTableModel passedSubjectsTableModel = 
+					(AbstractPassedSubjectsTableModel) studentEditingTabbedPane.
+							getPassedSubjectsPanel().getPassedSubjectsTable().getModel();
+			
+			passedSubjectsTableModel.fireTableDataChanged();
+			validate();
+		}
 	}
 	
 	/** REFERENCA: Materijali za vežbe (v4 -> a - Unutrasnje klase i dogadjaji -> Interfejsi i unutrasnje klase.pdf) */
@@ -52,13 +69,40 @@ public class StudentEditingDialog extends JDialog implements ActionListener {
 		
 		switch (clickedButton.getName()) {
 			case "confirmationButton":
-				int selectedRow = MainFrame.getInstance().getTabbedPane().getStudentsTab().
-						getStudentsTable().getSelectedRow();
-				StudentsController.getInstance().editStudentNonGradesData(selectedRow, this);
+				int selectedRowInStudentsTable = MainFrame.getInstance().getTabbedPane().
+						getStudentsTab().getStudentsTable().getSelectedRow();
+				StudentsController.getInstance().
+						editStudentNonGradesData(selectedRowInStudentsTable, this);
 				dispose();
 				break;
 			case "cancellationButton":
 				dispose();
+				break;
+			/** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji.pdf) */
+			/** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji -> listeners -> window -> MyWindowListener.java) */
+			case "gradeCancellationButton":
+				int selectedRowInPassedSubjectsTable = studentEditingTabbedPane.
+						getPassedSubjectsPanel().getPassedSubjectsTable().getSelectedRow();
+				
+				if (selectedRowInPassedSubjectsTable >= 0) {
+					int selectedOption = JOptionPane.showConfirmDialog(this, 
+							"Da li ste sigurni da želite da poništite ocenu?", 
+							"Poništavanje ocene", JOptionPane.YES_NO_OPTION);
+
+					if (selectedOption == JOptionPane.YES_OPTION) {
+						GradesController.getInstance().
+								cancelGrade(selectedRowInPassedSubjectsTable, this);
+
+						studentEditingTabbedPane.getPassedSubjectsPanel().setAverageGradeLabelText();
+						studentEditingTabbedPane.getPassedSubjectsPanel().setTotalEspbLabelText();
+					}
+				} else {
+					JOptionPane.showMessageDialog(this, "Da bi se moglo izvršiti "
+							+ "poništavanje ocene, ona mora biti odabrana u tabeli.", 
+							"Upozorenje", JOptionPane.WARNING_MESSAGE);
+				}
+				
+				break;
 		}
 	}
 }
