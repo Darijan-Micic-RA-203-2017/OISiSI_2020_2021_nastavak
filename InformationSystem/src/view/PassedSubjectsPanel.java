@@ -96,10 +96,9 @@ public class PassedSubjectsPanel extends JPanel {
 	}
 	
 	public void setAverageGradeLabelText() {
-		double newAverageGrade = selectedStudent.calculateNewAverageGrade();
-		selectedStudent.setAverageGrade(newAverageGrade);
+		double averageGrade = selectedStudent.getAverageGrade();
 		/** REFERENCA: https://java2blog.com/java-round-double-float-to-2-decimal-places/ */
-		String averageGradeInString = Double.toString(Math.round(newAverageGrade * 100.0) / 100.0);
+		String averageGradeInString = Double.toString(Math.round(averageGrade * 100.0) / 100.0);
 		averageGradeLabel.setText("Prosečna ocena: " + averageGradeInString);
 	}
 	

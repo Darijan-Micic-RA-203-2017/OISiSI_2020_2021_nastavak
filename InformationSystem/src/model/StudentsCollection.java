@@ -155,6 +155,9 @@ public class StudentsCollection {
 		}
 		
 		student.getNonPassedSubjects().add(nonPassedSubject);
+		
+		double newAverageGrade = student.calculateNewAverageGrade();
+		student.setAverageGrade(newAverageGrade);
 	}
 	
 	public Student findByIndexNumber(String indexNumber) {

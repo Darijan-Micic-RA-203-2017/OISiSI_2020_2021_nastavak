@@ -152,7 +152,10 @@ public class Student {
 			gradeValuesSum += g.getValue();
 		}
 		
-		double newAverageGrade = gradeValuesSum * 1.0 / passedSubjects.size();
+		double newAverageGrade = 0.0;
+		if (!passedSubjects.isEmpty()) {
+			newAverageGrade = gradeValuesSum * 1.0 / passedSubjects.size();
+		}
 		
 		return newAverageGrade;
 	}

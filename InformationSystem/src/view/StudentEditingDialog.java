@@ -49,6 +49,7 @@ public class StudentEditingDialog extends JDialog implements ActionListener {
 		return studentEditingTabbedPane;
 	}
 	
+	/** REFERENCA: Materijali za vežbe (v6 -> JTableMVCSimple -> view -> MainFrame.java) */
 	public void refreshView(String action, int value) {
 		int selectedTabIndex = studentEditingTabbedPane.getSelectedIndex();
 		
