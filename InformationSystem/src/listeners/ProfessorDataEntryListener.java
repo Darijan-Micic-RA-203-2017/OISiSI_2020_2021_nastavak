@@ -83,7 +83,7 @@ public class ProfessorDataEntryListener implements KeyListener  {
 		} else {
 			incorrectEmailAddressMessageLable.setVisible(false);
 		}
-		if(!Pattern.matches("[0-9]{8}", nationalIdTextField.getText())) {
+		if(!Pattern.matches("[0-9]{9}", nationalIdTextField.getText())) {
 			enteredDataValidity = false;
 			
 			incorrectNationalIdMessageLable.setVisible(true);
