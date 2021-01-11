@@ -85,6 +85,12 @@ public class MainFrame extends JFrame {
 			
 			professorsTableModel.fireTableDataChanged();
 			validate();
+		} else if(selectedTabIndex == 2) {
+			AbstractSubjectsTableModel subjectsTableModel =
+					(AbstractSubjectsTableModel) tabbedPane.getSubjectsTab().getSubjectsTable().getModel();
+			
+			subjectsTableModel.fireTableDataChanged();
+			validate();
 		}
 	}
 
