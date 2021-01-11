@@ -16,6 +16,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 
 import controller.AddEntityAction;
+import controller.EditEntityAction;
 
 
 public class ToolBar extends JToolBar implements ActionListener {
@@ -49,7 +50,9 @@ public class ToolBar extends JToolBar implements ActionListener {
 
 		String imagePath2 = getImagePath("edit-icon.png");
 		ImageIcon editToolBarIcon = ImageIconScaler.scaleImageIcon(imagePath2, 20, 20);
-		this.btnEdit = new JButton();
+		
+		EditEntityAction editEntityAction = new EditEntityAction();
+		this.btnEdit = new JButton(editEntityAction);
 		btnEdit.setToolTipText("Edit");
 		btnEdit.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		this.btnEdit.setIcon(editToolBarIcon);
@@ -102,10 +105,7 @@ public class ToolBar extends JToolBar implements ActionListener {
 	}
 	/** REFERENCA: https://www.youtube.com/watch?v=2KQ2ryPS4Kg */
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == btnEdit) {
-			JOptionPane.showMessageDialog(null, "Pritisnuli ste dugme Edit");
-		}
-		else if(e.getSource() == btnDelete) {
+		if(e.getSource() == btnDelete) {
 			JOptionPane.showMessageDialog(null, "Pritisnuli ste dugme Delete");
 		}
 		else if(e.getSource() == btnFind) {
