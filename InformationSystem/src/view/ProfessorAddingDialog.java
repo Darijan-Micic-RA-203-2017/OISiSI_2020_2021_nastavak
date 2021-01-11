@@ -355,7 +355,7 @@ public class ProfessorAddingDialog extends JDialog implements ActionListener {
 		
 		nationalIdTextField.addKeyListener(professorDataEntryListener);
 		
-		incorrectNationalIdMessageLabel = new JLabel("Broj lične karte mora imati 8 cifara!");
+		incorrectNationalIdMessageLabel = new JLabel("Broj lične karte mora imati 9 cifara!");
 		incorrectNationalIdMessageLabel.setForeground(Color.RED);
 		
 		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */

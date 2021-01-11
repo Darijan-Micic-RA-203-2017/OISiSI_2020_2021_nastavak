@@ -40,8 +40,7 @@ public class ProfessorsController {
 		String contactPhone = professorAddingDialog.getContactPhoneTextField().getText();
 		String emailAddress  = professorAddingDialog.getEmailAddressAddressTextField().getText();
 		String officeAddress = professorAddingDialog.getOfficeAddressTextField().getText();
-		String nationalIdStringRepresentation = professorAddingDialog.getNationalIdTextField().getText();
-		int nationalId = Integer.parseInt(nationalIdStringRepresentation);
+		String nationalId = professorAddingDialog.getNationalIdTextField().getText();
 		int titleComboBoxSelectedIndex = professorAddingDialog.getTitleComboBox().getSelectedIndex();
 		TitleOfProfessor title = null;
 		if(titleComboBoxSelectedIndex == 0) {

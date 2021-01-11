@@ -51,13 +51,13 @@ public class ProfessorsCollection {
 		}
 		professors.add(new Professor("Ban","Ivo", dateOfBirth1,
 				"Nikole Tesle 13,Zrenjanin","0642000163","ivoban@gmail.com",
-				"Slavka Rodića 25,Zrenjanin",80119700,TitleOfProfessor.BSC,CallingOfProfessor.VANREDNI_PROFESOR,new ArrayList<Subject>()));
+				"Slavka Rodića 25,Zrenjanin","080119700",TitleOfProfessor.BSC,CallingOfProfessor.VANREDNI_PROFESOR,new ArrayList<Subject>()));
 		professors.add(new Professor("Oroz","Savo", dateOfBirth2,
 				"Marije Bursać 43,Zrenjanin","0652060813","ssavo_oroz@gmail.com",
-				"Slavka Rodića 25,Zrenjanin",41119600,TitleOfProfessor.MSC,CallingOfProfessor.REDOVNI_PROFESOR,new ArrayList<Subject>()));
+				"Slavka Rodića 25,Zrenjanin","041119600",TitleOfProfessor.MSC,CallingOfProfessor.REDOVNI_PROFESOR,new ArrayList<Subject>()));
 		professors.add(new Professor("Kraljević","Ana",dateOfBirth3,
 				"Aradački atari BB,Zrenjanin","068783453","kraljvicana@gmail.com",
-				"Bulevar Evrope 46,Novi Sad",801970,TitleOfProfessor.DR,CallingOfProfessor.ASISTENT_SA_DOKTORATOM,new ArrayList<Subject>()));
+				"Bulevar Evrope 46,Novi Sad","101219870",TitleOfProfessor.DR,CallingOfProfessor.ASISTENT_SA_DOKTORATOM,new ArrayList<Subject>()));
 	}
 	
 	public ArrayList<Professor> getProfessors(){
@@ -99,13 +99,13 @@ public class ProfessorsCollection {
 	
 	public void addProfessor(String lastName, String firstName, Date dateOfBirth,
 			String residence, String contactPhone, String emailAddress, String officeAddress,
-			int id, TitleOfProfessor title, CallingOfProfessor calling) {
+			String id, TitleOfProfessor title, CallingOfProfessor calling) {
 		Professor newProfessor = new Professor(lastName, firstName, dateOfBirth, residence,
 				contactPhone, emailAddress, officeAddress, id, title, calling, new ArrayList<Subject>());
 		professors.add(newProfessor);
 	}
 	
-	public void deleteProfessor(int id) {
+	public void deleteProfessor(String id) {
 		for(Professor p : professors) {
 			if(p.getNationalID()==id) {
 				professors.remove(p);
@@ -115,7 +115,7 @@ public class ProfessorsCollection {
 	}
 	
 	public void modifyProfessor(String lastName, String firstName, Date dateOfBirth, String residence,
-			String contactPhone, String emailAddress, String officeAddress, int id, TitleOfProfessor title, CallingOfProfessor calling) {
+			String contactPhone, String emailAddress, String officeAddress, String id, TitleOfProfessor title, CallingOfProfessor calling) {
 		for(Professor p : professors) {
 			if(p.getNationalID() == id) {
 				p.setLastName(lastName);

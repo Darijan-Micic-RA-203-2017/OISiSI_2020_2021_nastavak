@@ -14,7 +14,7 @@ public class Professor {
 	private String contactPhone;
 	private String emailAddress;
 	private String officeAddress;
-	private int nationalID;
+	private String nationalID;
 	private TitleOfProfessor title;
 	private CallingOfProfessor calling;
 	private ArrayList<Subject> teachingSubjects;
@@ -22,7 +22,7 @@ public class Professor {
 	public Professor() {}
 	
 	public Professor(String lastName, String firstName, Date dateOfBirth, String residence, String contactPhone,
-			String emailAddress, String officeAddress, int nationalID, TitleOfProfessor title, CallingOfProfessor calling, ArrayList<Subject> teachingSubjects) {
+			String emailAddress, String officeAddress, String nationalID, TitleOfProfessor title, CallingOfProfessor calling, ArrayList<Subject> teachingSubjects) {
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.dateOfBirth = dateOfBirth;
@@ -92,11 +92,11 @@ public class Professor {
 		this.officeAddress = officeAddress;
 	}
 	
-	public int getNationalID() {
+	public String getNationalID() {
 		return this.nationalID;
 	}
 	
-	public void setNationalID(int nationalID) {
+	public void setNationalID(String nationalID) {
 		this.nationalID = nationalID;
 	}
 	
