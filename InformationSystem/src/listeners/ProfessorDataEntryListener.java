@@ -8,14 +8,14 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import view.ProfessorAddingDialog;
+import view.ProfessorNonSubjectsDataPanel;
 
 /** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji -> listeners -> key -> MyKeyListener.java) */
 public class ProfessorDataEntryListener implements KeyListener  {
-	private ProfessorAddingDialog professorAddingDialog;
+	private ProfessorNonSubjectsDataPanel professorNonSubjectsDataPanel;
 	
-	public ProfessorDataEntryListener(ProfessorAddingDialog dialog) {
-		professorAddingDialog = dialog;
+	public ProfessorDataEntryListener(ProfessorNonSubjectsDataPanel panel) {
+		professorNonSubjectsDataPanel = panel;
 	}
 	
 	@Override
@@ -26,25 +26,25 @@ public class ProfessorDataEntryListener implements KeyListener  {
 	public void keyReleased(KeyEvent arg0) {
 		boolean enteredDataValidity = true;
 		
-		JTextField firstNameTextField = professorAddingDialog.getFirstNameTextField();
-		JLabel incorrectFirstNameMessageLabel = professorAddingDialog.getIncorrectFirstNameMessageLabel();
+		JTextField firstNameTextField = professorNonSubjectsDataPanel.getFirstNameTextField();
+		JLabel incorrectFirstNameMessageLabel = professorNonSubjectsDataPanel.getIncorrectFirstNameMessageLabel();
 		
-		JTextField lastNameTextField = professorAddingDialog.getLastNameTextField();
-		JLabel incorrectLastNameMessageLabel = professorAddingDialog.getIncorrectLastNameMessageLabel();
+		JTextField lastNameTextField = professorNonSubjectsDataPanel.getLastNameTextField();
+		JLabel incorrectLastNameMessageLabel = professorNonSubjectsDataPanel.getIncorrectLastNameMessageLabel();
 		
-		JTextField dateOfBirthTextField = professorAddingDialog.getDateOfBirthMessageTextField();
-		JLabel incorrectDateOfBirthMessageLabel = professorAddingDialog.getIncorrectDateOfBirthMessageLabel();
+		JTextField dateOfBirthTextField = professorNonSubjectsDataPanel.getDateOfBirthMessageTextField();
+		JLabel incorrectDateOfBirthMessageLabel = professorNonSubjectsDataPanel.getIncorrectDateOfBirthMessageLabel();
 		
-		JTextField contactPhoneTextField = professorAddingDialog.getContactPhoneTextField();
-		JLabel incorrectContactPhoneMessageLabel = professorAddingDialog.getIncorrectContactPhoneMessageLabel();
+		JTextField contactPhoneTextField = professorNonSubjectsDataPanel.getContactPhoneTextField();
+		JLabel incorrectContactPhoneMessageLabel = professorNonSubjectsDataPanel.getIncorrectContactPhoneMessageLabel();
 		
-		JTextField emailAddressTextField = professorAddingDialog.getEmailAddressAddressTextField();
-		JLabel incorrectEmailAddressMessageLable = professorAddingDialog.getIncorrectEmailAddressMessaggeLabel();
+		JTextField emailAddressTextField = professorNonSubjectsDataPanel.getEmailAddressAddressTextField();
+		JLabel incorrectEmailAddressMessageLable = professorNonSubjectsDataPanel.getIncorrectEmailAddressMessaggeLabel();
 		
-		JTextField nationalIdTextField = professorAddingDialog.getNationalIdTextField();
-		JLabel incorrectNationalIdMessageLable = professorAddingDialog.getIncorrectNationalIdMessageLabel();
+		JTextField nationalIdTextField = professorNonSubjectsDataPanel.getNationalIdTextField();
+		JLabel incorrectNationalIdMessageLable = professorNonSubjectsDataPanel.getIncorrectNationalIdMessageLabel();
 		
-		JButton confirmationButton = professorAddingDialog.getConfirmationButton();
+		JButton confirmationButton = professorNonSubjectsDataPanel.getConfirmationButton();
 		
 		/** REFERENCA: https://stackoverflow.com/questions/10894122/java-regex-for-support-unicode */
 		if(!Pattern.matches("[A-Z\\p{L}][a-z\\p{L}]+([ -][A-Z\\p{L}][a-z\\p{L}]+)*", firstNameTextField.getText())) {

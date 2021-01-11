@@ -9,6 +9,7 @@ import model.CallingOfProfessor;
 import model.TitleOfProfessor;
 import view.MainFrame;
 import view.ProfessorAddingDialog;
+import view.ProfessorNonSubjectsDataPanel;
 
 /** REFERENCA: Materijali za vežbe (v6 -> JTableMVCSimple -> controller -> IgraciController.java) */
 public class ProfessorsController {
@@ -25,9 +26,11 @@ public class ProfessorsController {
 	private ProfessorsController() {}
 	
 	public void addProfessor(ProfessorAddingDialog professorAddingDialog) {
-		String lastName = professorAddingDialog.getLastNameTextField().getText();
-		String firstName = professorAddingDialog.getFirstNameTextField().getText();
-		String dateOfBirthStringRepresentation = professorAddingDialog.getDateOfBirthMessageTextField().getText();
+		ProfessorNonSubjectsDataPanel professorNonSubjectsDataPanel =
+				professorAddingDialog.getProfessorNonSubjectDataPanel();
+		String lastName = professorNonSubjectsDataPanel.getLastNameTextField().getText();
+		String firstName = professorNonSubjectsDataPanel.getFirstNameTextField().getText();
+		String dateOfBirthStringRepresentation = professorNonSubjectsDataPanel.getDateOfBirthMessageTextField().getText();
 		/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
 		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy.");
 		Date dateOfBirth = null;
@@ -36,12 +39,12 @@ public class ProfessorsController {
 		} catch(ParseException pE) {
 			pE.printStackTrace();
 		}
-		String residence = professorAddingDialog.getResidenceTextField().getText();
-		String contactPhone = professorAddingDialog.getContactPhoneTextField().getText();
-		String emailAddress  = professorAddingDialog.getEmailAddressAddressTextField().getText();
-		String officeAddress = professorAddingDialog.getOfficeAddressTextField().getText();
-		String nationalId = professorAddingDialog.getNationalIdTextField().getText();
-		int titleComboBoxSelectedIndex = professorAddingDialog.getTitleComboBox().getSelectedIndex();
+		String residence = professorNonSubjectsDataPanel.getResidenceTextField().getText();
+		String contactPhone = professorNonSubjectsDataPanel.getContactPhoneTextField().getText();
+		String emailAddress  = professorNonSubjectsDataPanel.getEmailAddressAddressTextField().getText();
+		String officeAddress = professorNonSubjectsDataPanel.getOfficeAddressTextField().getText();
+		String nationalId = professorNonSubjectsDataPanel.getNationalIdTextField().getText();
+		int titleComboBoxSelectedIndex = professorNonSubjectsDataPanel.getTitleComboBox().getSelectedIndex();
 		TitleOfProfessor title = null;
 		if(titleComboBoxSelectedIndex == 0) {
 			title = TitleOfProfessor.BSC;
@@ -54,7 +57,7 @@ public class ProfessorsController {
 		} else if(titleComboBoxSelectedIndex == 4) {
 			title = TitleOfProfessor.PROF_DR;
 		}
-		int callingComboBoxSelectedIndex = professorAddingDialog.getCallingComboBox().getSelectedIndex();
+		int callingComboBoxSelectedIndex = professorNonSubjectsDataPanel.getCallingComboBox().getSelectedIndex();
 		CallingOfProfessor calling = null;
 		if(callingComboBoxSelectedIndex == 0) {
 			calling = CallingOfProfessor.SARADNIK_U_NASTAVI;
