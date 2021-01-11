@@ -46,15 +46,8 @@ public class Subject {
 		this.name = name;
 	}
 	
-	public String getSemester() {
-		switch(this.semester) {
-		case LETNJI:
-			return "letnji";
-		case ZIMSKI:
-			return "zimski";
-		default:
-			return null;
-		}
+	public SemesterOfSubject getSemester() {
+		return this.semester;
 	}
 	
 	public void setSemester(SemesterOfSubject semester) {

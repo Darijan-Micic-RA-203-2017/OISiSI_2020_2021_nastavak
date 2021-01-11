@@ -67,7 +67,7 @@ public class SubjectEditingDialog extends JDialog implements ActionListener {
 		int yearOfStudy = selectedSubject.getYearOfStudy();
 		subjectNonStudentsDataPanel.getYearOfStudyComboBox().setSelectedIndex(yearOfStudy - 1);
 		
-		String semester = selectedSubject.getSemester();
+		String semester = selectedSubject.getSemester().toString();
 		if (semester.equals("letnji")) {
 			subjectNonStudentsDataPanel.getSemesterComboBox().setSelectedIndex(0);
 		} else {

@@ -71,7 +71,7 @@ public class SubjectsCollection {
 		case 3:
 			return String.valueOf(subject.getYearOfStudy());
 		case 4:
-			return subject.getSemester();
+			return subject.getSemester().toString();
 		default:
 			return null;
 		}
