@@ -89,9 +89,9 @@ public class ProfessorsCollection {
 		case 1:
 			return professor.getLastName();
 		case 2:
-			return professor.getTitle();
+			return professor.getTitle().toString();
 		case 3:
-			return professor.getCalling();
+			return professor.getCalling().toString();
 		default:
 			return null;
 		}

@@ -100,47 +100,16 @@ public class Professor {
 		this.nationalID = nationalID;
 	}
 	
-	public String getTitle() {
-		switch(this.title){
-		case BSC:
-			return "BSc";
-		case MSC:
-			return "MSc";
-		case MR:
-			return "mr";
-		case DR:
-			return "dr";
-		case PROF_DR:
-			return "prof. dr";
-		default:
-			return null;
-		}
+	public TitleOfProfessor getTitle() {
+		return this.title;
 	}
 	
 	public void setTitle(TitleOfProfessor title) {
 		this.title = title;
 	}
 	
-	public String getCalling() {
-		switch(this.calling) {
-		case SARADNIK_U_NASTAVI:
-			return "saradnik u nastavi";
-		case ASISTENT:
-			return "asistent";
-		case ASISTENT_SA_DOKTORATOM:
-			return "asistent sa doktoratom";
-		case DOCENT:
-			return "docent";
-		case VANREDNI_PROFESOR:
-			return "vanredni profesor";
-		case REDOVNI_PROFESOR:
-			return "redovni profesor";
-		case PROFESOR_EMERITUS:
-			return "profesor emeritus";
-		default:
-			return null;
-		
-		}
+	public CallingOfProfessor getCalling() {
+		return this.calling;
 	}
 	
 	public void setCalling(CallingOfProfessor calling) {
