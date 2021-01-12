@@ -13,7 +13,7 @@ import javax.swing.JScrollPane;
 import controller.ProfessorsController;
 
 public class ProfessorAddingDialog extends JDialog implements ActionListener {
-	
+	private boolean nationalIdUniquenessNeed;
 	private ProfessorNonSubjectsDataPanel professorNonSubjectsDataPanel;
 	private JScrollPane scrollPane;
 	
@@ -26,7 +26,8 @@ public class ProfessorAddingDialog extends JDialog implements ActionListener {
 		setResizable(false);
 		setLocationRelativeTo(parent);
 		
-		professorNonSubjectsDataPanel = new ProfessorNonSubjectsDataPanel();
+		nationalIdUniquenessNeed = true;
+		professorNonSubjectsDataPanel = new ProfessorNonSubjectsDataPanel(nationalIdUniquenessNeed);
 		
 		JButton confirmationButton = professorNonSubjectsDataPanel.getConfirmationButton();
 		confirmationButton.setEnabled(false);
