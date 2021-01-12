@@ -14,7 +14,6 @@ public class Subject {
 	private int espb;
 	private ArrayList<Student> passedSubject;
 	private ArrayList<Student> failedSubject;
-	private Student student;
 	
 	
 	public Subject() {}
@@ -95,11 +94,4 @@ public class Subject {
 		this.failedSubject = failedSubject;
 	}
 	
-	public Student getStudent() {
-		return this.student;
-	}
-	
-	public void setStudent(Student student) {
-		this.student = student;
-	}
 }
