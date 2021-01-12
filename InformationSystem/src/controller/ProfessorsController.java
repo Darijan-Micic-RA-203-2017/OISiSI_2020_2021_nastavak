@@ -10,6 +10,7 @@ import model.TitleOfProfessor;
 import view.MainFrame;
 import view.ProfessorAddingDialog;
 import view.ProfessorNonSubjectsDataPanel;
+import view.ProfessorEditingDialog;
 
 /** REFERENCA: Materijali za vežbe (v6 -> JTableMVCSimple -> controller -> IgraciController.java) */
 public class ProfessorsController {
@@ -89,22 +90,67 @@ public class ProfessorsController {
 		}
 	}
 		
-	public void modifyProfessor(int rowSelectedIndex) {
+	public void editProfessorNonSubjectsData(int rowSelectedIndex,
+			ProfessorEditingDialog professorEditingDialog) {
 		if(rowSelectedIndex >= 0) {
 			Professor professor = ProfessorsCollection.getInstance().getRow(rowSelectedIndex);
-			/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy.");
 			
-			String modifiedDateOfBirthStringRepresentation = "07.07.1977.";
-			Date modifiedDateOfBirth = null;
+			ProfessorNonSubjectsDataPanel professorNonSubjectsDataPanel = professorEditingDialog.
+					getProfessorEditingTabbedPane().getProfessorNonSubjectsDataPanel();
+			
+			String lastName = professorNonSubjectsDataPanel.getLastNameTextField().getText();
+			String firstName = professorNonSubjectsDataPanel.getFirstNameTextField().getText();
+			String dateOfBirthStringRepresentation = 
+					professorNonSubjectsDataPanel.getDateOfBirthMessageTextField().getText();
+			/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
+			SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy.");
+			Date dateOfBirth = null;
 			try {
-				modifiedDateOfBirth = simpleDateFormat.parse(modifiedDateOfBirthStringRepresentation);
+				dateOfBirth = sdf.parse(dateOfBirthStringRepresentation);
 			} catch (ParseException pE) {
 				pE.printStackTrace();
 			}
-			
-			ProfessorsCollection.getInstance().modifyProfessor("Jeremić", "Nikola", modifiedDateOfBirth, "Bulevar Oslobođenja 67, Novi Sad",
-					"06398098765", "jereminn@gmail.com", "Teodora Mandića 21, Novi Sad", professor.getNationalID(), TitleOfProfessor.DR, CallingOfProfessor.SARADNIK_U_NASTAVI);
+			String residence = professorNonSubjectsDataPanel.getResidenceTextField().getText();
+			String contactPhone = professorNonSubjectsDataPanel.getContactPhoneTextField().getText();
+			String emailAddress = professorNonSubjectsDataPanel.getEmailAddressAddressTextField().getText();
+			String officeAddress = professorNonSubjectsDataPanel.getOfficeAddressTextField().getText();
+			String newNationalId = professorNonSubjectsDataPanel.getNationalIdTextField().getText();
+			int titleComboBoxSelected = 
+					professorNonSubjectsDataPanel.getTitleComboBox().getSelectedIndex();
+			TitleOfProfessor title = null;
+			if(titleComboBoxSelected == 0) {
+				title = TitleOfProfessor.BSC;
+			} else if(titleComboBoxSelected == 1) {
+				title = TitleOfProfessor.MSC;
+			} else if(titleComboBoxSelected == 2) {
+				title = TitleOfProfessor.MR;
+			} else if(titleComboBoxSelected == 3) {
+				title = TitleOfProfessor.DR;
+			} else {
+				title = TitleOfProfessor.PROF_DR;
+			}
+			int callingComboBoxSelected =
+					professorNonSubjectsDataPanel.getCallingComboBox().getSelectedIndex();
+			CallingOfProfessor calling = null;
+			if(callingComboBoxSelected == 0) {
+				calling = CallingOfProfessor.SARADNIK_U_NASTAVI;
+			} else if(callingComboBoxSelected == 1) {
+				calling = CallingOfProfessor.ASISTENT;
+			} else if(callingComboBoxSelected == 2) {
+				calling = CallingOfProfessor.ASISTENT_SA_DOKTORATOM;
+			} else if(callingComboBoxSelected == 3) {
+				calling = CallingOfProfessor.DOCENT;
+			} else if(callingComboBoxSelected == 4) {
+				calling = CallingOfProfessor.VANREDNI_PROFESOR;
+			} else if(callingComboBoxSelected == 5) {
+				calling = CallingOfProfessor.REDOVNI_PROFESOR;
+			} else {
+				calling = CallingOfProfessor.PROFESOR_EMERITUS;
+			}
+			String oldNationalId = professor.getNationalID();
+			ProfessorsCollection.getInstance().editProfessorNonSubjectsData(oldNationalId, lastName,
+					firstName, dateOfBirth, residence, contactPhone, emailAddress, officeAddress,
+					newNationalId, title, calling);
 			
 			MainFrame.getInstance().refreshView(null, -1);
 		}

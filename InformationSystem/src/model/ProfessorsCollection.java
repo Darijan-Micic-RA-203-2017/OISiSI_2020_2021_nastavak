@@ -114,10 +114,11 @@ public class ProfessorsCollection {
 		}
 	}
 	
-	public void modifyProfessor(String lastName, String firstName, Date dateOfBirth, String residence,
-			String contactPhone, String emailAddress, String officeAddress, String id, TitleOfProfessor title, CallingOfProfessor calling) {
+	public void editProfessorNonSubjectsData(String oldNationalId, String lastName, String firstName,
+			Date dateOfBirth, String residence, String contactPhone, String emailAddress, 
+			String officeAddress, String newNationalId, TitleOfProfessor title, CallingOfProfessor calling) {
 		for(Professor p : professors) {
-			if(p.getNationalID() == id) {
+			if(p.getNationalID().equals(oldNationalId)) {
 				p.setLastName(lastName);
 				p.setFirstName(firstName);
 				p.setDateOfBirth(dateOfBirth);
@@ -125,7 +126,7 @@ public class ProfessorsCollection {
 				p.setContactPhone(contactPhone);
 				p.setEmailAddress(emailAddress);
 				p.setOfficeAddress(officeAddress);
-				p.setNationalID(id);
+				p.setNationalID(newNationalId);
 				p.setTitle(title);
 				p.setCalling(calling);
 				break;
