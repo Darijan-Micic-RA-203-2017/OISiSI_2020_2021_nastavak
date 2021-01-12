@@ -145,6 +145,20 @@ public class ProfessorsCollection {
 		return answer;
 	}
 	
+	public boolean editedNationalIdMatchesWithExistingNationalId(String currentNationalId,
+			String editedNationalId) {
+		boolean matchingNationalIdFinding = false;
+		for(Professor p : professors) {
+			if(!p.getNationalID().equals(currentNationalId)) {
+				if(p.getNationalID().equals(editedNationalId)) {
+					matchingNationalIdFinding = true;
+					break;
+				}
+			}
+		}
+		return matchingNationalIdFinding;
+	}
+	
 	
 	
 	

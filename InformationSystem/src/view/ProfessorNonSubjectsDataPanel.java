@@ -52,8 +52,9 @@ public class ProfessorNonSubjectsDataPanel extends JPanel {
 	private JButton confirmationButton;
 	private JButton cancellationButton;
 	
-	public ProfessorNonSubjectsDataPanel(boolean nationalIdUniquenessNeed) {
-		professorDataEntryListener = new ProfessorDataEntryListener(this, nationalIdUniquenessNeed);
+	public ProfessorNonSubjectsDataPanel(String typeOfParentDialog, int selectedRowIndex) {
+		professorDataEntryListener = 
+				new ProfessorDataEntryListener(this, typeOfParentDialog, selectedRowIndex);
 		
 		BorderLayout layout = new BorderLayout(0, 10);
 		setLayout(layout);

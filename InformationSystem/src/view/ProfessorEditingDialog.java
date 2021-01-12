@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import controller.ProfessorsController;
 
 public class ProfessorEditingDialog extends JDialog implements ActionListener {
-	private boolean nationalIdUniquenessNeed;
+	private String typeOfDialog;
 	private ProfessorEditingTabbedPane professorEditingTabbedPane;
 	
 	public ProfessorEditingDialog(JFrame parent, int selectedRowIndex) {
@@ -24,9 +24,10 @@ public class ProfessorEditingDialog extends JDialog implements ActionListener {
 		setResizable(false);
 		setLocationRelativeTo(parent);
 		
-		nationalIdUniquenessNeed = false;
-		professorEditingTabbedPane = 
-				new ProfessorEditingTabbedPane(selectedRowIndex, nationalIdUniquenessNeed);
+		typeOfDialog = "ProfessorEditingDialog";
+		professorEditingTabbedPane =
+				
+				new ProfessorEditingTabbedPane(selectedRowIndex, typeOfDialog);
 		
 		JButton confirmationButton =
 				professorEditingTabbedPane.getProfessorNonSubjectsDataPanel().getConfirmationButton();

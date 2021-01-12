@@ -8,18 +8,21 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import model.Professor;
 import model.ProfessorsCollection;
 import view.ProfessorNonSubjectsDataPanel;
 
 /** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji -> listeners -> key -> MyKeyListener.java) */
 public class ProfessorDataEntryListener implements KeyListener  {
 	private ProfessorNonSubjectsDataPanel professorNonSubjectsDataPanel;
-	private boolean nationalIdUniquenessNeed;
+	private String typeOfParentDialog;
+	private int selectedRowIndex;
 	
-	public ProfessorDataEntryListener(ProfessorNonSubjectsDataPanel panel,
-			boolean nationalIdUniquenessNeed) {
+	public ProfessorDataEntryListener(ProfessorNonSubjectsDataPanel panel, String typeOfParentDialog,
+			int selectedRowIndex) {
 		professorNonSubjectsDataPanel = panel;
-		this.nationalIdUniquenessNeed = nationalIdUniquenessNeed;
+		this.typeOfParentDialog = typeOfParentDialog;
+		this.selectedRowIndex = selectedRowIndex;
 	}
 	
 	@Override
@@ -28,6 +31,9 @@ public class ProfessorDataEntryListener implements KeyListener  {
 	/** REFERENCA: https://www.javatpoint.com/java-regex */
 	@Override
 	public void keyReleased(KeyEvent arg0) {
+		JButton confirmationButton = professorNonSubjectsDataPanel.getConfirmationButton();
+		confirmationButton.setEnabled(false);
+		
 		boolean enteredDataValidity = true;
 		
 		JTextField firstNameTextField = professorNonSubjectsDataPanel.getFirstNameTextField();
@@ -48,8 +54,6 @@ public class ProfessorDataEntryListener implements KeyListener  {
 		JTextField nationalIdTextField = professorNonSubjectsDataPanel.getNationalIdTextField();
 		JLabel incorrectNationalIdMessageLable = professorNonSubjectsDataPanel.getIncorrectNationalIdMessageLabel();
 		JLabel existingNationalIdMessageLable = professorNonSubjectsDataPanel.getExistingNationalIdMessageLabel();
-		
-		JButton confirmationButton = professorNonSubjectsDataPanel.getConfirmationButton();
 		
 		/** REFERENCA: https://stackoverflow.com/questions/10894122/java-regex-for-support-unicode */
 		if(!Pattern.matches("[A-Z\\p{L}][a-z\\p{L}]+([ -][A-Z\\p{L}][a-z\\p{L}]+)*", firstNameTextField.getText())) {
@@ -95,7 +99,7 @@ public class ProfessorDataEntryListener implements KeyListener  {
 			incorrectNationalIdMessageLable.setVisible(true);
 			existingNationalIdMessageLable.setVisible(false);
 		} else {
-			if(nationalIdUniquenessNeed) {
+			if(typeOfParentDialog.equals("ProfessorAddingDialog")) {
 				if(ProfessorsCollection.getInstance().nationalIdExists(enteredNationalId)) {
 					enteredDataValidity = false;
 					
@@ -106,15 +110,24 @@ public class ProfessorDataEntryListener implements KeyListener  {
 					existingNationalIdMessageLable.setVisible(false);
 				}
 			} else {
-				incorrectNationalIdMessageLable.setVisible(false);
-				existingNationalIdMessageLable.setVisible(false);
+				Professor selectedProfessor = ProfessorsCollection.getInstance().getRow(selectedRowIndex);
+				String currentNationalId = selectedProfessor.getNationalID();
+				if(ProfessorsCollection.getInstance().
+						editedNationalIdMatchesWithExistingNationalId(currentNationalId,
+								enteredNationalId)){
+					enteredDataValidity = false;
+					
+					incorrectNationalIdMessageLable.setVisible(false);
+					existingNationalIdMessageLable.setVisible(true);
+				} else {
+					incorrectNationalIdMessageLable.setVisible(false);
+					existingNationalIdMessageLable.setVisible(false);
+				}
 			}
 			
 		}
 		if(enteredDataValidity) {
 			confirmationButton.setEnabled(true);
-		} else {
-			confirmationButton.setEnabled(false);
 		}
 	}
 	@Override
