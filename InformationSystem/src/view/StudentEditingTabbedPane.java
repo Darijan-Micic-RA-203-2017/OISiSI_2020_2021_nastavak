@@ -1,97 +1,109 @@
 package view;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
-import model.StatusOfStudent;
-import model.Student;
-import model.StudentsCollection;
+import controller.GradesController;
+import controller.StudentsController;
 
-public class StudentEditingTabbedPane extends JTabbedPane {
+public class StudentEditingDialog extends JDialog implements ActionListener {
 	// Polja:
-	private Student selectedStudent;
-	private StudentNonGradesDataPanel studentNonGradesDataPanel;
-	private PassedSubjectsPanel passedSubjectsPanel;
-	private JPanel unpassedSubjectsPanel;
+	private String typeOfDialog;
+	private StudentEditingTabbedPane studentEditingTabbedPane;
 	
 	// Konstruktor:
-	public StudentEditingTabbedPane(int selectedRowIndex, String typeOfParentDialog) {
-		selectedStudent = StudentsCollection.getInstance().getRow(selectedRowIndex);
+	public StudentEditingDialog(JFrame parent, int selectedRowIndex) {
+		super(parent, "Izmena studenta", true);
 		
-		studentNonGradesDataPanel = 
-				new StudentNonGradesDataPanel(typeOfParentDialog, selectedRowIndex);
-		fillStudentNonGradesDataPanel();
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		Dimension screenSize = toolkit.getScreenSize();
+		setSize(screenSize.width * 3 / 8, screenSize.height * 29 / 40);
+		setResizable(false);
+		setLocationRelativeTo(parent);
 		
-		JScrollPane nonGradesDataScrollPane = new JScrollPane(studentNonGradesDataPanel);
-		add("Informacije", nonGradesDataScrollPane);
+		typeOfDialog = "StudentEditingDialog";
+		studentEditingTabbedPane = 
+				new StudentEditingTabbedPane(selectedRowIndex, typeOfDialog);
 		
-		passedSubjectsPanel = new PassedSubjectsPanel(selectedStudent);
-		add("Položeni", passedSubjectsPanel);
+		JButton confirmationButton = 
+				studentEditingTabbedPane.getStudentNonGradesDataPanel().getConfirmationButton();
+		JButton cancellationButton = 
+				studentEditingTabbedPane.getStudentNonGradesDataPanel().getCancellationButton();
+		JButton gradeCancellationButton = studentEditingTabbedPane.getPassedSubjectsPanel().getGradeCancellationButton();
 		
-		unpassedSubjectsPanel = new JPanel();
-		add("Nepoloženi", unpassedSubjectsPanel);
+		confirmationButton.addActionListener(this);
+		cancellationButton.addActionListener(this);
+		gradeCancellationButton.addActionListener(this);
+		
+		add(studentEditingTabbedPane);
 	}
 	
-	public Student getSelectedStudent() {
-		return selectedStudent;
+	public StudentEditingTabbedPane getStudentEditingTabbedPane() {
+		return studentEditingTabbedPane;
 	}
 	
-	public StudentNonGradesDataPanel getStudentNonGradesDataPanel() {
-		return studentNonGradesDataPanel;
+	/** REFERENCA: Materijali za vežbe (v6 -> JTableMVCSimple -> view -> MainFrame.java) */
+	public void refreshView(String action, int value) {
+		int selectedTabIndex = studentEditingTabbedPane.getSelectedIndex();
+		
+		if (selectedTabIndex == 1) {
+			AbstractPassedSubjectsTableModel passedSubjectsTableModel = 
+					(AbstractPassedSubjectsTableModel) studentEditingTabbedPane.
+							getPassedSubjectsPanel().getPassedSubjectsTable().getModel();
+			
+			passedSubjectsTableModel.fireTableDataChanged();
+			validate();
+		}
 	}
 	
-	public PassedSubjectsPanel getPassedSubjectsPanel() {
-		return passedSubjectsPanel;
-	}
-	
-	private void fillStudentNonGradesDataPanel() {
-		String firstName = selectedStudent.getFirstName();
-		studentNonGradesDataPanel.getFirstNameTextField().setText(firstName);
-		studentNonGradesDataPanel.getIncorrectFirstNameMessageLabel().setVisible(false);
+	/** REFERENCA: Materijali za vežbe (v4 -> a - Unutrasnje klase i dogadjaji -> Interfejsi i unutrasnje klase.pdf) */
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		JButton clickedButton = (JButton) e.getSource();
 		
-		String lastName = selectedStudent.getLastName();
-		studentNonGradesDataPanel.getLastNameTextField().setText(lastName);
-		studentNonGradesDataPanel.getIncorrectLastNameMessageLabel().setVisible(false);
-		
-		/** REFERENCA: https://www.javatpoint.com/java-date-to-string */
-		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy.");
-		Date dateOfBirth = selectedStudent.getDateOfBirth();
-		String dateOfBirthInString = sdf.format(dateOfBirth);
-		studentNonGradesDataPanel.getDateOfBirthTextField().setText(dateOfBirthInString);
-		studentNonGradesDataPanel.getIncorrectDateOfBirthMessageLabel().setVisible(false);
-		
-		String residence = selectedStudent.getResidence();
-		studentNonGradesDataPanel.getAddressTextField().setText(residence);
-		
-		String contactPhone = selectedStudent.getContactPhone();
-		studentNonGradesDataPanel.getContactPhoneTextField().setText(contactPhone);
-		studentNonGradesDataPanel.getIncorrectContactPhoneMessageLabel().setVisible(false);
-		
-		String emailAddress = selectedStudent.getEmailAddress();
-		studentNonGradesDataPanel.getEmailAddressTextField().setText(emailAddress);
-		studentNonGradesDataPanel.getIncorrectEmailAddressMessageLabel().setVisible(false);
-		
-		String indexNumber = selectedStudent.getIndexNumber();
-		studentNonGradesDataPanel.getIndexNumberTextField().setText(indexNumber);
-		studentNonGradesDataPanel.getIncorrectIndexNumberMessageLabel().setVisible(false);
-		
-		int yearOfEnrollment = selectedStudent.getYearOfEnrollment();
-		String yearOfEnrollmentInString = Integer.toString(yearOfEnrollment);
-		studentNonGradesDataPanel.getYearOfEnrollmentTextField().setText(yearOfEnrollmentInString);
-		studentNonGradesDataPanel.getIncorrectYearOfEnrollmentMessageLabel().setVisible(false);
-		
-		int currentYearOfStudy = selectedStudent.getCurrentYearOfStudy();
-		studentNonGradesDataPanel.getCurrentYearOfStudyComboBox().setSelectedIndex(currentYearOfStudy - 1);
-		
-		StatusOfStudent statusOfStudent = selectedStudent.getStatusOfStudent();
-		if (statusOfStudent == StatusOfStudent.B) {
-			studentNonGradesDataPanel.getStatusOfStudentComboBox().setSelectedIndex(0);
-		} else {
-			studentNonGradesDataPanel.getStatusOfStudentComboBox().setSelectedIndex(1);
+		switch (clickedButton.getName()) {
+			case "confirmationButton":
+				int selectedRowInStudentsTable = MainFrame.getInstance().getTabbedPane().
+						getStudentsTab().getStudentsTable().getSelectedRow();
+				StudentsController.getInstance().
+						editStudentNonGradesData(selectedRowInStudentsTable, this);
+				dispose();
+				break;
+			case "cancellationButton":
+				dispose();
+				break;
+			/** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji.pdf) */
+			/** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji -> listeners -> window -> MyWindowListener.java) */
+			case "gradeCancellationButton":
+				int selectedRowInPassedSubjectsTable = studentEditingTabbedPane.
+						getPassedSubjectsPanel().getPassedSubjectsTable().getSelectedRow();
+				
+				if (selectedRowInPassedSubjectsTable >= 0) {
+					int selectedOption = JOptionPane.showConfirmDialog(this, 
+							"Da li ste sigurni da želite da poništite ocenu?", 
+							"Poništavanje ocene", JOptionPane.YES_NO_OPTION);
+
+					if (selectedOption == JOptionPane.YES_OPTION) {
+						GradesController.getInstance().
+								cancelGrade(selectedRowInPassedSubjectsTable, this);
+
+						studentEditingTabbedPane.getPassedSubjectsPanel().setAverageGradeLabelText();
+						studentEditingTabbedPane.getPassedSubjectsPanel().setTotalEspbLabelText();
+					}
+				} else {
+					JOptionPane.showMessageDialog(this, "Da bi se moglo izvršiti "
+							+ "poništavanje ocene, ona mora biti odabrana u tabeli.", 
+							"Upozorenje", JOptionPane.WARNING_MESSAGE);
+				}
+				
+				break;
 		}
 	}
 }
