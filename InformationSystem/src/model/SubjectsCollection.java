@@ -86,7 +86,7 @@ public class SubjectsCollection {
 	
 	public void deleteSubject(String id) {
 		for(Subject s : subjects) {
-			if(s.getId()==id) {
+			if(s.getId().equals(id)) {
 				subjects.remove(s);
 				break;
 			}
@@ -160,5 +160,16 @@ public class SubjectsCollection {
 		}
 		
 		return matchingIdFinding;
+	}
+	
+	public ArrayList<Subject> getFailedSubjectsOfStudent(String indexNumber){
+		ArrayList<Subject> failedSubjectsOfOneStudent = new ArrayList<Subject>();
+		
+		for(Subject s : subjects) {
+			if(s.getStudent().getIndexNumber().equals(indexNumber)) {
+				failedSubjectsOfOneStudent.add(s);
+			}
+		}
+		return failedSubjectsOfOneStudent;
 	}
 }

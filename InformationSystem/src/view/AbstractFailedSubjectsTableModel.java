@@ -1,6 +1,5 @@
 package view;
 
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -51,7 +50,7 @@ public class AbstractFailedSubjectsTableModel extends AbstractTableModel {
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		ArrayList<Subject> studentSubjects =
-				SubjectsCollection.getInstance().getSubjectsOfStudent(indexNumber);
+				SubjectsCollection.getInstance().getFailedSubjectsOfStudent(indexNumber);
 		
 		Subject row = studentSubjects.get(rowIndex);
 		
