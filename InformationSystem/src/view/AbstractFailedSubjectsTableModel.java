@@ -6,6 +6,8 @@ import java.util.Date;
 
 import javax.swing.table.AbstractTableModel;
 
+import model.Student;
+import model.StudentsCollection;
 import model.Subject;
 import model.SubjectsCollection;
 
@@ -33,12 +35,13 @@ public class AbstractFailedSubjectsTableModel extends AbstractTableModel {
 	@Override
 	public int getRowCount() {
 		int rowCount = 0;
-		for (Subject s : SubjectsCollection.getInstance().getSubjects()) {
-			if (s.getStudent().getIndexNumber().equals(indexNumber)) {
-				rowCount++;
+		for(Subject s : SubjectsCollection.getInstance().getSubjects()) {
+			for(Student s1 : s.getFailedSubject()) {
+				if(s1.getIndexNumber().equals(indexNumber)) {
+					rowCount++;
+				}
 			}
 		}
-		
 		return rowCount;
 	}
 	

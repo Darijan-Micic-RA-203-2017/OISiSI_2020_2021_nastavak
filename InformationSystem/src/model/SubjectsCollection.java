@@ -166,8 +166,10 @@ public class SubjectsCollection {
 		ArrayList<Subject> failedSubjectsOfOneStudent = new ArrayList<Subject>();
 		
 		for(Subject s : subjects) {
-			if(s.getStudent().getIndexNumber().equals(indexNumber)) {
-				failedSubjectsOfOneStudent.add(s);
+			for(Student s1 : s.getFailedSubject()) {
+				if(s1.getIndexNumber().equals(indexNumber)) {
+					failedSubjectsOfOneStudent.add(s);
+				}
 			}
 		}
 		return failedSubjectsOfOneStudent;
