@@ -16,8 +16,8 @@ public class ProfessorEditingTabbedPane extends JTabbedPane {
 	private ProfessorNonSubjectsDataPanel professorsNonSubjectsDataPanel;
 	private JPanel teachingSubjects;
 	
-	public ProfessorEditingTabbedPane(int selectedRowIndex) {
-		professorsNonSubjectsDataPanel = new ProfessorNonSubjectsDataPanel();
+	public ProfessorEditingTabbedPane(int selectedRowIndex, boolean nationalIdUniquenessNeed) {
+		professorsNonSubjectsDataPanel = new ProfessorNonSubjectsDataPanel(nationalIdUniquenessNeed);
 		fillProfessorNonSubjectsDataPanel(selectedRowIndex);
 		
 		JScrollPane nonSubjectsDataScrollPane = new JScrollPane(professorsNonSubjectsDataPanel);
