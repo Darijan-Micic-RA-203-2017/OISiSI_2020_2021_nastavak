@@ -42,6 +42,7 @@ public class ProfessorNonSubjectsDataPanel extends JPanel {
 	private JLabel nationalIdLabel;
 	private JTextField nationalIdTextField;
 	private JLabel incorrectNationalIdMessageLabel;
+	private JLabel existingNationalIdMessageLabel;
 	private JLabel titleLabel;
 	private JComboBox<String> titleComboBox;
 	private JLabel callingLabel;
@@ -118,6 +119,10 @@ public class ProfessorNonSubjectsDataPanel extends JPanel {
 	
 	public JLabel getIncorrectNationalIdMessageLabel() {
 		return incorrectNationalIdMessageLabel;
+	}
+	
+	public JLabel getExistingNationalIdMessageLabel() {
+		return existingNationalIdMessageLabel;
 	}
 	
 	public JComboBox<String> getTitleComboBox(){
@@ -336,6 +341,10 @@ public class ProfessorNonSubjectsDataPanel extends JPanel {
 		incorrectNationalIdMessageLabel = new JLabel("Broj lične karte mora imati 9 cifara!");
 		incorrectNationalIdMessageLabel.setForeground(Color.RED);
 		
+		existingNationalIdMessageLabel = new JLabel("Uneti broj lične karte već postoji");
+		existingNationalIdMessageLabel.setForeground(Color.RED);
+		existingNationalIdMessageLabel.setVisible(false);
+		
 		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */
 		Insets labelInsets = new Insets(10, 10, 10, 10);
 		GridBagConstraints labelConstraints = new GridBagConstraints(0, 12, 1, 1, 0, 0, 
@@ -352,6 +361,7 @@ public class ProfessorNonSubjectsDataPanel extends JPanel {
 				1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, 
 				incorrectMessageLabelInsets, 0, 0);
 		upperPanel.add(incorrectNationalIdMessageLabel, incorrectMessageLabelConstraints);
+		upperPanel.add(existingNationalIdMessageLabel, incorrectMessageLabelConstraints);
 	}
 	
 	private void setUpTitleComponents() {

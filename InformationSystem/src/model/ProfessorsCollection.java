@@ -134,6 +134,17 @@ public class ProfessorsCollection {
 		}
 	}
 	
+	public boolean nationalIdExists(String nationalId) {
+		boolean answer = false;
+		for(Professor p : professors) {
+			if(p.getNationalID().equals(nationalId)) {
+				answer = true;
+				break;
+			}
+		}
+		return answer;
+	}
+	
 	
 	
 	

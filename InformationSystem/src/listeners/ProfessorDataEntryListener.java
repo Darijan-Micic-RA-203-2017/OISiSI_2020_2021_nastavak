@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import model.ProfessorsCollection;
 import view.ProfessorNonSubjectsDataPanel;
 
 /** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji -> listeners -> key -> MyKeyListener.java) */
@@ -43,6 +44,7 @@ public class ProfessorDataEntryListener implements KeyListener  {
 		
 		JTextField nationalIdTextField = professorNonSubjectsDataPanel.getNationalIdTextField();
 		JLabel incorrectNationalIdMessageLable = professorNonSubjectsDataPanel.getIncorrectNationalIdMessageLabel();
+		JLabel existingNationalIdMessageLable = professorNonSubjectsDataPanel.getExistingNationalIdMessageLabel();
 		
 		JButton confirmationButton = professorNonSubjectsDataPanel.getConfirmationButton();
 		
@@ -83,12 +85,23 @@ public class ProfessorDataEntryListener implements KeyListener  {
 		} else {
 			incorrectEmailAddressMessageLable.setVisible(false);
 		}
+		String enteredNationalId = nationalIdTextField.getText();
 		if(!Pattern.matches("[0-9]{9}", nationalIdTextField.getText())) {
 			enteredDataValidity = false;
 			
 			incorrectNationalIdMessageLable.setVisible(true);
+			existingNationalIdMessageLable.setVisible(false);
 		} else {
-			incorrectNationalIdMessageLable.setVisible(false);
+			if(ProfessorsCollection.getInstance().nationalIdExists(enteredNationalId)) {
+				enteredDataValidity = false;
+				
+				incorrectNationalIdMessageLable.setVisible(false);
+				existingNationalIdMessageLable.setVisible(true);
+			} else {
+				incorrectNationalIdMessageLable.setVisible(false);
+				existingNationalIdMessageLable.setVisible(false);
+			}
+			
 		}
 		if(enteredDataValidity) {
 			confirmationButton.setEnabled(true);
