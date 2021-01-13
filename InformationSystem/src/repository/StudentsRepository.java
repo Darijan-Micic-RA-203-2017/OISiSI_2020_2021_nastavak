@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.FileOutputStream;
+import java.io.BufferedOutputStream;
 import java.util.ArrayList;
 
 import com.thoughtworks.xstream.XStream;
@@ -13,6 +15,7 @@ import com.thoughtworks.xstream.security.AnyTypePermission;
 import dtos.StudentDTO;
 import dtos.StudentsDTOsWrapper;
 import model.Student;
+import model.StudentsCollection;
 
 /** REFERENCA: https://tdan.com/a-repository-model-the-object-oriented-design-model/4910 */
 public class StudentsRepository {
@@ -65,6 +68,25 @@ public class StudentsRepository {
 		
 		StudentsDTOsWrapper studentsDTOsWrapper = new StudentsDTOsWrapper(studentsDTOs);
 		return studentsDTOsWrapper;
+	}
+	
+	/** REFERENCA: Materijali za vežbe (v7 -> Serijalizacija.pdf) **/
+	public void writeToFile() {
+		try (FileOutputStream fos = new FileOutputStream(file);
+				BufferedOutputStream bos = new BufferedOutputStream(fos)) {
+			
+			ArrayList<Student> students = StudentsCollection.getInstance().getStudents();
+			StudentsDTOsWrapper studentsDTOsWrapper = convertToDtosWrapper(students);
+			
+			xStream.toXML(studentsDTOsWrapper, bos);
+		} catch (FileNotFoundException fne) {
+			System.out.println("Došlo je do greške prilikom pristupa "
+					+ "datoteci \"students.xml\"!");
+			fne.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Došlo je do greške!");
+			e.printStackTrace();
+		}
 	}
 	
 	/** REFERENCA: Materijali za vežbe (v7 -> Serijalizacija.pdf) */
