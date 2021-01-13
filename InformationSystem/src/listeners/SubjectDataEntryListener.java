@@ -54,7 +54,7 @@ public class SubjectDataEntryListener implements KeyListener {
 		
 		/** REFERENCA: https://www.logicbig.com/tutorials/core-java-tutorial/java-regular-expressions/java-regex-basic.html */
 		String enteredId = idTextField.getText();
-		if (!Pattern.matches("[A-Z][A-Z0-9\\-]+", enteredId)) {
+		if (!Pattern.matches("[A-Za-z][A-Za-z0-9\\-]+", enteredId)) {
 			enteredDataValidity = false;
 			
 			incorrectIdMessageLabel.setVisible(true);
