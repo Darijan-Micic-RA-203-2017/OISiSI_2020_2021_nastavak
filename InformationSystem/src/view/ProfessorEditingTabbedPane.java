@@ -13,28 +13,37 @@ import model.Professor;
 import model.ProfessorsCollection;
 
 public class ProfessorEditingTabbedPane extends JTabbedPane {
+	private Professor selectedProfessor;
 	private ProfessorNonSubjectsDataPanel professorsNonSubjectsDataPanel;
-	private JPanel teachingSubjects;
+	private TeachingSubjectsPanel teachingSubjectsPanel;
 	
 	public ProfessorEditingTabbedPane(int selectedRowIndex, String typeOfParentDialog) {
+		selectedProfessor = ProfessorsCollection.getInstance().getRow(selectedRowIndex);
+		
 		professorsNonSubjectsDataPanel = 
 				new ProfessorNonSubjectsDataPanel(typeOfParentDialog, selectedRowIndex);
-		fillProfessorNonSubjectsDataPanel(selectedRowIndex);
+		fillProfessorNonSubjectsDataPanel();
 		
 		JScrollPane nonSubjectsDataScrollPane = new JScrollPane(professorsNonSubjectsDataPanel);
 		add("Informacije",nonSubjectsDataScrollPane);
 		
-		teachingSubjects = new JPanel();
-		add("Predmeti",teachingSubjects);
+		teachingSubjectsPanel = new TeachingSubjectsPanel(selectedProfessor);
+		add("Predmeti",teachingSubjectsPanel);
+	}
+	
+	public Professor getSelectedProfessor() {
+		return selectedProfessor;
 	}
 	
 	public ProfessorNonSubjectsDataPanel getProfessorNonSubjectsDataPanel() {
 		return professorsNonSubjectsDataPanel;
 	}
 	
-	private void fillProfessorNonSubjectsDataPanel(int selectedRowIndex) {
-		Professor selectedProfessor = ProfessorsCollection.getInstance().getRow(selectedRowIndex);
-		
+	public TeachingSubjectsPanel getTeachingSubjectsPanel() {
+		return teachingSubjectsPanel;
+	}
+	
+	private void fillProfessorNonSubjectsDataPanel() {
 		String firstName = selectedProfessor.getFirstName();
 		professorsNonSubjectsDataPanel.getFirstNameTextField().setText(firstName);
 		professorsNonSubjectsDataPanel.getIncorrectFirstNameMessageLabel().setVisible(false);
