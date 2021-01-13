@@ -57,8 +57,20 @@ public class StudentEditingDialog extends JDialog implements ActionListener {
 			AbstractPassedSubjectsTableModel passedSubjectsTableModel = 
 					(AbstractPassedSubjectsTableModel) studentEditingTabbedPane.
 							getPassedSubjectsPanel().getPassedSubjectsTable().getModel();
+			AbstractFailedSubjectsTableModel failedSubjectsTableModel =
+					(AbstractFailedSubjectsTableModel) studentEditingTabbedPane.
+							getFailedSubjectsPanel().getFailedSubjectsTable().getModel();
+			
+			failedSubjectsTableModel.fireTableDataChanged();
 			
 			passedSubjectsTableModel.fireTableDataChanged();
+			validate();
+		} else if(selectedTabIndex == 2) {
+			AbstractFailedSubjectsTableModel failedSubjectsTableModel =
+					(AbstractFailedSubjectsTableModel) studentEditingTabbedPane.
+							getFailedSubjectsPanel().getFailedSubjectsTable().getModel();
+			
+			failedSubjectsTableModel.fireTableDataChanged();
 			validate();
 		}
 	}

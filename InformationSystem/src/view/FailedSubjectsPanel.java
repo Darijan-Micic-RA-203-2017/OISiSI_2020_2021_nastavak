@@ -41,6 +41,10 @@ public class FailedSubjectsPanel extends JPanel {
 		add(failedSubjectsTableScrollPane, BorderLayout.CENTER);
 	}
 	
+	public FailedSubjectsTable getFailedSubjectsTable() {
+		return failedSubjectsTable;
+	}
+	
 	private void setUpUpperPanel() {
 		/** REFERENCA: Materijali za vežbe (v5 -> Termin5 - Layout.pdf) */
 		upperPanel = new JPanel();
