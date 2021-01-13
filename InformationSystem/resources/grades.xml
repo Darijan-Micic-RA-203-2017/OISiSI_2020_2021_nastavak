@@ -1,0 +1,67 @@
+<gradesdtoswrapper>
+  <gradesDTOs>
+    <gradedto>
+      <id>0</id>
+      <indexNumberOfStudent>ra-134-2015</indexNumberOfStudent>
+      <idOfSubject>p5</idOfSubject>
+      <value>10</value>
+      <dateOfPassing>2017-12-12 23:00:00.0 UTC</dateOfPassing>
+    </gradedto>
+    <gradedto>
+      <id>1</id>
+      <indexNumberOfStudent>ra-134-2015</indexNumberOfStudent>
+      <idOfSubject>p3</idOfSubject>
+      <value>9</value>
+      <dateOfPassing>2019-11-10 23:00:00.0 UTC</dateOfPassing>
+    </gradedto>
+    <gradedto>
+      <id>2</id>
+      <indexNumberOfStudent>ra-134-2015</indexNumberOfStudent>
+      <idOfSubject>p1</idOfSubject>
+      <value>8</value>
+      <dateOfPassing>2020-11-11 23:00:00.0 UTC</dateOfPassing>
+    </gradedto>
+    <gradedto>
+      <id>3</id>
+      <indexNumberOfStudent>ra-3-2019</indexNumberOfStudent>
+      <idOfSubject>p1</idOfSubject>
+      <value>10</value>
+      <dateOfPassing>2020-11-20 23:00:00.0 UTC</dateOfPassing>
+    </gradedto>
+    <gradedto>
+      <id>4</id>
+      <indexNumberOfStudent>ra-3-2019</indexNumberOfStudent>
+      <idOfSubject>p5</idOfSubject>
+      <value>10</value>
+      <dateOfPassing>2020-10-30 23:00:00.0 UTC</dateOfPassing>
+    </gradedto>
+    <gradedto>
+      <id>5</id>
+      <indexNumberOfStudent>ra-11-2018</indexNumberOfStudent>
+      <idOfSubject>p15</idOfSubject>
+      <value>9</value>
+      <dateOfPassing>2021-01-10 23:00:00.0 UTC</dateOfPassing>
+    </gradedto>
+    <gradedto>
+      <id>6</id>
+      <indexNumberOfStudent>ra-12-2018</indexNumberOfStudent>
+      <idOfSubject>p15</idOfSubject>
+      <value>10</value>
+      <dateOfPassing>2018-01-12 23:00:00.0 UTC</dateOfPassing>
+    </gradedto>
+    <gradedto>
+      <id>7</id>
+      <indexNumberOfStudent>ra-11-2018</indexNumberOfStudent>
+      <idOfSubject>p16</idOfSubject>
+      <value>10</value>
+      <dateOfPassing>2021-01-01 23:00:00.0 UTC</dateOfPassing>
+    </gradedto>
+    <gradedto>
+      <id>8</id>
+      <indexNumberOfStudent>ra-12-2018</indexNumberOfStudent>
+      <idOfSubject>p16</idOfSubject>
+      <value>8</value>
+      <dateOfPassing>2019-02-04 23:00:00.0 UTC</dateOfPassing>
+    </gradedto>
+  </gradesDTOs>
+</gradesdtoswrapper>

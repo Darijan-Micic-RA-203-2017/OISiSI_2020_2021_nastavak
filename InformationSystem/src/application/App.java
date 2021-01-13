@@ -27,7 +27,7 @@ public class App {
 		SubjectsCollection.getInstance();
 		GradesCollection.getInstance();
 		
-		//EntitiesConnectingAfterReadingController.getInstance();
+		EntitiesConnectingAfterReadingController.getInstance();
 		
 		StudentsController.getInstance();
 		ProfessorsController.getInstance();

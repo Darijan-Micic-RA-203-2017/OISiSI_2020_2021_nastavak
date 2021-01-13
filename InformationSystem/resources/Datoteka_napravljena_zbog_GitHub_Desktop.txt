@@ -1,2 +1,0 @@
-Ova datoteka napravljena je čisto kako bi aplikacija GitHub Desktop prepoznala dodavanje imenika 
-"resources" u spisku datoteka koje mogu biti uključene u doprinos.
