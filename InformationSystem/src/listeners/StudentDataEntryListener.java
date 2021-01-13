@@ -93,7 +93,7 @@ public class StudentDataEntryListener implements KeyListener {
 
 			incorrectContactPhoneMessageLabel.setVisible(true);
 		} else {
-			if (!contains10Digits(enteredContactPhone)) {
+			if (!contains10Or9Digits(enteredContactPhone)) {
 				enteredDataValidity = false;
 				
 				incorrectContactPhoneMessageLabel.setVisible(true);
@@ -162,7 +162,7 @@ public class StudentDataEntryListener implements KeyListener {
 	@Override
 	public void keyTyped(KeyEvent arg0) {}
 	
-	private boolean contains10Digits(String enteredContactPhone) {
+	private boolean contains10Or9Digits(String enteredContactPhone) {
 		boolean answer = false;
 		
 		int numberOfDigits = 0;
@@ -172,7 +172,7 @@ public class StudentDataEntryListener implements KeyListener {
 			}
 		}
 		
-		if (numberOfDigits == 10) {
+		if (numberOfDigits == 10 || numberOfDigits == 9) {
 			answer = true;
 		}
 		

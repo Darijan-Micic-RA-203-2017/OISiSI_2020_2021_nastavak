@@ -278,8 +278,8 @@ public class StudentNonGradesDataPanel extends JPanel {
 		contactPhoneTextField.addKeyListener(studentDataEntryListener);
 		
 		incorrectContactPhoneMessageLabel = 
-				new JLabel("Broj telefona mora biti unet u jednom od sledeća dva oblika: "
-						+ "xxx/xxx-xxxx ili xxx/xxxx-xxx!");
+				new JLabel("Broj telefona mora biti unet u jednom od sledeća tri oblika: "
+						+ "xxx/xxx-xxx, xxx/xxx-xxxx ili xxx/xxxx-xxx!");
 		incorrectContactPhoneMessageLabel.setForeground(Color.RED);
 		
 		/** REFERENCA: Materijali za vežbe (v5 -> GridbagLayout.pdf) */
