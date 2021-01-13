@@ -1,0 +1,275 @@
+<professorsdtoswrapper>
+  <professorsDTOs>
+    <professordto>
+      <lastName>Nikolic</lastName>
+      <firstName>Milos</firstName>
+      <dateOfBirth>1965-12-12 23:00:00.0 UTC</dateOfBirth>
+      <residence>Temerinska 15, Novi Sad</residence>
+      <contactPhone>021/356-785</contactPhone>
+      <emailAddress>milos.nikolic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 600</officeAddress>
+      <nationalID>123123123</nationalID>
+      <title>PROF_DR</title>
+      <calling>REDOVNI_PROFESOR</calling>
+      <teachingSubjectsIds/>
+    </professordto>
+    <professordto>
+      <lastName>Mirkovic</lastName>
+      <firstName>Nikola</firstName>
+      <dateOfBirth>1978-01-01 23:00:00.0 UTC</dateOfBirth>
+      <residence>Jovana Cvijića 25, Subotica</residence>
+      <contactPhone>021/368-456</contactPhone>
+      <emailAddress>nikola.mirkovic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 601</officeAddress>
+      <nationalID>321321321</nationalID>
+      <title>PROF_DR</title>
+      <calling>REDOVNI_PROFESOR</calling>
+      <teachingSubjectsIds>
+        <string>p1</string>
+        <string>p2</string>
+        <string>p3</string>
+        <string>p4</string>
+      </teachingSubjectsIds>
+    </professordto>
+    <professordto>
+      <lastName>Petkovic</lastName>
+      <firstName>Ilija</firstName>
+      <dateOfBirth>1988-09-03 23:00:00.0 UTC</dateOfBirth>
+      <residence>Gogoljeva 1, Novi Sad</residence>
+      <contactPhone>021/215-314</contactPhone>
+      <emailAddress>ilija.petkovic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 602</officeAddress>
+      <nationalID>456456456</nationalID>
+      <title>DR</title>
+      <calling>VANREDNI_PROFESOR</calling>
+      <teachingSubjectsIds/>
+    </professordto>
+    <professordto>
+      <lastName>Petrovic</lastName>
+      <firstName>Mitar</firstName>
+      <dateOfBirth>1976-07-25 23:00:00.0 UTC</dateOfBirth>
+      <residence>Marka Kraljevića 102, Beograd</residence>
+      <contactPhone>021/884-640</contactPhone>
+      <emailAddress>mitar.petrovic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 603</officeAddress>
+      <nationalID>789789789</nationalID>
+      <title>DR</title>
+      <calling>VANREDNI_PROFESOR</calling>
+      <teachingSubjectsIds/>
+    </professordto>
+    <professordto>
+      <lastName>Micic</lastName>
+      <firstName>Vasa</firstName>
+      <dateOfBirth>1970-02-14 23:00:00.0 UTC</dateOfBirth>
+      <residence>Tolstojeva 55, Novi Sad</residence>
+      <contactPhone>021/212-114</contactPhone>
+      <emailAddress>vasa.micic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 604</officeAddress>
+      <nationalID>001001001</nationalID>
+      <title>DR</title>
+      <calling>DOCENT</calling>
+      <teachingSubjectsIds>
+        <string>p8</string>
+        <string>p9</string>
+        <string>p10</string>
+      </teachingSubjectsIds>
+    </professordto>
+    <professordto>
+      <lastName>Miletic</lastName>
+      <firstName>Srdjan</firstName>
+      <dateOfBirth>1966-04-20 23:00:00.0 UTC</dateOfBirth>
+      <residence>Šekspirova 12, Novi Sad</residence>
+      <contactPhone>021/978-225</contactPhone>
+      <emailAddress>srdjan.miletic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 605</officeAddress>
+      <nationalID>002002002</nationalID>
+      <title>DR</title>
+      <calling>DOCENT</calling>
+      <teachingSubjectsIds>
+        <string>p12</string>
+        <string>p13</string>
+        <string>p14</string>
+      </teachingSubjectsIds>
+    </professordto>
+    <professordto>
+      <lastName>Mihajlovic</lastName>
+      <firstName>Branislav</firstName>
+      <dateOfBirth>1980-06-28 23:00:00.0 UTC</dateOfBirth>
+      <residence>Jovana Subotića 99, Novi Sad</residence>
+      <contactPhone>021/778-323</contactPhone>
+      <emailAddress>branislav.mihajlovic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 606</officeAddress>
+      <nationalID>559585632</nationalID>
+      <title>PROF_DR</title>
+      <calling>REDOVNI_PROFESOR</calling>
+      <teachingSubjectsIds>
+        <string>p15</string>
+        <string>p16</string>
+      </teachingSubjectsIds>
+    </professordto>
+    <professordto>
+      <lastName>Marković</lastName>
+      <firstName>Marko</firstName>
+      <dateOfBirth>1985-01-31 23:00:00.0 UTC</dateOfBirth>
+      <residence>Mirka Markovića 101, Kraljevo</residence>
+      <contactPhone>021/899-659</contactPhone>
+      <emailAddress>marko.markovic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 607</officeAddress>
+      <nationalID>334968855</nationalID>
+      <title>PROF_DR</title>
+      <calling>REDOVNI_PROFESOR</calling>
+      <teachingSubjectsIds/>
+    </professordto>
+    <professordto>
+      <lastName>Milaković</lastName>
+      <firstName>Miloš</firstName>
+      <dateOfBirth>1975-09-21 23:00:00.0 UTC</dateOfBirth>
+      <residence>Braće Jugović 1, Kragujevac</residence>
+      <contactPhone>021/122-326</contactPhone>
+      <emailAddress>milos.milakovic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 608</officeAddress>
+      <nationalID>073070365</nationalID>
+      <title>DR</title>
+      <calling>VANREDNI_PROFESOR</calling>
+      <teachingSubjectsIds/>
+    </professordto>
+    <professordto>
+      <lastName>Bratić</lastName>
+      <firstName>Lazar</firstName>
+      <dateOfBirth>1973-11-13 23:00:00.0 UTC</dateOfBirth>
+      <residence>Jovanke Orleanke 3, Niš</residence>
+      <contactPhone>021/156-326</contactPhone>
+      <emailAddress>lazar.bratic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 609</officeAddress>
+      <nationalID>006003786</nationalID>
+      <title>DR</title>
+      <calling>VANREDNI_PROFESOR</calling>
+      <teachingSubjectsIds/>
+    </professordto>
+    <professordto>
+      <lastName>Dražić</lastName>
+      <firstName>Ljeposava</firstName>
+      <dateOfBirth>1964-08-11 23:00:00.0 UTC</dateOfBirth>
+      <residence>Vojvode Stepe 1100, Beograd</residence>
+      <contactPhone>021/888-156</contactPhone>
+      <emailAddress>ljeposava.drazic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 610</officeAddress>
+      <nationalID>158496152</nationalID>
+      <title>DR</title>
+      <calling>DOCENT</calling>
+      <teachingSubjectsIds/>
+    </professordto>
+    <professordto>
+      <lastName>Dragić</lastName>
+      <firstName>Miroljub</firstName>
+      <dateOfBirth>1959-03-02 23:00:00.0 UTC</dateOfBirth>
+      <residence>Miše Ljubibratiće 123, Aleksandrovac</residence>
+      <contactPhone>021/456-125</contactPhone>
+      <emailAddress>miroljub.dragic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 611</officeAddress>
+      <nationalID>777348595</nationalID>
+      <title>DR</title>
+      <calling>DOCENT</calling>
+      <teachingSubjectsIds/>
+    </professordto>
+    <professordto>
+      <lastName>Rekavić</lastName>
+      <firstName>Bogdan</firstName>
+      <dateOfBirth>1977-06-23 23:00:00.0 UTC</dateOfBirth>
+      <residence>Resavska 12, Beograd</residence>
+      <contactPhone>021/886-455</contactPhone>
+      <emailAddress>bogdan.rekavic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 612</officeAddress>
+      <nationalID>721254363</nationalID>
+      <title>DR</title>
+      <calling>VANREDNI_PROFESOR</calling>
+      <teachingSubjectsIds/>
+    </professordto>
+    <professordto>
+      <lastName>Milić</lastName>
+      <firstName>Stanka</firstName>
+      <dateOfBirth>1990-03-03 23:00:00.0 UTC</dateOfBirth>
+      <residence>Vidakovićeva 90, Novi Sad</residence>
+      <contactPhone>021/945-255</contactPhone>
+      <emailAddress>stanka.milic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 613</officeAddress>
+      <nationalID>225533448</nationalID>
+      <title>DR</title>
+      <calling>DOCENT</calling>
+      <teachingSubjectsIds/>
+    </professordto>
+    <professordto>
+      <lastName>Vuković</lastName>
+      <firstName>Milica</firstName>
+      <dateOfBirth>1967-10-18 23:00:00.0 UTC</dateOfBirth>
+      <residence>Nikolićeva 12, Novi Sad</residence>
+      <contactPhone>021/746-659</contactPhone>
+      <emailAddress>milica.vukovic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 614</officeAddress>
+      <nationalID>111555888</nationalID>
+      <title>PROF_DR</title>
+      <calling>VANREDNI_PROFESOR</calling>
+      <teachingSubjectsIds/>
+    </professordto>
+    <professordto>
+      <lastName>Mišić</lastName>
+      <firstName>Miša</firstName>
+      <dateOfBirth>1969-10-20 23:00:00.0 UTC</dateOfBirth>
+      <residence>Šojićeva 10, Subotica</residence>
+      <contactPhone>021/489-326</contactPhone>
+      <emailAddress>misa.misic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 615</officeAddress>
+      <nationalID>003003003</nationalID>
+      <title>DR</title>
+      <calling>DOCENT</calling>
+      <teachingSubjectsIds/>
+    </professordto>
+    <professordto>
+      <lastName>Maricic</lastName>
+      <firstName>Branko</firstName>
+      <dateOfBirth>1973-01-18 23:00:00.0 UTC</dateOfBirth>
+      <residence>Nikole Tesle 25, Sombor</residence>
+      <contactPhone>021/487-265</contactPhone>
+      <emailAddress>branko.maricic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 616</officeAddress>
+      <nationalID>004004004</nationalID>
+      <title>PROF_DR</title>
+      <calling>DOCENT</calling>
+      <teachingSubjectsIds>
+        <string>it25</string>
+        <string>p29</string>
+      </teachingSubjectsIds>
+    </professordto>
+    <professordto>
+      <lastName>Lukovic</lastName>
+      <firstName>Branislav</firstName>
+      <dateOfBirth>1982-04-08 23:00:00.0 UTC</dateOfBirth>
+      <residence>Živojina Mišića 7, Apatin</residence>
+      <contactPhone>021/159-478</contactPhone>
+      <emailAddress>branislav.lukovic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 617</officeAddress>
+      <nationalID>005005005</nationalID>
+      <title>DR</title>
+      <calling>REDOVNI_PROFESOR</calling>
+      <teachingSubjectsIds>
+        <string>it26</string>
+        <string>p28</string>
+      </teachingSubjectsIds>
+    </professordto>
+    <professordto>
+      <lastName>Obradovic</lastName>
+      <firstName>Branimir</firstName>
+      <dateOfBirth>1979-01-07 23:00:00.0 UTC</dateOfBirth>
+      <residence>Stari šor 18, Sremska Mitrovica</residence>
+      <contactPhone>021/922-333</contactPhone>
+      <emailAddress>branimir.obradovic@mailinator.com</emailAddress>
+      <officeAddress>Dositeja Obradovića 6, Novi Sad, NTP 618</officeAddress>
+      <nationalID>006006006</nationalID>
+      <title>PROF_DR</title>
+      <calling>DOCENT</calling>
+      <teachingSubjectsIds>
+        <string>it27</string>
+      </teachingSubjectsIds>
+    </professordto>
+  </professorsDTOs>
+</professorsdtoswrapper>

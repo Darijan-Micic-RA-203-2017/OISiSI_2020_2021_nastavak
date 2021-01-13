@@ -1,0 +1,441 @@
+<studentsdtoswrapper>
+  <studentsDTOs>
+    <studentdto>
+      <lastName>Milosevic</lastName>
+      <firstName>Marko</firstName>
+      <dateOfBirth>2001-03-12 23:00:00.0 UTC</dateOfBirth>
+      <residence>Karađorđeva 83, Novi Sad</residence>
+      <contactPhone>021/333-555</contactPhone>
+      <emailAddress>marko.milosevic@mailinator.com</emailAddress>
+      <indexNumber>ra-2-2020</indexNumber>
+      <yearOfEnrollment>2020</yearOfEnrollment>
+      <currentYearOfStudy>1</currentYearOfStudy>
+      <statusOfStudent>B</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Milić</lastName>
+      <firstName>Marija</firstName>
+      <dateOfBirth>2000-01-12 22:00:00.0 UTC</dateOfBirth>
+      <residence>Stražilovska 12, Novi Sad</residence>
+      <contactPhone>021/555-2222</contactPhone>
+      <emailAddress>marija.milic@mailinator.com</emailAddress>
+      <indexNumber>ra-3-2019</indexNumber>
+      <yearOfEnrollment>2019</yearOfEnrollment>
+      <currentYearOfStudy>2</currentYearOfStudy>
+      <statusOfStudent>S</statusOfStudent>
+      <averageGrade>10.0</averageGrade>
+      <passedSubjectsGradesIds>
+        <long>3</long>
+        <long>4</long>
+      </passedSubjectsGradesIds>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Nikolic</lastName>
+      <firstName>Nikola</firstName>
+      <dateOfBirth>2001-08-30 22:00:00.0 UTC</dateOfBirth>
+      <residence>Knez Mihajlova 16, Beograd</residence>
+      <contactPhone>021/135-463</contactPhone>
+      <emailAddress>nikola.nikolic@mailinator.com</emailAddress>
+      <indexNumber>ra-3-2017</indexNumber>
+      <yearOfEnrollment>2017</yearOfEnrollment>
+      <currentYearOfStudy>1</currentYearOfStudy>
+      <statusOfStudent>B</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Peric</lastName>
+      <firstName>Pera</firstName>
+      <dateOfBirth>1995-06-07 22:00:00.0 UTC</dateOfBirth>
+      <residence>Gogoljeva 3, Novi Sad</residence>
+      <contactPhone>021/903-463</contactPhone>
+      <emailAddress>pera.peric@mailinator.com</emailAddress>
+      <indexNumber>ra-134-2015</indexNumber>
+      <yearOfEnrollment>2015</yearOfEnrollment>
+      <currentYearOfStudy>3</currentYearOfStudy>
+      <statusOfStudent>S</statusOfStudent>
+      <averageGrade>9.0</averageGrade>
+      <passedSubjectsGradesIds>
+        <long>0</long>
+        <long>1</long>
+        <long>2</long>
+      </passedSubjectsGradesIds>
+      <nonPassedSubjectsIds>
+        <string>p2</string>
+        <string>p4</string>
+      </nonPassedSubjectsIds>
+    </studentdto>
+    <studentdto>
+      <lastName>Ilic</lastName>
+      <firstName>Sofija</firstName>
+      <dateOfBirth>1999-05-06 22:00:00.0 UTC</dateOfBirth>
+      <residence>Miše Dimitrijevića 44, Novi Sad</residence>
+      <contactPhone>021/731-067</contactPhone>
+      <emailAddress>sofija.ilic@mailinator.com</emailAddress>
+      <indexNumber>ra-5-2019</indexNumber>
+      <yearOfEnrollment>2019</yearOfEnrollment>
+      <currentYearOfStudy>3</currentYearOfStudy>
+      <statusOfStudent>B</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Lukic</lastName>
+      <firstName>Martina</firstName>
+      <dateOfBirth>1999-05-16 22:00:00.0 UTC</dateOfBirth>
+      <residence>Vojvode Stepe 180, Beograd</residence>
+      <contactPhone>011/4333-800</contactPhone>
+      <emailAddress>martina.lukic@mailinator.com</emailAddress>
+      <indexNumber>ra-8-2018</indexNumber>
+      <yearOfEnrollment>2018</yearOfEnrollment>
+      <currentYearOfStudy>3</currentYearOfStudy>
+      <statusOfStudent>S</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Stojakovic</lastName>
+      <firstName>Stojan</firstName>
+      <dateOfBirth>2001-10-19 22:00:00.0 UTC</dateOfBirth>
+      <residence>1300 Kaplara, Šabac</residence>
+      <contactPhone>011/3130-007</contactPhone>
+      <emailAddress>stojan.stojakovic@mailinator.com</emailAddress>
+      <indexNumber>ra-10-2017</indexNumber>
+      <yearOfEnrollment>2017</yearOfEnrollment>
+      <currentYearOfStudy>1</currentYearOfStudy>
+      <statusOfStudent>B</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Milanovic</lastName>
+      <firstName>Milan</firstName>
+      <dateOfBirth>2000-11-02 22:00:00.0 UTC</dateOfBirth>
+      <residence>Surepova 12, Šabac</residence>
+      <contactPhone>015/313-061</contactPhone>
+      <emailAddress>milan.milanovic@mailinator.com</emailAddress>
+      <indexNumber>ra-12-2017</indexNumber>
+      <yearOfEnrollment>2017</yearOfEnrollment>
+      <currentYearOfStudy>2</currentYearOfStudy>
+      <statusOfStudent>S</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Milic</lastName>
+      <firstName>Miroslav</firstName>
+      <dateOfBirth>2000-10-11 22:00:00.0 UTC</dateOfBirth>
+      <residence>Milovana Glišića, Valjevo</residence>
+      <contactPhone>021/351-091</contactPhone>
+      <emailAddress>miroslav.milic@mailinator.com</emailAddress>
+      <indexNumber>ra-16-2019</indexNumber>
+      <yearOfEnrollment>2019</yearOfEnrollment>
+      <currentYearOfStudy>2</currentYearOfStudy>
+      <statusOfStudent>B</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Gojic</lastName>
+      <firstName>Stefan</firstName>
+      <dateOfBirth>1999-05-01 22:00:00.0 UTC</dateOfBirth>
+      <residence>Bulevar Mihajla Pupina, Novi Sad</residence>
+      <contactPhone>015/324-500</contactPhone>
+      <emailAddress>stefan.gojic@mailinator.com</emailAddress>
+      <indexNumber>ra-21-2015</indexNumber>
+      <yearOfEnrollment>2015</yearOfEnrollment>
+      <currentYearOfStudy>3</currentYearOfStudy>
+      <statusOfStudent>S</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Jokic</lastName>
+      <firstName>Anastasija</firstName>
+      <dateOfBirth>1999-07-11 22:00:00.0 UTC</dateOfBirth>
+      <residence>Braće Ribnikar 12, Novi Sad</residence>
+      <contactPhone>011/2333-900</contactPhone>
+      <emailAddress>anastasija.jokic@mailinator.com</emailAddress>
+      <indexNumber>ra-9-2020</indexNumber>
+      <yearOfEnrollment>2020</yearOfEnrollment>
+      <currentYearOfStudy>3</currentYearOfStudy>
+      <statusOfStudent>B</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Bogdanovic</lastName>
+      <firstName>Bogdan</firstName>
+      <dateOfBirth>1999-07-23 22:00:00.0 UTC</dateOfBirth>
+      <residence>Cara Dušana 42, Subotica</residence>
+      <contactPhone>021/231-114</contactPhone>
+      <emailAddress>bogdan.bogdanovic@mailinator.com</emailAddress>
+      <indexNumber>ra-4-2017</indexNumber>
+      <yearOfEnrollment>2017</yearOfEnrollment>
+      <currentYearOfStudy>3</currentYearOfStudy>
+      <statusOfStudent>S</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Dabovic</lastName>
+      <firstName>Ana</firstName>
+      <dateOfBirth>2001-12-12 22:00:00.0 UTC</dateOfBirth>
+      <residence>Marka Kraljevića 1, Kikinda</residence>
+      <contactPhone>014/303-007</contactPhone>
+      <emailAddress>ana.dabovic@mailinator.com</emailAddress>
+      <indexNumber>ra-30-2019</indexNumber>
+      <yearOfEnrollment>2019</yearOfEnrollment>
+      <currentYearOfStudy>1</currentYearOfStudy>
+      <statusOfStudent>B</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Mikic</lastName>
+      <firstName>Mika</firstName>
+      <dateOfBirth>2001-11-05 22:00:00.0 UTC</dateOfBirth>
+      <residence>Nikole Stojanovića 2, Kraljevo</residence>
+      <contactPhone>015/101-909</contactPhone>
+      <emailAddress>mika.mikic@mailinator.com</emailAddress>
+      <indexNumber>ra-1-2020</indexNumber>
+      <yearOfEnrollment>2020</yearOfEnrollment>
+      <currentYearOfStudy>1</currentYearOfStudy>
+      <statusOfStudent>S</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Deretic</lastName>
+      <firstName>Jovan</firstName>
+      <dateOfBirth>1998-09-10 22:00:00.0 UTC</dateOfBirth>
+      <residence>Marka Bratića 99, Niš</residence>
+      <contactPhone>002/200-300</contactPhone>
+      <emailAddress>jovan.deretic@mailinator.com</emailAddress>
+      <indexNumber>ra-11-2018</indexNumber>
+      <yearOfEnrollment>2018</yearOfEnrollment>
+      <currentYearOfStudy>4</currentYearOfStudy>
+      <statusOfStudent>B</statusOfStudent>
+      <averageGrade>9.5</averageGrade>
+      <passedSubjectsGradesIds>
+        <long>5</long>
+        <long>7</long>
+      </passedSubjectsGradesIds>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Miskovic</lastName>
+      <firstName>Nikola</firstName>
+      <dateOfBirth>1998-08-03 22:00:00.0 UTC</dateOfBirth>
+      <residence>Cara Dušana 12, Banja Luka</residence>
+      <contactPhone>022/123-456</contactPhone>
+      <emailAddress>nikola.miskovic@mailinator.com</emailAddress>
+      <indexNumber>ra-12-2018</indexNumber>
+      <yearOfEnrollment>2018</yearOfEnrollment>
+      <currentYearOfStudy>4</currentYearOfStudy>
+      <statusOfStudent>S</statusOfStudent>
+      <averageGrade>9.0</averageGrade>
+      <passedSubjectsGradesIds>
+        <long>6</long>
+        <long>8</long>
+      </passedSubjectsGradesIds>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Stojanovic</lastName>
+      <firstName>Martin</firstName>
+      <dateOfBirth>1998-05-01 22:00:00.0 UTC</dateOfBirth>
+      <residence>Borisa Bačkog 1, Bijeljina</residence>
+      <contactPhone>024/321-775</contactPhone>
+      <emailAddress>martin.stojanovic@mailinator.com</emailAddress>
+      <indexNumber>ra-13-2018</indexNumber>
+      <yearOfEnrollment>2018</yearOfEnrollment>
+      <currentYearOfStudy>4</currentYearOfStudy>
+      <statusOfStudent>S</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds>
+        <string>p15</string>
+      </nonPassedSubjectsIds>
+    </studentdto>
+    <studentdto>
+      <lastName>Novakovic</lastName>
+      <firstName>Tomislav</firstName>
+      <dateOfBirth>1996-02-25 22:00:00.0 UTC</dateOfBirth>
+      <residence>Mirka Maksića 10, Kruševac</residence>
+      <contactPhone>011/1188-379</contactPhone>
+      <emailAddress>tomislav.novakovic@mailinator.com</emailAddress>
+      <indexNumber>ra-14-2018</indexNumber>
+      <yearOfEnrollment>2018</yearOfEnrollment>
+      <currentYearOfStudy>4</currentYearOfStudy>
+      <statusOfStudent>B</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds>
+        <string>p15</string>
+      </nonPassedSubjectsIds>
+    </studentdto>
+    <studentdto>
+      <lastName>Ivic</lastName>
+      <firstName>Lena</firstName>
+      <dateOfBirth>1998-05-11 22:00:00.0 UTC</dateOfBirth>
+      <residence>Stari Most 6, Sremska Mitrovica</residence>
+      <contactPhone>024/333-555</contactPhone>
+      <emailAddress>lena.ivic@mailinator.com</emailAddress>
+      <indexNumber>ra-154-2016</indexNumber>
+      <yearOfEnrollment>2016</yearOfEnrollment>
+      <currentYearOfStudy>4</currentYearOfStudy>
+      <statusOfStudent>B</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Lazic</lastName>
+      <firstName>Jovan</firstName>
+      <dateOfBirth>2001-01-22 22:00:00.0 UTC</dateOfBirth>
+      <residence>Nevesinjskih ustanika 10, Nevesinje</residence>
+      <contactPhone>025/1189-479</contactPhone>
+      <emailAddress>jovan.lazic@mailinator.com</emailAddress>
+      <indexNumber>ra-23-2020</indexNumber>
+      <yearOfEnrollment>2020</yearOfEnrollment>
+      <currentYearOfStudy>1</currentYearOfStudy>
+      <statusOfStudent>B</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Mikic</lastName>
+      <firstName>Isidora</firstName>
+      <dateOfBirth>2000-12-31 22:00:00.0 UTC</dateOfBirth>
+      <residence>Radnička 11, Novi Sad</residence>
+      <contactPhone>011/1122-366</contactPhone>
+      <emailAddress>isidora.mikic@mailinator.com</emailAddress>
+      <indexNumber>ra-1-2019</indexNumber>
+      <yearOfEnrollment>2019</yearOfEnrollment>
+      <currentYearOfStudy>2</currentYearOfStudy>
+      <statusOfStudent>B</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Ilic</lastName>
+      <firstName>Vladimir</firstName>
+      <dateOfBirth>1998-08-31 22:00:00.0 UTC</dateOfBirth>
+      <residence>Miloša Obilića 1, Beograd</residence>
+      <contactPhone>021/1122-367</contactPhone>
+      <emailAddress>vladimir.ilic@mailinator.com</emailAddress>
+      <indexNumber>sw-4-2014</indexNumber>
+      <yearOfEnrollment>2014</yearOfEnrollment>
+      <currentYearOfStudy>4</currentYearOfStudy>
+      <statusOfStudent>B</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds>
+        <string>p18</string>
+        <string>p19</string>
+      </nonPassedSubjectsIds>
+    </studentdto>
+    <studentdto>
+      <lastName>Alicic</lastName>
+      <firstName>Mirko</firstName>
+      <dateOfBirth>1999-07-21 22:00:00.0 UTC</dateOfBirth>
+      <residence>Heroja Pinkija 112, Novi Sad</residence>
+      <contactPhone>012/1122-368</contactPhone>
+      <emailAddress>mirko.alicic@mailinator.com</emailAddress>
+      <indexNumber>sw-17-2015</indexNumber>
+      <yearOfEnrollment>2015</yearOfEnrollment>
+      <currentYearOfStudy>3</currentYearOfStudy>
+      <statusOfStudent>S</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds>
+        <string>p18</string>
+        <string>p19</string>
+      </nonPassedSubjectsIds>
+    </studentdto>
+    <studentdto>
+      <lastName>Perkovic</lastName>
+      <firstName>Milisav</firstName>
+      <dateOfBirth>1998-09-28 22:00:00.0 UTC</dateOfBirth>
+      <residence>Pavla Bakića 26, Novi Sad</residence>
+      <contactPhone>012/1122-369</contactPhone>
+      <emailAddress>milisav.pejkovic@mailinator.com</emailAddress>
+      <indexNumber>sw-17-2016</indexNumber>
+      <yearOfEnrollment>2016</yearOfEnrollment>
+      <currentYearOfStudy>4</currentYearOfStudy>
+      <statusOfStudent>S</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds>
+        <string>p18</string>
+        <string>p19</string>
+      </nonPassedSubjectsIds>
+    </studentdto>
+    <studentdto>
+      <lastName>Djordjevic</lastName>
+      <firstName>Purisa</firstName>
+      <dateOfBirth>2000-02-29 22:00:00.0 UTC</dateOfBirth>
+      <residence>Pavla Papa 1, Novi Sad</residence>
+      <contactPhone>011/1543-370</contactPhone>
+      <emailAddress>purisa.djordjevic@mailinator.com</emailAddress>
+      <indexNumber>sw-27-2018</indexNumber>
+      <yearOfEnrollment>2018</yearOfEnrollment>
+      <currentYearOfStudy>2</currentYearOfStudy>
+      <statusOfStudent>B</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+    <studentdto>
+      <lastName>Kovacevic</lastName>
+      <firstName>Mikica</firstName>
+      <dateOfBirth>1999-03-23 22:00:00.0 UTC</dateOfBirth>
+      <residence>Valentina Vodnika 112, Novi Sad</residence>
+      <contactPhone>011/1992-371</contactPhone>
+      <emailAddress>mikica.kovacevic@mailinator.com</emailAddress>
+      <indexNumber>ra-226-2017</indexNumber>
+      <yearOfEnrollment>2017</yearOfEnrollment>
+      <currentYearOfStudy>3</currentYearOfStudy>
+      <statusOfStudent>S</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds>
+        <string>p18</string>
+        <string>p19</string>
+      </nonPassedSubjectsIds>
+    </studentdto>
+    <studentdto>
+      <lastName>Milić</lastName>
+      <firstName>Miloš</firstName>
+      <dateOfBirth>2001-10-21 22:00:00.0 UTC</dateOfBirth>
+      <residence>Neznanog junaka 12, Beograd</residence>
+      <contactPhone>011/8172-372</contactPhone>
+      <emailAddress>milos.milic@mailinator.com</emailAddress>
+      <indexNumber>sw-12-2020</indexNumber>
+      <yearOfEnrollment>2020</yearOfEnrollment>
+      <currentYearOfStudy>1</currentYearOfStudy>
+      <statusOfStudent>S</statusOfStudent>
+      <averageGrade>0.0</averageGrade>
+      <passedSubjectsGradesIds/>
+      <nonPassedSubjectsIds/>
+    </studentdto>
+  </studentsDTOs>
+</studentsdtoswrapper>
