@@ -2,6 +2,7 @@ package application;
 
 import javax.swing.UIManager;
 
+import controller.EntitiesConnectingAfterReadingController;
 import controller.GradesController;
 import controller.ProfessorsController;
 import controller.StudentsController;
@@ -25,6 +26,8 @@ public class App {
 		ProfessorsCollection.getInstance();
 		SubjectsCollection.getInstance();
 		GradesCollection.getInstance();
+		
+		EntitiesConnectingAfterReadingController.getInstance();
 		
 		StudentsController.getInstance();
 		ProfessorsController.getInstance();

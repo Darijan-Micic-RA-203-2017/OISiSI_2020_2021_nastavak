@@ -71,17 +71,20 @@ public class ProfessorsRepository {
 	public ProfessorsDTOsWrapper readFromFile() {
 		ProfessorsDTOsWrapper professorsDTOsWrapper = null;
 		
-		try (FileInputStream fis = new FileInputStream(file);
-				BufferedInputStream bis = new BufferedInputStream(fis)) {
-			
-			professorsDTOsWrapper = (ProfessorsDTOsWrapper) xStream.fromXML(bis);
-		} catch (FileNotFoundException fne) {
-			System.out.println("Došlo je do greške prilikom pristupa "
-					+ "datoteci \"professors.xml\"!");
-			fne.printStackTrace();
-		} catch (Exception e) {
-			System.out.println("Došlo je do greške!");
-			e.printStackTrace();
+		/** REFERENCA: https://stackabuse.com/java-check-if-file-or-directory-is-empty/ */
+		if (file.length() > 0) {
+			try (FileInputStream fis = new FileInputStream(file);
+					BufferedInputStream bis = new BufferedInputStream(fis)) {
+
+				professorsDTOsWrapper = (ProfessorsDTOsWrapper) xStream.fromXML(bis);
+			} catch (FileNotFoundException fne) {
+				System.out.println("Došlo je do greške prilikom pristupa "
+						+ "datoteci \"professors.xml\"!");
+				fne.printStackTrace();
+			} catch (Exception e) {
+				System.out.println("Došlo je do greške!");
+				e.printStackTrace();
+			}
 		}
 		
 		if (professorsDTOsWrapper == null) {
