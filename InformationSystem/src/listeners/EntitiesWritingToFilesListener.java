@@ -5,10 +5,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import dao.GradeDAO;
-import dao.ProfessorDAO;
-import dao.StudentDAO;
-import dao.SubjectDAO;
+import repository.GradesRepository;
+import repository.ProfessorsRepository;
+import repository.StudentsRepository;
+import repository.SubjectsRepository;
 import view.MainFrame;
 
 public class EntitiesWritingToFilesListener implements ActionListener {
@@ -19,16 +19,16 @@ public class EntitiesWritingToFilesListener implements ActionListener {
 				JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 		
 		if (selectedOption == JOptionPane.YES_OPTION) {
-			StudentDAO studentDAO = new StudentDAO();
+			StudentsRepository studentDAO = new StudentsRepository();
 			studentDAO.writeToFile();
 			
-			ProfessorDAO professorDAO = new ProfessorDAO();
+			ProfessorsRepository professorDAO = new ProfessorsRepository();
 			professorDAO.writeToFile();
 			
-			SubjectDAO subjectDAO = new SubjectDAO();
+			SubjectsRepository subjectDAO = new SubjectsRepository();
 			subjectDAO.writeToFile();
 			
-			GradeDAO gradeDAO = new GradeDAO();
+			GradesRepository gradeDAO = new GradesRepository();
 			gradeDAO.writeToFile();
 			
 			MainFrame.getInstance().setDefaultCloseOperation(MainFrame.EXIT_ON_CLOSE);
