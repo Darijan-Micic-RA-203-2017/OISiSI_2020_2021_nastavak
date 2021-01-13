@@ -12,6 +12,7 @@ import javax.swing.KeyStroke;
 import controller.AddEntityAction;
 import controller.EditEntityAction;
 import listeners.AboutDialogOpeningListener;
+import listeners.EntitiesWritingToFilesListener;
 import listeners.HelpDialogOpeningListener;
 
 public class MenuBar extends JMenuBar {
@@ -69,6 +70,10 @@ public class MenuBar extends JMenuBar {
 		closeMenuItem = new JMenuItem("Close", closeMenuItemIcon);
 		closeMenuItem.setMnemonic(KeyEvent.VK_C);
 		closeMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, KeyEvent.CTRL_DOWN_MASK));
+		
+		EntitiesWritingToFilesListener entitiesWritingToFilesListener = 
+				new EntitiesWritingToFilesListener();
+		closeMenuItem.addActionListener(entitiesWritingToFilesListener);
 	}
 	
 	private void setUpEditMenu() {
@@ -144,7 +149,7 @@ public class MenuBar extends JMenuBar {
 		
 		aboutMenuItem = new JMenuItem("About", aboutMenuItemIcon);
 		aboutMenuItem.setMnemonic(KeyEvent.VK_A);
-		aboutMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_DOWN_MASK));
+		aboutMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, KeyEvent.CTRL_DOWN_MASK));
 		
 		AboutDialogOpeningListener aboutDialogOpeningListener = new AboutDialogOpeningListener();
 		aboutMenuItem.addActionListener(aboutDialogOpeningListener);

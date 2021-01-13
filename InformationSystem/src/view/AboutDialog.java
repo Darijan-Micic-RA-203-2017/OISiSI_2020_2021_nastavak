@@ -51,7 +51,7 @@ public class AboutDialog extends JDialog {
 	}
 	
 	private void setUpApplicationVersionLabel() {
-		applicationVersionLabel = new JLabel("Studentska služba 1.0", JLabel.CENTER);
+		applicationVersionLabel = new JLabel("Studentska služba 0.0.2", JLabel.CENTER);
 		
 		Font font = new Font("Arial", Font.BOLD, 20);
 		applicationVersionLabel.setFont(font);
@@ -68,7 +68,7 @@ public class AboutDialog extends JDialog {
 		"Fakulteta tehničkih nauka u Novom Sadu. Kao takva, namenjena je upotrebi od strane " + 
 		"referenta studentske službe. Aplikacija je napravljena upotrebom programskog jezika " + 
 		"Java, a njena grafičko korisnička sprega (eng. interface) upotrebom biblioteke Swing.\n" + 
-		"Aplikacija rukuje sa tri tipa entiteta: student, profesor i predmet.\n\n" + 
+		"Aplikacija rukuje sa četiri tipa entiteta: student, profesor, predmet i ocena.\n\n" + 
 		"Autori aplikacije:\n" + 
 		"1) Darijan Mićić\n" + 
 		"Student 4. godine Fakulteta tehničkih nauka u Novom Sadu, sa brojem indeksa " + 
