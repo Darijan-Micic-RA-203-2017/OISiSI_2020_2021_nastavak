@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+import dtos.SubjectDTO;
+
 //na grani subject bez polja koja predstavljaju objekte drugih klasa, oni sa javljaju na grani refactor/subject
 
 public class Subject {
@@ -28,6 +30,17 @@ public class Subject {
 		this.espb = espb;
 		this.passedSubject = passedSubject;
 		this.failedSubject = failedSubject;
+	}
+	
+	public Subject(SubjectDTO subjectDTO) {
+		this.id = subjectDTO.getId();
+		this.name = subjectDTO.getName();
+		this.semester = subjectDTO.getSemester();
+		this.yearOfStudy = subjectDTO.getYearOfStudy();
+		this.professor = new Professor();
+		this.espb = subjectDTO.getEspb();
+		this.passedSubject = new ArrayList<Student>();
+		this.failedSubject = new ArrayList<Student>();
 	}
 	
 	public String getId() {
@@ -94,4 +107,39 @@ public class Subject {
 		this.failedSubject = failedSubject;
 	}
 	
+	public boolean hasBeenPassedByStudentWith(String indexNumber) {
+		boolean answer = false;
+		
+		for (Student s : passedSubject) {
+			if (s.getIndexNumber().equals(indexNumber)) {
+				answer = true;
+				break;
+			}
+		}
+		
+		return answer;
+	}
+	
+	public boolean hasNotBeenPassedByStudentWith(String indexNumber) {
+		boolean answer = false;
+		
+		for (Student s : failedSubject) {
+			if (s.getIndexNumber().equals(indexNumber)) {
+				answer = true;
+				break;
+			}
+		}
+		
+		return answer;
+	}
+	
+	public boolean isThaughtByTeacherWith(String nationalId) {
+		boolean answer = false;
+		
+		if (professor.getNationalID().equals(nationalId)) {
+			answer = true;
+		}
+		
+		return answer;
+	}
 }

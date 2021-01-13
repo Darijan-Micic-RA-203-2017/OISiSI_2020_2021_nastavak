@@ -2,15 +2,15 @@ package model;
 
 import java.util.Date;
 
+import dtos.GradeDTO;
+
 public class Grade {
-	// Polja:
 	private long id;
 	private Student student;
 	private Subject subject;
 	private int value;
 	private Date dateOfPassing;
 	
-	// Konstruktori:
 	public Grade() {}
 	
 	public Grade(long id, Student student, Subject subject, int value, Date dateOfPassing) {
@@ -21,7 +21,14 @@ public class Grade {
 		this.dateOfPassing = dateOfPassing;
 	}
 	
-	// Dobavljačke i postavljačke radnje:
+	public Grade(GradeDTO gradeDTO) {
+		this.id = gradeDTO.getId();
+		this.student = new Student();
+		this.subject = new Subject();
+		this.value = gradeDTO.getValue();
+		this.dateOfPassing = gradeDTO.getDateOfPassing();
+	}
+	
 	public long getId() {
 		return this.id;
 	}
@@ -60,5 +67,25 @@ public class Grade {
 
 	public void setDateOfPassing(Date dateOfPassing) {
 		this.dateOfPassing = dateOfPassing;
+	}
+	
+	public boolean belongsToStudentWith(String indexNumber) {
+		boolean answer = false;
+		
+		if (student.getIndexNumber().equals(indexNumber)) {
+			answer = true;
+		}
+		
+		return answer;
+	}
+	
+	public boolean isAssignedToSubjectWith(String id) {
+		boolean answer = false;
+		
+		if (subject.getId().equals(id)) {
+			answer = true;
+		}
+		
+		return answer;
 	}
 }

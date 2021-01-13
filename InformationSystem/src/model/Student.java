@@ -3,8 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import dtos.StudentDTO;
+
 public class Student {
-	// Polja:
 	private String lastName;
 	private String firstName;
 	private Date dateOfBirth;
@@ -19,7 +20,6 @@ public class Student {
 	private ArrayList<Grade> passedSubjects;
 	private ArrayList<Subject> nonPassedSubjects;
 	
-	// Konstruktori:
 	public Student() {}
 	
 	public Student(String lastName, String firstName, Date dateOfBirth, String residence, 
@@ -41,7 +41,22 @@ public class Student {
 		this.nonPassedSubjects = nonPassedSubjects;
 	}
 	
-	// Dobavljačke i postavljačke radnje:
+	public Student(StudentDTO studentDTO) {
+		this.lastName = studentDTO.getLastName();
+		this.firstName = studentDTO.getFirstName();
+		this.dateOfBirth = studentDTO.getDateOfBirth();
+		this.residence = studentDTO.getResidence();
+		this.contactPhone = studentDTO.getContactPhone();
+		this.emailAddress = studentDTO.getEmailAddress();
+		this.indexNumber = studentDTO.getIndexNumber();
+		this.yearOfEnrollment = studentDTO.getYearOfEnrollment();
+		this.currentYearOfStudy = studentDTO.getCurrentYearOfStudy();
+		this.statusOfStudent = studentDTO.getStatusOfStudent();
+		this.averageGrade = studentDTO.getAverageGrade();
+		this.passedSubjects = new ArrayList<Grade>();
+		this.nonPassedSubjects = new ArrayList<Subject>();
+	}
+	
 	public String getLastName() {
 		return this.lastName;
 	}
@@ -167,5 +182,31 @@ public class Student {
 		}
 		
 		return totalEspb;
+	}
+	
+	public boolean hasPassedSubject(long idOfGrade) {
+		boolean answer = false;
+		
+		for (Grade g : passedSubjects) {
+			if (g.getId() == idOfGrade) {
+				answer = true;
+				break;
+			}
+		}
+		
+		return answer;
+	}
+	
+	public boolean hasNotPassedSubject(String idOfSubject) {
+		boolean answer = false;
+		
+		for (Subject s : nonPassedSubjects) {
+			if (s.getId().equals(idOfSubject)) {
+				answer = true;
+				break;
+			}
+		}
+		
+		return answer;
 	}
 }

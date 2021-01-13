@@ -1,6 +1,9 @@
 package model;
 
 import java.util.Date;
+
+import dtos.ProfessorDTO;
+
 import java.util.ArrayList;
 
 //na grani professor bez polja koja predstavljaju objekte drugih klasa, oni sa javljaju na grani refactor/professor
@@ -34,6 +37,20 @@ public class Professor {
 		this.title = title;
 		this.calling = calling;
 		this.teachingSubjects = teachingSubjects;
+	}
+	
+	public Professor(ProfessorDTO professorDTO) {
+		this.lastName = professorDTO.getLastName();
+		this.firstName = professorDTO.getFirstName();
+		this.dateOfBirth = professorDTO.getDateOfBirth();
+		this.residence = professorDTO.getResidence();
+		this.contactPhone = professorDTO.getContactPhone();
+		this.emailAddress = professorDTO.getEmailAddress();
+		this.officeAddress = professorDTO.getOfficeAddress();
+		this.nationalID = professorDTO.getNationalID();
+		this.title = professorDTO.getTitle();
+		this.calling = professorDTO.getCalling();
+		this.teachingSubjects = new ArrayList<Subject>();
 	}
 	
 	public String getLastName() {
@@ -122,5 +139,18 @@ public class Professor {
 	
 	public void setTeachingSubjects(ArrayList<Subject> teachingSubjects) {
 		this.teachingSubjects = teachingSubjects;
+	}
+	
+	public boolean teachesSubject(String idOfSubject) {
+		boolean answer = false;
+		
+		for (Subject s : teachingSubjects) {
+			if (s.getId().equals(idOfSubject)) {
+				answer = true;
+				break;
+			}
+		}
+		
+		return answer;
 	}
 }
