@@ -52,11 +52,11 @@ public class StudentsCollection {
 		}
 		
 		students.add(new Student("Mišković", "Žarko", dateOfBirth1, 
-				"Dimitrija Tucovića 6, Pančevo", "0614560761", "zarko.miskovic@gmail.com", 
+				"Dimitrija Tucovića 6, Pančevo", "061/456-0761", "zarko.miskovic@gmail.com", 
 				"ra-45-2018", 2018, 2, StatusOfStudent.B, 0.0, new ArrayList<Grade>(), 
 				new ArrayList<Subject>()));
 		students.add(new Student("Vitas", "Ilija", dateOfBirth2, 
-				"Starca Vujadina 13, Nova Pazova", "0638766452", "ilija_vitas@yahoo.com", 
+				"Starca Vujadina 13, Nova Pazova", "063/8766-452", "ilija_vitas@yahoo.com", 
 				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
 				new ArrayList<Subject>()));
 	}
