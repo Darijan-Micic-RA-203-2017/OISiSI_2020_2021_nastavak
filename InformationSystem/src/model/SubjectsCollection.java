@@ -174,4 +174,16 @@ public class SubjectsCollection {
 		}
 		return failedSubjectsOfOneStudent;
 	}
+	
+	public ArrayList<Subject> getTeachingSubjects(String nationalID){
+		ArrayList<Subject> teachingSubjectsOfProfessor = new ArrayList<Subject>();
+		
+		for(Subject s : subjects) {
+			if(s.getProfessor().getNationalID().equals(nationalID)) {
+				teachingSubjectsOfProfessor.add(s);
+			}
+		}
+		
+		return teachingSubjectsOfProfessor;
+	}
 }
