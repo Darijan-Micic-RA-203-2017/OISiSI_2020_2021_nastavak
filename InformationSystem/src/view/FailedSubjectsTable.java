@@ -15,7 +15,7 @@ public class FailedSubjectsTable extends JTable {
 		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		// Sama JTable komponenta napravljena je poštujući MVC arhitekturu.
-		setModel(new AbstractPassedSubjectsTableModel(indexNumber));
+		setModel(new AbstractFailedSubjectsTableModel(indexNumber));
 	}
 	
 	@Override
