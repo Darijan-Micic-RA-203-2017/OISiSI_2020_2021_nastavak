@@ -16,7 +16,7 @@ public class StudentEditingTabbedPane extends JTabbedPane {
 	private Student selectedStudent;
 	private StudentNonGradesDataPanel studentNonGradesDataPanel;
 	private PassedSubjectsPanel passedSubjectsPanel;
-	private FailedSubjectsPanel unpassedSubjectsPanel;
+	private FailedSubjectsPanel failedSubjectsPanel;
 	
 	// Konstruktor:
 	public StudentEditingTabbedPane(int selectedRowIndex, String typeOfParentDialog) {
@@ -32,8 +32,8 @@ public class StudentEditingTabbedPane extends JTabbedPane {
 		passedSubjectsPanel = new PassedSubjectsPanel(selectedStudent);
 		add("Položeni", passedSubjectsPanel);
 		
-		unpassedSubjectsPanel = new FailedSubjectsPanel(selectedStudent);
-		add("Nepoloženi", unpassedSubjectsPanel);
+		failedSubjectsPanel = new FailedSubjectsPanel(selectedStudent);
+		add("Nepoloženi", failedSubjectsPanel);
 	}
 	
 	public Student getSelectedStudent() {
@@ -46,6 +46,10 @@ public class StudentEditingTabbedPane extends JTabbedPane {
 	
 	public PassedSubjectsPanel getPassedSubjectsPanel() {
 		return passedSubjectsPanel;
+	}
+	
+	public FailedSubjectsPanel getFailedSubjectsPanel() {
+		return failedSubjectsPanel;
 	}
 	
 	private void fillStudentNonGradesDataPanel() {
