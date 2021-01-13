@@ -50,13 +50,13 @@ public class ProfessorsCollection {
 			pE.printStackTrace();
 		}
 		professors.add(new Professor("Ban","Ivo", dateOfBirth1,
-				"Nikole Tesle 13,Zrenjanin","0642000163","ivoban@gmail.com",
+				"Nikole Tesle 13,Zrenjanin","064/200-0163","ivoban@gmail.com",
 				"Slavka Rodića 25,Zrenjanin","080119700",TitleOfProfessor.BSC,CallingOfProfessor.VANREDNI_PROFESOR,new ArrayList<Subject>()));
 		professors.add(new Professor("Oroz","Savo", dateOfBirth2,
-				"Marije Bursać 43,Zrenjanin","0652060813","ssavo_oroz@gmail.com",
+				"Marije Bursać 43,Zrenjanin","065/206-0813","ssavo_oroz@gmail.com",
 				"Slavka Rodića 25,Zrenjanin","041119600",TitleOfProfessor.MSC,CallingOfProfessor.REDOVNI_PROFESOR,new ArrayList<Subject>()));
 		professors.add(new Professor("Kraljević","Ana",dateOfBirth3,
-				"Aradački atari BB,Zrenjanin","068783453","kraljvicana@gmail.com",
+				"Aradački atari BB,Zrenjanin","068/7834-253","kraljvicana@gmail.com",
 				"Bulevar Evrope 46,Novi Sad","101219870",TitleOfProfessor.DR,CallingOfProfessor.ASISTENT_SA_DOKTORATOM,new ArrayList<Subject>()));
 	}
 	

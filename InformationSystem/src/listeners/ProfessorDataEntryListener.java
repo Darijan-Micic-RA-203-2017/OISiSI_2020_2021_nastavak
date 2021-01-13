@@ -78,19 +78,20 @@ public class ProfessorDataEntryListener implements KeyListener  {
 		} else {
 			incorrectDateOfBirthMessageLabel.setVisible(false);
 		}
-		if(!Pattern.matches("[0-9]+", contactPhoneTextField.getText())) {
+		String enteredContactPhone = contactPhoneTextField.getText();
+		if (!Pattern.matches("[0-9]{3}/[0-9]{3,4}-[0-9]{3,4}", enteredContactPhone)) {
 			enteredDataValidity = false;
-			
+
 			incorrectContactPhoneMessageLabel.setVisible(true);
 		} else {
 			incorrectContactPhoneMessageLabel.setVisible(false);
-		}
-		if(!Pattern.matches("[a-z0-9\\_\\-\\.]+@[a-z]+\\.[a-z\\.]+", emailAddressTextField.getText())) {
-			enteredDataValidity = false;
-			
-			incorrectEmailAddressMessageLable.setVisible(true);
-		} else {
-			incorrectEmailAddressMessageLable.setVisible(false);
+			if (!contains10or9Digits(enteredContactPhone)) {
+				enteredDataValidity = false;
+				
+				incorrectContactPhoneMessageLabel.setVisible(true);
+			} else {
+				incorrectContactPhoneMessageLabel.setVisible(false);
+			}
 		}
 		String enteredNationalId = nationalIdTextField.getText();
 		if(!Pattern.matches("[0-9]{9}", nationalIdTextField.getText())) {
@@ -132,4 +133,21 @@ public class ProfessorDataEntryListener implements KeyListener  {
 	}
 	@Override
 	public void keyTyped(KeyEvent arg0) {}
+	
+	private boolean contains10or9Digits(String enteredContactPhone) {
+		boolean answer = false;
+		
+		int numberOfDigits = 0;
+		for (char c : enteredContactPhone.toCharArray()) {
+			if (Character.isDigit(c)) {
+				numberOfDigits++;
+			}
+		}
+		
+		if (numberOfDigits == 10 || numberOfDigits == 9) {
+			answer = true;
+		}
+		
+		return answer;
+	}
 }
