@@ -175,13 +175,18 @@ public class SubjectsCollection {
 		return failedSubjectsOfOneStudent;
 	}
 	
-	public ArrayList<Subject> getTeachingSubjects(String nationalID){
+	public ArrayList<Subject> getTeachingSubjects(String nationalId){
 		ArrayList<Subject> teachingSubjectsOfProfessor = new ArrayList<Subject>();
 		
 		for(Subject s : subjects) {
-			if(s.getProfessor().getNationalID().equals(nationalID)) {
-				teachingSubjectsOfProfessor.add(s);
+			if(s.getProfessor() != null) {
+				if(s.getProfessor().getNationalID() != null) {
+					if(s.getProfessor().getNationalID().equals(nationalId)) {
+						teachingSubjectsOfProfessor.add(s);
+					}
+				}
 			}
+			
 		}
 		
 		return teachingSubjectsOfProfessor;
