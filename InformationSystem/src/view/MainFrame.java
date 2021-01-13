@@ -18,6 +18,8 @@ import model.StudentsCollection;
 import controller.ProfessorsController;
 import model.ProfessorsCollection;
 
+import listeners.MainFrameClosingListener;
+
 public class MainFrame extends JFrame {
 	
 	private static final long serialVersionUID = 4L;
@@ -50,6 +52,9 @@ public class MainFrame extends JFrame {
 		setVisible(true);
 		
 		setLayout(new BorderLayout());
+		
+		MainFrameClosingListener mainFrameClosingListener = new MainFrameClosingListener();
+		addWindowListener(mainFrameClosingListener);
 		
 		menuBar = new MenuBar();
 		this.setJMenuBar(menuBar);
