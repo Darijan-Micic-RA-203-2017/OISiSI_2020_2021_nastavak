@@ -33,8 +33,16 @@ public class AbstractTeachingSubjectsTableModel extends AbstractTableModel {
 	public int getRowCount() {
 		int rowCount = 0;
 		for (Subject s : SubjectsCollection.getInstance().getSubjects()) {
-			if (s.getProfessor().getNationalID().equals(nationalId)) {
-				rowCount++;
+			if (s.getProfessor() != null) {
+				if(s.getProfessor().getNationalID() != null) {
+					if(s.getProfessor().getNationalID().equals(nationalId)) {
+						rowCount++;
+					}
+				} else {
+					rowCount = 0;
+				}
+			} else {
+				rowCount = 0;
 			}
 		}
 		
@@ -54,16 +62,16 @@ public class AbstractTeachingSubjectsTableModel extends AbstractTableModel {
 		Subject row = teachingSubjects.get(rowIndex);
 		
 		switch(columnIndex) {
-		case 0:
-			return row.getId();
-		case 1:
-			return row.getName();
-		case 2:
-			return Integer.toString(row.getYearOfStudy());
-		case 3:
-			return row.getSemester().toString();
-		default:
-			return null;
+			case 0:
+				return row.getId();
+			case 1:
+				return row.getName();
+			case 2:
+				return Integer.toString(row.getYearOfStudy());
+			case 3:
+				return row.getSemester().toString();
+			default:
+				return null;
 		}
 	}
 }
