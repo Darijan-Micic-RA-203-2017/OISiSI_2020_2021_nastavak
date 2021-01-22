@@ -1,4 +1,6 @@
-# OISiSI_2020_2021
+# OISiSI_2020_2021_nastavak
+
+Nastavljam rad na projektu iz predmeta "Osnovi informacionih sistema i softverskog inženjerstva", rađen u školskoj 2020/2021. godini. Nadam se da ću dovršiti projekat i iskoristiti ovaj repozitorijum kako bih usavršio programerske veštine.
 
 Članovi tima:
 1) Student 1 - Darijan Mićić, RA 203/2017, grupa 1
