@@ -43,7 +43,7 @@ public class ProfessorDTO {
 	
 	public ProfessorDTO(Professor professor) {
 		this.lastName = professor.getLastName();
-		this.firstName = professor.getLastName();
+		this.firstName = professor.getFirstName();
 		this.dateOfBirth = professor.getDateOfBirth();
 		this.residence = professor.getResidence();
 		this.contactPhone = professor.getContactPhone();
