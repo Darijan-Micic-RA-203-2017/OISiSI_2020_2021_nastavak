@@ -10,6 +10,7 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
 import controller.AddEntityAction;
+import controller.DeleteEntityAction;
 import controller.EditEntityAction;
 import listeners.AboutDialogOpeningListener;
 import listeners.EntitiesWritingToFilesListener;
@@ -108,9 +109,10 @@ public class MenuBar extends JMenuBar {
 		String imagePath = getImagePath("Delete_icon.png");
 		ImageIcon deleteMenuItemIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
 		
-		deleteMenuItem = new JMenuItem("Delete", deleteMenuItemIcon);
-		deleteMenuItem.setMnemonic(KeyEvent.VK_D);
-		deleteMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, KeyEvent.CTRL_DOWN_MASK));
+		DeleteEntityAction deleteEntityAction = new DeleteEntityAction();
+		deleteMenuItem = new JMenuItem(deleteEntityAction);
+		deleteMenuItem.setText("Delete");
+		deleteMenuItem.setIcon(deleteMenuItemIcon);
 	}
 	
 	private void setUpHelpMenu() {
