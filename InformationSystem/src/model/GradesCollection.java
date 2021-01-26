@@ -180,6 +180,27 @@ public class GradesCollection {
 		}
 	}
 	
+	public void deleteGradesOfStudentWith(String indexNumber) {
+		for (Grade g : grades) {
+			if (g.getStudent().getIndexNumber().equals(indexNumber)) {
+				grades.remove(g);
+			}
+		}
+	}
+	
+	public Grade findById(long id) {
+		Grade grade = null;
+		
+		for (Grade g : grades) {
+			if (g.getId() == id) {
+				grade = g;
+				break;
+			}
+		}
+		
+		return grade;
+	}
+	
 	public boolean idExists(long id) {
 		boolean answer = false;
 		for (Grade g : grades) {
