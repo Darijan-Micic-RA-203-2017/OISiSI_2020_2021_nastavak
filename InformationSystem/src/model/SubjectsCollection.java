@@ -108,6 +108,32 @@ public class SubjectsCollection {
 		}
 	}
 	
+	public void deleteStudentFromSubjectsRecords(String indexNumber, 
+			ArrayList<String> passedSubjectsIdsOfStudent, 
+			ArrayList<String> nonPassedSubjectsIdsOfStudent) {
+		for (String pSId : passedSubjectsIdsOfStudent) {
+			Subject passedSubject = findById(pSId);
+			
+			for (Student std : passedSubject.getPassedSubject()) {
+				if (std.getIndexNumber().equals(indexNumber)) {
+					passedSubject.getPassedSubject().remove(std);
+					break;
+				}
+			}
+		}
+		
+		for (String nPSId : nonPassedSubjectsIdsOfStudent) {
+			Subject nonPassedSubject = findById(nPSId);
+			
+			for (Student std : nonPassedSubject.getFailedSubject()) {
+				if (std.getIndexNumber().equals(indexNumber)) {
+					nonPassedSubject.getFailedSubject().remove(std);
+					break;
+				}
+			}
+		}
+	}
+	
 	public void moveStudentToNonPassedList(String subjectId, String indexNumber) {
 		Subject subject = findById(subjectId);
 		
