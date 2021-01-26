@@ -2,11 +2,16 @@ package controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
+import model.Grade;
+import model.GradesCollection;
 import model.StatusOfStudent;
 import model.Student;
 import model.StudentsCollection;
+import model.Subject;
+import model.SubjectsCollection;
 import view.MainFrame;
 import view.StudentAddingDialog;
 import view.StudentEditingDialog;
@@ -70,18 +75,33 @@ public class StudentsController {
 		// Osvežavanje prikaza:
 		MainFrame.getInstance().refreshView("ADDED", -1);
 	}
-
+	
 	public void deleteStudent(int rowSelectedIndex) {
-		if (rowSelectedIndex >= 0) {
-			// Izmena modela:
-			Student student = StudentsCollection.getInstance().getRow(rowSelectedIndex);
-			StudentsCollection.getInstance().deleteStudent(student.getIndexNumber());
-			
-			// Osvežavanje prikaza:
-			MainFrame.getInstance().refreshView("DELETED", rowSelectedIndex);
+		Student student = StudentsCollection.getInstance().getRow(rowSelectedIndex);
+		
+		// Izmena modela:
+		StudentsCollection.getInstance().deleteStudent(student.getIndexNumber());
+		
+		ArrayList<String> passedSubjectsIdsOfStudent = new ArrayList<String>();
+		for (Grade g : student.getPassedSubjects()) {
+			passedSubjectsIdsOfStudent.add(g.getSubject().getId());
 		}
-	}
+		
+		ArrayList<String> nonPassedSubjectsIdsOfStudent = new ArrayList<String>();
+		for (Subject s : student.getNonPassedSubjects()) {
+			nonPassedSubjectsIdsOfStudent.add(s.getId());
+		}
+		
+		GradesCollection.getInstance().deleteGradesOfStudentWith(student.getIndexNumber());
+		
+		SubjectsCollection.getInstance().
+				deleteStudentFromSubjectsRecords(student.getIndexNumber(), 
+						passedSubjectsIdsOfStudent, nonPassedSubjectsIdsOfStudent);
 
+		// Osvežavanje prikaza:
+		MainFrame.getInstance().refreshView("DELETED STUDENT", rowSelectedIndex);
+	}
+	
 	public void editStudentNonGradesData(int rowSelectedIndex, 
 			StudentEditingDialog studentEditingDialog) {
 		if (rowSelectedIndex >= 0) {
