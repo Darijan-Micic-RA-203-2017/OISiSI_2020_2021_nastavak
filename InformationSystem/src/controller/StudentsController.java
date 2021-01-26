@@ -82,8 +82,10 @@ public class StudentsController {
 		// Izmena modela:
 		StudentsCollection.getInstance().deleteStudent(student.getIndexNumber());
 		
+		ArrayList<Long> gradesIdsOfStudent = new ArrayList<Long>();
 		ArrayList<String> passedSubjectsIdsOfStudent = new ArrayList<String>();
 		for (Grade g : student.getPassedSubjects()) {
+			gradesIdsOfStudent.add(g.getId());
 			passedSubjectsIdsOfStudent.add(g.getSubject().getId());
 		}
 		
@@ -92,7 +94,7 @@ public class StudentsController {
 			nonPassedSubjectsIdsOfStudent.add(s.getId());
 		}
 		
-		GradesCollection.getInstance().deleteGradesOfStudentWith(student.getIndexNumber());
+		GradesCollection.getInstance().deleteGradesOfStudent(gradesIdsOfStudent);
 		
 		SubjectsCollection.getInstance().
 				deleteStudentFromSubjectsRecords(student.getIndexNumber(), 
