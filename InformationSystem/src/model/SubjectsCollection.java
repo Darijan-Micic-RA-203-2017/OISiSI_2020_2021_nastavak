@@ -134,6 +134,13 @@ public class SubjectsCollection {
 		}
 	}
 	
+	public void deleteProfessorFromSubjectsRecords(ArrayList<String> teachingSubjectsIdsOfProfessor) {
+		for (String sId : teachingSubjectsIdsOfProfessor) {
+			Subject teachingSubject = findById(sId);
+			teachingSubject.setProfessor(null);
+		}
+	}
+	
 	public void moveStudentToNonPassedList(String subjectId, String indexNumber) {
 		Subject subject = findById(subjectId);
 		

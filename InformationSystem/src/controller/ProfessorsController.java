@@ -1,10 +1,13 @@
 package controller;
 
 import java.text.*;
+import java.util.ArrayList;
 import java.util.Date;
 
 import model.Professor;
 import model.ProfessorsCollection;
+import model.Subject;
+import model.SubjectsCollection;
 import model.CallingOfProfessor;
 import model.TitleOfProfessor;
 import view.MainFrame;
@@ -82,14 +85,23 @@ public class ProfessorsController {
 	}
 	
 	public void deleteProfessor(int rowSelectedIndex) {
-		if(rowSelectedIndex >= 0) {
-			Professor professor = ProfessorsCollection.getInstance().getRow(rowSelectedIndex);
-			ProfessorsCollection.getInstance().deleteProfessor(professor.getNationalID());
-			
-			MainFrame.getInstance().refreshView("DELETED", rowSelectedIndex);
-		}
-	}
+		Professor professor = ProfessorsCollection.getInstance().getRow(rowSelectedIndex);
 		
+		// Izmena modela:
+		ProfessorsCollection.getInstance().deleteProfessor(professor.getNationalID());
+		
+		ArrayList<String> teachingSubjectsIdsOfProfessor = new ArrayList<String>();
+		for (Subject s : professor.getTeachingSubjects()) {
+			teachingSubjectsIdsOfProfessor.add(s.getId());
+		}
+		
+		SubjectsCollection.getInstance().
+				deleteProfessorFromSubjectsRecords(teachingSubjectsIdsOfProfessor);
+		
+		// Osvežavanje prikaza:
+		MainFrame.getInstance().refreshView("DELETED PROFESSOR", rowSelectedIndex);
+	}
+	
 	public void editProfessorNonSubjectsData(int rowSelectedIndex,
 			ProfessorEditingDialog professorEditingDialog) {
 		if(rowSelectedIndex >= 0) {
