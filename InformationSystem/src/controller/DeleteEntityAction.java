@@ -38,6 +38,25 @@ public class DeleteEntityAction extends AbstractAction {
 						"Da bi se moglo izvršiti brisanje studenta, on mora biti odabran u "
 						+ "tabeli.", "Upozorenje", JOptionPane.WARNING_MESSAGE);
 			}
+		} else if (selectedTabIndex == 1) {
+			int selectedRowIndex = MainFrame.getInstance().getTabbedPane().
+					getProfessorsTab().getProfessorsTable().getSelectedRow();
+			
+			if (selectedRowIndex >= 0) {
+				/** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji.pdf) */
+				int selectedOption = JOptionPane.showConfirmDialog(MainFrame.getInstance(), 
+						"Da li ste sigurni da želite da obrišete profesora?", 
+						"Brisanje profesora", JOptionPane.YES_NO_OPTION);
+				
+				if (selectedOption == JOptionPane.YES_OPTION) {
+					ProfessorsController.getInstance().deleteProfessor(selectedRowIndex);
+				}
+			} else {
+				/** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji.pdf) */
+				JOptionPane.showMessageDialog(MainFrame.getInstance(), 
+						"Da bi se moglo izvršiti brisanje profesora, on mora biti odabran u "
+						+ "tabeli.", "Upozorenje", JOptionPane.WARNING_MESSAGE);
+			}
 		}
 	}
 }
