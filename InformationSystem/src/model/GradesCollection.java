@@ -23,7 +23,7 @@ public class GradesCollection {
 	
 	// Konstruktor:
 	private GradesCollection() {
-		initGrades();
+		//initGrades();
 
 		columns = new ArrayList<String>();
 		columns.add("Šifra predmeta");
@@ -34,7 +34,7 @@ public class GradesCollection {
 		columns.add("Datum");
 	}
 	
-	// Radnje:
+	/*
 	private void initGrades() {
 		grades = new ArrayList<Grade>();
 		
@@ -63,7 +63,6 @@ public class GradesCollection {
 		int value1 = 8;
 		int value2 = 9;
 		
-		/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy.");
 
 		String dateOfPassing1InString = "21.01.2020.";
@@ -105,6 +104,7 @@ public class GradesCollection {
 		subject2.getPassedSubject().add(student2);
 		currentMaximumId++;
 	}
+	*/
 	
 	public ArrayList<Grade> getGrades() {
 		return grades;

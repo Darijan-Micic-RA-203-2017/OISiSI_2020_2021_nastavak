@@ -17,7 +17,7 @@ public class SubjectsCollection {
 	private ArrayList<String> columns;
 	
 	private SubjectsCollection() {
-		initSubjects();
+		//initSubjects();
 		
 		columns = new ArrayList<String>();
 		columns.add("Šifra predmeta");
@@ -27,6 +27,7 @@ public class SubjectsCollection {
 		columns.add("Semestar u kojem se predmet izvodi");
 	}
 	
+	/*
 	private void initSubjects() {
 		subjects = new ArrayList<Subject>();
 		
@@ -37,6 +38,7 @@ public class SubjectsCollection {
 		subjects.add(new Subject("E382","Verovatnoća",SemesterOfSubject.LETNJI,
 				2,new Professor(),6,new ArrayList<Student>(),new ArrayList<Student>()));
 	}
+	*/
 	
 	public ArrayList<Subject> getSubjects(){
 		return subjects;

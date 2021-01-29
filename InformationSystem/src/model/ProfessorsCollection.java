@@ -21,7 +21,7 @@ public class ProfessorsCollection {
 	private ArrayList<String> columns;
 	
 	private ProfessorsCollection() {
-		initProfessors();
+		//initProfessors();
 		
 		columns = new ArrayList<String>();
 		columns.add("Ime");
@@ -30,10 +30,10 @@ public class ProfessorsCollection {
 		columns.add("Zvanje");
 	}
 	
+	/*
 	private void initProfessors() {
 		professors = new ArrayList<Professor>();
 		
-		/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy.");
 		
 		String dateOfBirth1StringRepresentation = "01.08.1970.";
@@ -59,6 +59,7 @@ public class ProfessorsCollection {
 				"Aradački atari BB,Zrenjanin","068/7834-253","kraljvicana@gmail.com",
 				"Bulevar Evrope 46,Novi Sad","101219870",TitleOfProfessor.DR,CallingOfProfessor.ASISTENT_SA_DOKTORATOM,new ArrayList<Subject>()));
 	}
+	*/
 	
 	public ArrayList<Professor> getProfessors(){
 		return professors;

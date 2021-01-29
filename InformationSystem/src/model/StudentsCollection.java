@@ -22,7 +22,7 @@ public class StudentsCollection {
 	
 	// Konstruktor:
 	private StudentsCollection() {
-		initStudents();
+		//initStudents();
 
 		columns = new ArrayList<String>();
 		columns.add("Broj indeksa");
@@ -33,11 +33,10 @@ public class StudentsCollection {
 		columns.add("Prosek");
 	}
 	
-	// Radnje:
+	/*
 	private void initStudents() {
 		students = new ArrayList<Student>();
 		
-		/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy.");
 
 		String dateOfBirth1StringRepresentation = "30.12.1999.";
@@ -60,6 +59,7 @@ public class StudentsCollection {
 				"ra-87-2018", 2018, 2, StatusOfStudent.S, 0.0, new ArrayList<Grade>(), 
 				new ArrayList<Subject>()));
 	}
+	*/
 	
 	public ArrayList<Student> getStudents() {
 		return students;
