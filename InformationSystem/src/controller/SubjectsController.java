@@ -1,7 +1,10 @@
 package controller;
 
+import model.GradesCollection;
 import model.Professor;
+import model.ProfessorsCollection;
 import model.SemesterOfSubject;
+import model.StudentsCollection;
 import model.Subject;
 import model.SubjectsCollection;
 import view.MainFrame;
@@ -87,6 +90,29 @@ public class SubjectsController {
 			// Osvežavanje prikaza:
 			MainFrame.getInstance().refreshView(null, -1);
 		}
+	}
+	
+	public void deleteSubject(int selectedRowIndex) {
+		Subject subject = SubjectsCollection.getInstance().getRow(selectedRowIndex);
+		String subjectId = subject.getId();
+		
+		// Izmena modela:
+		StudentsCollection.getInstance().deleteSubjectFromStudentsRecords(subjectId);
+		
+		GradesCollection.getInstance().deleteGradesForSubject(subjectId);
+		
+		Professor professor = subject.getProfessor();
+		if (professor != null) {
+			String nationalIdOfProfessor = professor.getNationalID();
+			
+			ProfessorsCollection.getInstance().
+					deleteSubjectFromProfessorsRecords(nationalIdOfProfessor, subjectId);
+		}
+		
+		SubjectsCollection.getInstance().deleteSubject(subjectId);
+		
+		// Osvežavanje prikaza:
+		MainFrame.getInstance().refreshView("DELETED SUBJECT", selectedRowIndex);
 	}
 	
 	public void moveStudentToNonPassedList(String subjectId, String indexNumber) {
