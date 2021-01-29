@@ -139,12 +139,10 @@ public class ProfessorsCollection {
 			String subjectId) {
 		Professor professor = findByNationalId(nationalIdOfProfessor);
 		
-		if (professor != null) {
-			for (Subject s : professor.getTeachingSubjects()) {
-				if (s.getId().equals(subjectId)) {
-					professor.getTeachingSubjects().remove(s);
-					break;
-				}
+		for (Subject s : professor.getTeachingSubjects()) {
+			if (s.getId().equals(subjectId)) {
+				professor.getTeachingSubjects().remove(s);
+				break;
 			}
 		}
 	}
