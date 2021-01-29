@@ -184,11 +184,11 @@ public class Student {
 		return totalEspb;
 	}
 	
-	public boolean hasPassedSubject(long idOfGrade) {
+	public boolean hasPassedSubjectWith(String subjectId) {
 		boolean answer = false;
 		
 		for (Grade g : passedSubjects) {
-			if (g.getId() == idOfGrade) {
+			if (g.getSubject().getId().equals(subjectId)) {
 				answer = true;
 				break;
 			}
@@ -197,11 +197,11 @@ public class Student {
 		return answer;
 	}
 	
-	public boolean hasNotPassedSubject(String idOfSubject) {
+	public boolean hasNotPassedSubjectWith(String subjectId) {
 		boolean answer = false;
 		
 		for (Subject s : nonPassedSubjects) {
-			if (s.getId().equals(idOfSubject)) {
+			if (s.getId().equals(subjectId)) {
 				answer = true;
 				break;
 			}
