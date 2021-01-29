@@ -55,41 +55,39 @@ public class SubjectsController {
 		MainFrame.getInstance().refreshView("ADDED", -1);
 	}
 	
-	public void editSubjectNonStudentsData(int rowSelectedIndex, 
+	public void editSubjectNonStudentsData(int selectedRowIndex, 
 			SubjectEditingDialog subjectEditingDialog) {
-		if (rowSelectedIndex >= 0) {
-			// Izmena modela:
-			Subject subject = SubjectsCollection.getInstance().getRow(rowSelectedIndex);
-			
-			SubjectNonStudentsDataPanel subjectNonStudentsDataPanel = 
-					subjectEditingDialog.getSubjectNonStudentsDataPanel();
-
-			String newId = subjectNonStudentsDataPanel.getIdTextField().getText();
-			String name = subjectNonStudentsDataPanel.getNameTextField().getText();
-			int yearOfStudyComboBoxSelectedIndex = 
-					subjectNonStudentsDataPanel.getYearOfStudyComboBox().getSelectedIndex();
-			int yearOfStudy = yearOfStudyComboBoxSelectedIndex + 1;
-			int semesterComboBoxSelectedIndex = 
-					subjectNonStudentsDataPanel.getSemesterComboBox().getSelectedIndex();
-			SemesterOfSubject semester = null;
-			if (semesterComboBoxSelectedIndex == 0) {
-				semester = SemesterOfSubject.LETNJI;
-			} else {
-				semester = SemesterOfSubject.ZIMSKI;
-			}
-			String espbStringRepresentation = 
-					subjectNonStudentsDataPanel.getEspbTextField().getText();
-			int espb = Integer.parseInt(espbStringRepresentation);
-			// Privremeno, dok ne bude napravljena funkcionalnost:
-			Professor professor = new Professor();
-			
-			String oldId = subject.getId();
-			SubjectsCollection.getInstance().editSubjectNonStudentsData(oldId, newId, name, 
-					semester, yearOfStudy, espb, professor);
-
-			// Osvežavanje prikaza:
-			MainFrame.getInstance().refreshView(null, -1);
+		Subject subject = SubjectsCollection.getInstance().getRow(selectedRowIndex);
+		
+		// Izmena modela:
+		SubjectNonStudentsDataPanel subjectNonStudentsDataPanel = 
+				subjectEditingDialog.getSubjectNonStudentsDataPanel();
+		
+		String newId = subjectNonStudentsDataPanel.getIdTextField().getText();
+		String name = subjectNonStudentsDataPanel.getNameTextField().getText();
+		int yearOfStudyComboBoxSelectedIndex = 
+				subjectNonStudentsDataPanel.getYearOfStudyComboBox().getSelectedIndex();
+		int yearOfStudy = yearOfStudyComboBoxSelectedIndex + 1;
+		int semesterComboBoxSelectedIndex = 
+				subjectNonStudentsDataPanel.getSemesterComboBox().getSelectedIndex();
+		SemesterOfSubject semester = null;
+		if (semesterComboBoxSelectedIndex == 0) {
+			semester = SemesterOfSubject.LETNJI;
+		} else {
+			semester = SemesterOfSubject.ZIMSKI;
 		}
+		String espbStringRepresentation = 
+				subjectNonStudentsDataPanel.getEspbTextField().getText();
+		int espb = Integer.parseInt(espbStringRepresentation);
+		// Privremeno, dok ne bude napravljena funkcionalnost:
+		Professor professor = subject.getProfessor();
+		
+		String oldId = subject.getId();
+		SubjectsCollection.getInstance().editSubjectNonStudentsData(oldId, newId, name, 
+				semester, yearOfStudy, espb, professor);
+		
+		// Osvežavanje prikaza:
+		MainFrame.getInstance().refreshView("EDITED SUBJECT", selectedRowIndex);
 	}
 	
 	public void deleteSubject(int selectedRowIndex) {
