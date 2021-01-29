@@ -187,6 +187,11 @@ public class GradesCollection {
 		}
 	}
 	
+	public void deleteGradesForSubject(String subjectId) {
+		ArrayList<Grade> gradesForSubject = getGradesForSubject(subjectId);
+		grades.removeAll(gradesForSubject);
+	}
+	
 	public Grade findById(long id) {
 		Grade grade = null;
 		
@@ -236,5 +241,17 @@ public class GradesCollection {
 		}
 		
 		return gradesOfOneStudent;
+	}
+	
+	public ArrayList<Grade> getGradesForSubject(String subjectId) {
+		ArrayList<Grade> gradesForOneSubject = new ArrayList<Grade>();
+		
+		for (Grade g : grades) {
+			if (g.getSubject().getId().equals(subjectId)) {
+				gradesForOneSubject.add(g);
+			}
+		}
+		
+		return gradesForOneSubject;
 	}
 }

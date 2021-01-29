@@ -142,6 +142,58 @@ public class StudentsCollection {
 		}
 	}
 	
+	public void deleteSubjectFromStudentsRecords(String subjectId) {
+		ArrayList<Student> studentsWhoHavePassedSubject = 
+				getStudentsWhoHavePassedSubjectWith(subjectId);
+		
+		for (Student student : studentsWhoHavePassedSubject) {
+			for (Grade grade : student.getPassedSubjects()) {
+				if (grade.getSubject().getId().equals(subjectId)) {
+					student.getPassedSubjects().remove(grade);
+					double newAverageGrade = student.calculateNewAverageGrade();
+					student.setAverageGrade(newAverageGrade);
+					break;
+				}
+			}
+		}
+		
+		ArrayList<Student> studentsWhoHaveNotPassedSubject = 
+				getStudentsWhoHaveNotPassedSubjectWith(subjectId);
+		
+		for (Student student : studentsWhoHaveNotPassedSubject) {
+			for (Subject subject : student.getNonPassedSubjects()) {
+				if (subject.getId().equals(subjectId)) {
+					student.getNonPassedSubjects().remove(subject);
+					break;
+				}
+			}
+		}
+	}
+	
+	public ArrayList<Student> getStudentsWhoHavePassedSubjectWith(String subjectId) {
+		ArrayList<Student> studentsWhoHavePassedSubject = new ArrayList<Student>();
+		
+		for (Student s : students) {
+			if (s.hasPassedSubjectWith(subjectId)) {
+				studentsWhoHavePassedSubject.add(s);
+			}
+		}
+		
+		return studentsWhoHavePassedSubject;
+	}
+	
+	public ArrayList<Student> getStudentsWhoHaveNotPassedSubjectWith(String subjectId) {
+		ArrayList<Student> studentsWhoHaveNotPassedSubject = new ArrayList<Student>();
+		
+		for (Student s : students) {
+			if (s.hasNotPassedSubjectWith(subjectId)) {
+				studentsWhoHaveNotPassedSubject.add(s);
+			}
+		}
+		
+		return studentsWhoHaveNotPassedSubject;
+	}
+	
 	public void cancelGrade(String indexNumber, long cancelledGradeId) {
 		Student student = findByIndexNumber(indexNumber);
 		

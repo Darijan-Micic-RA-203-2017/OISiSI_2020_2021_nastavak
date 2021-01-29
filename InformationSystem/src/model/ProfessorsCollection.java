@@ -134,6 +134,33 @@ public class ProfessorsCollection {
 		}
 	}
 	
+	public void deleteSubjectFromProfessorsRecords(String nationalIdOfProfessor, 
+			String subjectId) {
+		Professor professor = findByNationalId(nationalIdOfProfessor);
+		
+		if (professor != null) {
+			for (Subject s : professor.getTeachingSubjects()) {
+				if (s.getId().equals(subjectId)) {
+					professor.getTeachingSubjects().remove(s);
+					break;
+				}
+			}
+		}
+	}
+	
+	public Professor findByNationalId(String nationalId) {
+		Professor professor = null;
+		
+		for (Professor p : professors) {
+			if (p.getNationalID().equals(nationalId)) {
+				professor = p;
+				break;
+			}
+		}
+		
+		return professor;
+	}
+	
 	public boolean nationalIdExists(String nationalId) {
 		boolean answer = false;
 		for(Professor p : professors) {
