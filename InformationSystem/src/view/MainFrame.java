@@ -95,6 +95,14 @@ public class MainFrame extends JFrame {
 					(AbstractSubjectsTableModel) tabbedPane.getSubjectsTab().getSubjectsTable().getModel();
 			
 			subjectsTableModel.fireTableDataChanged();
+			
+			if (action.equals("DELETED SUBJECT")) {
+				AbstractStudentsTableModel studentsTableModel = 
+						(AbstractStudentsTableModel) tabbedPane.getStudentsTab().getStudentsTable().getModel();
+				
+				studentsTableModel.fireTableDataChanged();
+			}
+			
 			validate();
 		}
 	}
