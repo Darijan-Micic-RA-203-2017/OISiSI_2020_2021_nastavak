@@ -23,8 +23,8 @@ public class Grade {
 	
 	public Grade(GradeDTO gradeDTO) {
 		this.id = gradeDTO.getId();
-		this.student = new Student();
-		this.subject = new Subject();
+		this.student = null;
+		this.subject = null;
 		this.value = gradeDTO.getValue();
 		this.dateOfPassing = gradeDTO.getDateOfPassing();
 	}

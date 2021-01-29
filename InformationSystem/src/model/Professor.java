@@ -6,10 +6,7 @@ import dtos.ProfessorDTO;
 
 import java.util.ArrayList;
 
-//na grani professor bez polja koja predstavljaju objekte drugih klasa, oni sa javljaju na grani refactor/professor
-
 public class Professor {
-
 	private String lastName;
 	private String firstName;
 	private Date dateOfBirth;
@@ -24,8 +21,10 @@ public class Professor {
 	
 	public Professor() {}
 	
-	public Professor(String lastName, String firstName, Date dateOfBirth, String residence, String contactPhone,
-			String emailAddress, String officeAddress, String nationalID, TitleOfProfessor title, CallingOfProfessor calling, ArrayList<Subject> teachingSubjects) {
+	public Professor(String lastName, String firstName, Date dateOfBirth, String residence, 
+			String contactPhone, String emailAddress, String officeAddress, String nationalID, 
+			TitleOfProfessor title, CallingOfProfessor calling, 
+			ArrayList<Subject> teachingSubjects) {
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.dateOfBirth = dateOfBirth;

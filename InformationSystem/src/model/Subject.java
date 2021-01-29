@@ -4,10 +4,7 @@ import java.util.ArrayList;
 
 import dtos.SubjectDTO;
 
-//na grani subject bez polja koja predstavljaju objekte drugih klasa, oni sa javljaju na grani refactor/subject
-
 public class Subject {
-
 	private String id;
 	private String name;
 	private SemesterOfSubject semester;
@@ -17,11 +14,11 @@ public class Subject {
 	private ArrayList<Student> passedSubject;
 	private ArrayList<Student> failedSubject;
 	
-	
 	public Subject() {}
 	
-	public Subject(String id, String name, SemesterOfSubject semester, int yearOfStudy, Professor professor, int espb,
-			ArrayList<Student> passedSubject, ArrayList<Student> failedSubject) {
+	public Subject(String id, String name, SemesterOfSubject semester, int yearOfStudy, 
+			Professor professor, int espb, ArrayList<Student> passedSubject, 
+			ArrayList<Student> failedSubject) {
 		this.id = id;
 		this.name = name;
 		this.semester = semester;
@@ -37,7 +34,7 @@ public class Subject {
 		this.name = subjectDTO.getName();
 		this.semester = subjectDTO.getSemester();
 		this.yearOfStudy = subjectDTO.getYearOfStudy();
-		this.professor = new Professor();
+		this.professor = null;
 		this.espb = subjectDTO.getEspb();
 		this.passedSubject = new ArrayList<Student>();
 		this.failedSubject = new ArrayList<Student>();
