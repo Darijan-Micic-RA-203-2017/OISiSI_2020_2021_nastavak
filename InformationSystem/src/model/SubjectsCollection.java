@@ -79,10 +79,10 @@ public class SubjectsCollection {
 		}
 	}
 	
-	public void addSubject(String id, String name, SemesterOfSubject semester,
+	public void addSubject(String id, String name, SemesterOfSubject semester, 
 			int yearOfStudy, int espb) {
-		Subject newSubject = new Subject(id, name, semester, yearOfStudy,new Professor(),
-				espb, new ArrayList<Student>(), new ArrayList<Student>());
+		Subject newSubject = new Subject(id, name, semester, yearOfStudy, null, espb, 
+				new ArrayList<Student>(), new ArrayList<Student>());
 		subjects.add(newSubject);
 	}
 	

@@ -52,7 +52,7 @@ public class SubjectsController {
 		SubjectsCollection.getInstance().addSubject(id, name, semester, yearOfStudy, espb);
 		
 		// Osvežavanje prikaza:
-		MainFrame.getInstance().refreshView("ADDED", -1);
+		MainFrame.getInstance().refreshView("ADDED SUBJECT", -1);
 	}
 	
 	public void editSubjectNonStudentsData(int selectedRowIndex, 
