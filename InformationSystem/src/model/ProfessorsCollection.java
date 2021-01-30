@@ -10,7 +10,7 @@ public class ProfessorsCollection {
 	private static ProfessorsCollection instance = null;
 	
 	public static ProfessorsCollection getInstance() {
-		if(instance == null) {
+		if (instance == null) {
 			instance = new ProfessorsCollection();
 		}
 		
@@ -106,20 +106,21 @@ public class ProfessorsCollection {
 		professors.add(newProfessor);
 	}
 	
-	public void deleteProfessor(String id) {
-		for(Professor p : professors) {
-			if(p.getNationalID()==id) {
+	public void deleteProfessor(String nationalId) {
+		for (Professor p : professors) {
+			if (p.getNationalID().equals(nationalId)) {
 				professors.remove(p);
 				break;
 			}
 		}
 	}
 	
-	public void editProfessorNonSubjectsData(String oldNationalId, String lastName, String firstName,
-			Date dateOfBirth, String residence, String contactPhone, String emailAddress, 
-			String officeAddress, String newNationalId, TitleOfProfessor title, CallingOfProfessor calling) {
-		for(Professor p : professors) {
-			if(p.getNationalID().equals(oldNationalId)) {
+	public void editProfessorNonSubjectsData(String oldNationalId, String lastName, 
+			String firstName, Date dateOfBirth, String residence, String contactPhone, 
+			String emailAddress, String officeAddress, String newNationalId, 
+			TitleOfProfessor title, CallingOfProfessor calling) {
+		for (Professor p : professors) {
+			if (p.getNationalID().equals(oldNationalId)) {
 				p.setLastName(lastName);
 				p.setFirstName(firstName);
 				p.setDateOfBirth(dateOfBirth);
@@ -162,30 +163,30 @@ public class ProfessorsCollection {
 	
 	public boolean nationalIdExists(String nationalId) {
 		boolean answer = false;
-		for(Professor p : professors) {
-			if(p.getNationalID().equals(nationalId)) {
+		
+		for (Professor p : professors) {
+			if (p.getNationalID().equals(nationalId)) {
 				answer = true;
 				break;
 			}
 		}
+		
 		return answer;
 	}
 	
 	public boolean editedNationalIdMatchesWithExistingNationalId(String currentNationalId,
 			String editedNationalId) {
 		boolean matchingNationalIdFinding = false;
-		for(Professor p : professors) {
-			if(!p.getNationalID().equals(currentNationalId)) {
-				if(p.getNationalID().equals(editedNationalId)) {
+		
+		for (Professor p : professors) {
+			if (!p.getNationalID().equals(currentNationalId)) {
+				if (p.getNationalID().equals(editedNationalId)) {
 					matchingNationalIdFinding = true;
 					break;
 				}
 			}
 		}
+		
 		return matchingNationalIdFinding;
 	}
-	
-	
-	
-	
 }

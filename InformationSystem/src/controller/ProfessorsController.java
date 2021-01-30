@@ -1,6 +1,7 @@
 package controller;
 
-import java.text.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -102,71 +103,70 @@ public class ProfessorsController {
 		MainFrame.getInstance().refreshView("DELETED PROFESSOR", rowSelectedIndex);
 	}
 	
-	public void editProfessorNonSubjectsData(int rowSelectedIndex,
+	public void editProfessorNonSubjectsData(int selectedRowIndex,
 			ProfessorEditingDialog professorEditingDialog) {
-		if(rowSelectedIndex >= 0) {
-			Professor professor = ProfessorsCollection.getInstance().getRow(rowSelectedIndex);
-			
-			ProfessorNonSubjectsDataPanel professorNonSubjectsDataPanel = professorEditingDialog.
-					getProfessorEditingTabbedPane().getProfessorNonSubjectsDataPanel();
-			
-			String lastName = professorNonSubjectsDataPanel.getLastNameTextField().getText();
-			String firstName = professorNonSubjectsDataPanel.getFirstNameTextField().getText();
-			String dateOfBirthStringRepresentation = 
-					professorNonSubjectsDataPanel.getDateOfBirthMessageTextField().getText();
-			/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
-			SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy.");
-			Date dateOfBirth = null;
-			try {
-				dateOfBirth = sdf.parse(dateOfBirthStringRepresentation);
-			} catch (ParseException pE) {
-				pE.printStackTrace();
-			}
-			String residence = professorNonSubjectsDataPanel.getResidenceTextField().getText();
-			String contactPhone = professorNonSubjectsDataPanel.getContactPhoneTextField().getText();
-			String emailAddress = professorNonSubjectsDataPanel.getEmailAddressAddressTextField().getText();
-			String officeAddress = professorNonSubjectsDataPanel.getOfficeAddressTextField().getText();
-			String newNationalId = professorNonSubjectsDataPanel.getNationalIdTextField().getText();
-			int titleComboBoxSelected = 
-					professorNonSubjectsDataPanel.getTitleComboBox().getSelectedIndex();
-			TitleOfProfessor title = null;
-			if(titleComboBoxSelected == 0) {
-				title = TitleOfProfessor.BSC;
-			} else if(titleComboBoxSelected == 1) {
-				title = TitleOfProfessor.MSC;
-			} else if(titleComboBoxSelected == 2) {
-				title = TitleOfProfessor.MR;
-			} else if(titleComboBoxSelected == 3) {
-				title = TitleOfProfessor.DR;
-			} else {
-				title = TitleOfProfessor.PROF_DR;
-			}
-			int callingComboBoxSelected =
-					professorNonSubjectsDataPanel.getCallingComboBox().getSelectedIndex();
-			CallingOfProfessor calling = null;
-			if(callingComboBoxSelected == 0) {
-				calling = CallingOfProfessor.SARADNIK_U_NASTAVI;
-			} else if(callingComboBoxSelected == 1) {
-				calling = CallingOfProfessor.ASISTENT;
-			} else if(callingComboBoxSelected == 2) {
-				calling = CallingOfProfessor.ASISTENT_SA_DOKTORATOM;
-			} else if(callingComboBoxSelected == 3) {
-				calling = CallingOfProfessor.DOCENT;
-			} else if(callingComboBoxSelected == 4) {
-				calling = CallingOfProfessor.VANREDNI_PROFESOR;
-			} else if(callingComboBoxSelected == 5) {
-				calling = CallingOfProfessor.REDOVNI_PROFESOR;
-			} else {
-				calling = CallingOfProfessor.PROFESOR_EMERITUS;
-			}
-			String oldNationalId = professor.getNationalID();
-			ProfessorsCollection.getInstance().editProfessorNonSubjectsData(oldNationalId, lastName,
-					firstName, dateOfBirth, residence, contactPhone, emailAddress, officeAddress,
-					newNationalId, title, calling);
-			
-			MainFrame.getInstance().refreshView(null, -1);
+		Professor professor = ProfessorsCollection.getInstance().getRow(selectedRowIndex);
+		
+		// Izmena modela:
+		ProfessorNonSubjectsDataPanel professorNonSubjectsDataPanel = professorEditingDialog.
+				getProfessorEditingTabbedPane().getProfessorNonSubjectsDataPanel();
+
+		String lastName = professorNonSubjectsDataPanel.getLastNameTextField().getText();
+		String firstName = professorNonSubjectsDataPanel.getFirstNameTextField().getText();
+		String dateOfBirthStringRepresentation = 
+				professorNonSubjectsDataPanel.getDateOfBirthMessageTextField().getText();
+		/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy.");
+		Date dateOfBirth = null;
+		try {
+			dateOfBirth = sdf.parse(dateOfBirthStringRepresentation);
+		} catch (ParseException pE) {
+			pE.printStackTrace();
 		}
+		String residence = professorNonSubjectsDataPanel.getResidenceTextField().getText();
+		String contactPhone = professorNonSubjectsDataPanel.getContactPhoneTextField().getText();
+		String emailAddress = professorNonSubjectsDataPanel.getEmailAddressAddressTextField().getText();
+		String officeAddress = professorNonSubjectsDataPanel.getOfficeAddressTextField().getText();
+		String newNationalId = professorNonSubjectsDataPanel.getNationalIdTextField().getText();
+		int titleComboBoxSelectedIndex = 
+				professorNonSubjectsDataPanel.getTitleComboBox().getSelectedIndex();
+		TitleOfProfessor title = null;
+		if (titleComboBoxSelectedIndex == 0) {
+			title = TitleOfProfessor.BSC;
+		} else if (titleComboBoxSelectedIndex == 1) {
+			title = TitleOfProfessor.MSC;
+		} else if (titleComboBoxSelectedIndex == 2) {
+			title = TitleOfProfessor.MR;
+		} else if (titleComboBoxSelectedIndex == 3) {
+			title = TitleOfProfessor.DR;
+		} else {
+			title = TitleOfProfessor.PROF_DR;
+		}
+		int callingComboBoxSelectedIndex =
+				professorNonSubjectsDataPanel.getCallingComboBox().getSelectedIndex();
+		CallingOfProfessor calling = null;
+		if (callingComboBoxSelectedIndex == 0) {
+			calling = CallingOfProfessor.SARADNIK_U_NASTAVI;
+		} else if (callingComboBoxSelectedIndex == 1) {
+			calling = CallingOfProfessor.ASISTENT;
+		} else if (callingComboBoxSelectedIndex == 2) {
+			calling = CallingOfProfessor.ASISTENT_SA_DOKTORATOM;
+		} else if (callingComboBoxSelectedIndex == 3) {
+			calling = CallingOfProfessor.DOCENT;
+		} else if (callingComboBoxSelectedIndex == 4) {
+			calling = CallingOfProfessor.VANREDNI_PROFESOR;
+		} else if (callingComboBoxSelectedIndex == 5) {
+			calling = CallingOfProfessor.REDOVNI_PROFESOR;
+		} else {
+			calling = CallingOfProfessor.PROFESOR_EMERITUS;
+		}
+		
+		String oldNationalId = professor.getNationalID();
+		ProfessorsCollection.getInstance().editProfessorNonSubjectsData(oldNationalId, 
+				lastName, firstName, dateOfBirth, residence, contactPhone, emailAddress, 
+				officeAddress, newNationalId, title, calling);
+		
+		// Osvežavanje prikaza:
+		MainFrame.getInstance().refreshView("EDITED PROFESSOR", selectedRowIndex);
 	}
-	
-	
 }

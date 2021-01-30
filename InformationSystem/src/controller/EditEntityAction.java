@@ -1,6 +1,5 @@
 package controller;
 
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
@@ -10,11 +9,8 @@ import javax.swing.KeyStroke;
 
 import view.MainFrame;
 import view.StudentEditingDialog;
-import view.StudentsTab;
 import view.SubjectEditingDialog;
-import view.SubjectsTab;
 import view.ProfessorEditingDialog;
-import view.ProfessorsTab;
 
 public class EditEntityAction extends AbstractAction {
 	public EditEntityAction() {
@@ -24,9 +20,9 @@ public class EditEntityAction extends AbstractAction {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		Component selectedTab = MainFrame.getInstance().getTabbedPane().getSelectedComponent();
+		int selectedTabIndex = MainFrame.getInstance().getTabbedPane().getSelectedIndex();
 		
-		if (selectedTab instanceof StudentsTab) {
+		if (selectedTabIndex == 0) {
 			int selectedRowIndex = MainFrame.getInstance().getTabbedPane().
 					getStudentsTab().getStudentsTable().getSelectedRow();
 			
@@ -40,7 +36,21 @@ public class EditEntityAction extends AbstractAction {
 						"Da bi se mogla izvršiti izmena studenta, on mora biti odabran u "
 						+ "tabeli.", "Upozorenje", JOptionPane.WARNING_MESSAGE);
 			}
-		} else if (selectedTab instanceof SubjectsTab) {
+		} else if (selectedTabIndex == 1) {
+			int selectedRowIndex = MainFrame.getInstance().getTabbedPane().
+					getProfessorsTab().getProfessorsTable().getSelectedRow();
+			
+			if (selectedRowIndex >= 0) {
+				ProfessorEditingDialog editingDialog =
+						new ProfessorEditingDialog(MainFrame.getInstance(), selectedRowIndex);
+				editingDialog.setVisible(true);
+			} else {
+				/** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji.pdf) */
+				JOptionPane.showMessageDialog(MainFrame.getInstance(), 
+						"Da bi se mogla izvršiti izmena profesora, on mora biti odabran u "
+						+ "tabeli.", "Upozorenje", JOptionPane.WARNING_MESSAGE);
+			}
+		} else if (selectedTabIndex == 2) {
 			int selectedRowIndex = MainFrame.getInstance().getTabbedPane().
 					getSubjectsTab().getSubjectsTable().getSelectedRow();
 			
@@ -52,20 +62,6 @@ public class EditEntityAction extends AbstractAction {
 				/** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji.pdf) */
 				JOptionPane.showMessageDialog(MainFrame.getInstance(), 
 						"Da bi se mogla izvršiti izmena predmeta, on mora biti odabran u "
-						+ "tabeli.", "Upozorenje", JOptionPane.WARNING_MESSAGE);
-			}
-		} else if(selectedTab instanceof ProfessorsTab) {
-			int selectedRowIndex = MainFrame.getInstance().getTabbedPane().
-					getProfessorsTab().getProfessorsTable().getSelectedRow();
-			
-			if(selectedRowIndex >= 0) {
-				ProfessorEditingDialog editingDialog =
-						new ProfessorEditingDialog(MainFrame.getInstance(), selectedRowIndex);
-				editingDialog.setVisible(true);
-			} else {
-				/** REFERENCA: Materijali za vežbe (v4 -> b - Dogadjaji -> Dogadjaji.pdf) */
-				JOptionPane.showMessageDialog(MainFrame.getInstance(), 
-						"Da bi se mogla izvršiti izmena profesora, on mora biti odabran u "
 						+ "tabeli.", "Upozorenje", JOptionPane.WARNING_MESSAGE);
 			}
 		}
