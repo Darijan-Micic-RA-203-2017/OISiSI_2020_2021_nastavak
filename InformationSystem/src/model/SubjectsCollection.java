@@ -136,10 +136,12 @@ public class SubjectsCollection {
 		}
 	}
 	
-	public void deleteProfessorFromSubjectsRecords(ArrayList<String> teachingSubjectsIdsOfProfessor) {
-		for (String sId : teachingSubjectsIdsOfProfessor) {
-			Subject teachingSubject = findById(sId);
-			teachingSubject.setProfessor(null);
+	public void deleteProfessorFromSubjectsRecords(String nationalIdOfProfessor) {
+		ArrayList<Subject> teachingSubjectsOfProfessor = 
+				getTeachingSubjectsOfProfessorWith(nationalIdOfProfessor);
+		
+		for (Subject s : teachingSubjectsOfProfessor) {
+			s.setProfessor(null);
 		}
 	}
 	
@@ -211,7 +213,7 @@ public class SubjectsCollection {
 		return failedSubjectsOfOneStudent;
 	}
 	
-	public ArrayList<Subject> getTeachingSubjects(String nationalId) {
+	public ArrayList<Subject> getTeachingSubjectsOfProfessorWith(String nationalId) {
 		ArrayList<Subject> teachingSubjectsOfProfessor = new ArrayList<Subject>();
 		
 		for (Subject s : subjects) {

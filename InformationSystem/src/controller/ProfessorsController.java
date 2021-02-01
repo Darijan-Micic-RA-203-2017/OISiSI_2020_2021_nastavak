@@ -89,22 +89,18 @@ public class ProfessorsController {
 		MainFrame.getInstance().refreshView("ADDED PROFESSOR", -1);
 	}
 	
-	public void deleteProfessor(int rowSelectedIndex) {
-		Professor professor = ProfessorsCollection.getInstance().getRow(rowSelectedIndex);
+	public void deleteProfessor(int selectedRowIndex) {
+		Professor professor = ProfessorsCollection.getInstance().getRow(selectedRowIndex);
+		String nationalIdOfProfessor = professor.getNationalID();
 		
 		// Izmena modela:
-		ProfessorsCollection.getInstance().deleteProfessor(professor.getNationalID());
-		
-		ArrayList<String> teachingSubjectsIdsOfProfessor = new ArrayList<String>();
-		for (Subject s : professor.getTeachingSubjects()) {
-			teachingSubjectsIdsOfProfessor.add(s.getId());
-		}
-		
 		SubjectsCollection.getInstance().
-				deleteProfessorFromSubjectsRecords(teachingSubjectsIdsOfProfessor);
+				deleteProfessorFromSubjectsRecords(nationalIdOfProfessor);
+		
+		ProfessorsCollection.getInstance().deleteProfessor(nationalIdOfProfessor);
 		
 		// Osvežavanje prikaza:
-		MainFrame.getInstance().refreshView("DELETED PROFESSOR", rowSelectedIndex);
+		MainFrame.getInstance().refreshView("DELETED PROFESSOR", selectedRowIndex);
 	}
 	
 	public void editProfessorNonSubjectsData(int selectedRowIndex,

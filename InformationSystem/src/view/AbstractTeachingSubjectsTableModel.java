@@ -57,7 +57,7 @@ public class AbstractTeachingSubjectsTableModel extends AbstractTableModel {
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		ArrayList<Subject> teachingSubjects =
-				SubjectsCollection.getInstance().getTeachingSubjects(nationalId);
+				SubjectsCollection.getInstance().getTeachingSubjectsOfProfessorWith(nationalId);
 		
 		Subject row = teachingSubjects.get(rowIndex);
 		
