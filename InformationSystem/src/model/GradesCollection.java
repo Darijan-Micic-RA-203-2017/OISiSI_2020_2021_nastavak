@@ -8,7 +8,7 @@ import java.util.Date;
 /** REFERENCA: Materijali za vežbe (v6 -> JTableMVCSimple -> model -> BazaIgraca.java) */
 public class GradesCollection {
 	private static GradesCollection instance = null;
-
+	
 	public static GradesCollection getInstance() {
 		if (instance == null) {
 			instance = new GradesCollection();
@@ -24,7 +24,7 @@ public class GradesCollection {
 	// Konstruktor:
 	private GradesCollection() {
 		//initGrades();
-
+		
 		columns = new ArrayList<String>();
 		columns.add("Šifra predmeta");
 		columns.add("Naziv predmeta");
@@ -109,23 +109,25 @@ public class GradesCollection {
 	public ArrayList<Grade> getGrades() {
 		return grades;
 	}
-
+	
 	public void setGrades(ArrayList<Grade> grades) {
 		this.grades = grades;
+		
+		currentMaximumId = calculateNewMaximumId();
 	}
-
+	
 	public int getColumnCount() {
 		return columns.size();
 	}
-
+	
 	public String getColumnName(int index) {
 		return columns.get(index);
 	}
-
+	
 	public Grade getRow(int rowIndex) {
 		return grades.get(rowIndex);
 	}
-
+	
 	public String getValueAt(int row, int column) {
 		Grade grade = grades.get(row);
 		
@@ -149,23 +151,40 @@ public class GradesCollection {
 			return null;
 		}
 	}
-
+	
+	private long calculateNewMaximumId() {
+		long maximumId = 0;
+		for (Grade g : grades) {
+			if (g.getId() > maximumId) {
+				maximumId = g.getId();
+			}
+		}
+		
+		return maximumId;
+	}
+	
 	public void addGrade(Student student, Subject subject, int value, 
 			Date dateOfPassing) {
+		currentMaximumId++;
+		
 		Grade newGrade = new Grade(currentMaximumId, student, subject, value, dateOfPassing);
 		grades.add(newGrade);
-		currentMaximumId++;
 	}
-
+	
 	public void deleteGrade(long id) {
 		for (Grade g : grades) {
 			if (g.getId() == id) {
 				grades.remove(g);
+				
+				if (g.getId() == currentMaximumId) {
+					currentMaximumId = calculateNewMaximumId();
+				}
+				
 				break;
 			}
 		}
 	}
-
+	
 	public void editGrade(long oldId, long newId, Student student, Subject subject, int value, 
 			Date dateOfPassing) {
 		for (Grade g : grades) {

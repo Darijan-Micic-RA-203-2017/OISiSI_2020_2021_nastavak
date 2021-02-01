@@ -21,27 +21,24 @@ public class GradesController {
 	
 	private GradesController() {}
 	
-	public void cancelGrade(int rowSelectedIndex, StudentEditingDialog studentEditingDialog) {
-		if (rowSelectedIndex >= 0) {
-			// Izmena modela:
-			Student selectedStudent = studentEditingDialog.getStudentEditingTabbedPane().
-					getSelectedStudent();
-			
-			ArrayList<Grade> gradesOfStudent = GradesCollection.getInstance().
-					getGradesOfStudent(selectedStudent.getIndexNumber());
-			int selectedGradeIndex = studentEditingDialog.getStudentEditingTabbedPane().
-					getPassedSubjectsPanel().getPassedSubjectsTable().getSelectedRow();
-			Grade cancelledGrade = gradesOfStudent.get(selectedGradeIndex);
-			GradesCollection.getInstance().getGrades().remove(cancelledGrade);
-			
-			StudentsController.getInstance().cancelGrade(selectedStudent.getIndexNumber(), 
-					cancelledGrade.getId());
-			SubjectsController.getInstance().
-					moveStudentToNonPassedList(cancelledGrade.getSubject().getId(), 
-							selectedStudent.getIndexNumber());
-			
-			// Osvežavanje prikaza:
-			studentEditingDialog.refreshView(null, -1);
-		}
+	public void cancelGrade(int selectedRowIndex, StudentEditingDialog studentEditingDialog) {
+		// Izmena modela:
+		Student selectedStudent = studentEditingDialog.getStudentEditingTabbedPane().
+				getSelectedStudent();
+		String indexNumber = selectedStudent.getIndexNumber();
+		
+		ArrayList<Grade> gradesOfStudent = GradesCollection.getInstance().
+				getGradesOfStudent(indexNumber);
+		int selectedGradeIndex = studentEditingDialog.getStudentEditingTabbedPane().
+				getPassedSubjectsPanel().getPassedSubjectsTable().getSelectedRow();
+		Grade cancelledGrade = gradesOfStudent.get(selectedGradeIndex);
+		GradesCollection.getInstance().getGrades().remove(cancelledGrade);
+		
+		StudentsController.getInstance().cancelGrade(indexNumber, cancelledGrade.getId());
+		SubjectsController.getInstance().
+				moveStudentToNonPassedList(cancelledGrade.getSubject().getId(), indexNumber);
+		
+		// Osvežavanje prikaza:
+		studentEditingDialog.refreshView("CANCELLED GRADE", selectedRowIndex);
 	}
 }
