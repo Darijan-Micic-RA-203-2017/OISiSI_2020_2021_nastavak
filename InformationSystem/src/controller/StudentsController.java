@@ -71,7 +71,7 @@ public class StudentsController {
 				currentYearOfStudy, statusOfStudent);
 		
 		// Osvežavanje prikaza:
-		MainFrame.getInstance().refreshView("ADDED", -1);
+		MainFrame.getInstance().refreshView("ADDED STUDENT", -1);
 	}
 	
 	public void deleteStudent(int rowSelectedIndex) {
