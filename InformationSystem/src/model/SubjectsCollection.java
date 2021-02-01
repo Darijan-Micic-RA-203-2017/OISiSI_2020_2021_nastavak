@@ -110,26 +110,26 @@ public class SubjectsCollection {
 		}
 	}
 	
-	public void deleteStudentFromSubjectsRecords(String indexNumber, 
-			ArrayList<String> passedSubjectsIdsOfStudent, 
-			ArrayList<String> nonPassedSubjectsIdsOfStudent) {
-		for (String pSId : passedSubjectsIdsOfStudent) {
-			Subject passedSubject = findById(pSId);
-			
-			for (Student std : passedSubject.getPassedSubject()) {
-				if (std.getIndexNumber().equals(indexNumber)) {
-					passedSubject.getPassedSubject().remove(std);
+	public void deleteStudentFromSubjectsRecords(String indexNumberOfStudent) {
+		ArrayList<Subject> passedSubjectsOfStudent = 
+				getPassedSubjectsOfStudentWith(indexNumberOfStudent);
+		
+		for (Subject sbj : passedSubjectsOfStudent) {
+			for (Student std : sbj.getPassedSubject()) {
+				if (std.getIndexNumber().equals(indexNumberOfStudent)) {
+					sbj.getPassedSubject().remove(std);
 					break;
 				}
 			}
 		}
 		
-		for (String nPSId : nonPassedSubjectsIdsOfStudent) {
-			Subject nonPassedSubject = findById(nPSId);
-			
-			for (Student std : nonPassedSubject.getFailedSubject()) {
-				if (std.getIndexNumber().equals(indexNumber)) {
-					nonPassedSubject.getFailedSubject().remove(std);
+		ArrayList<Subject> nonPassedSubjectsOfStudent = 
+				getNonPassedSubjectsOfStudentWith(indexNumberOfStudent);
+		
+		for (Subject sbj : nonPassedSubjectsOfStudent) {
+			for (Student std : sbj.getFailedSubject()) {
+				if (std.getIndexNumber().equals(indexNumberOfStudent)) {
+					sbj.getFailedSubject().remove(std);
 					break;
 				}
 			}
@@ -175,6 +175,7 @@ public class SubjectsCollection {
 	
 	public boolean idExists(String id) {
 		boolean answer = false;
+		
 		for (Subject s : subjects) {
 			if (s.getId().equals(id)) {
 				answer = true;
@@ -187,6 +188,7 @@ public class SubjectsCollection {
 	
 	public boolean editedIdMatchesWithExistingId(String currentId, String editedId) {
 		boolean matchingIdFinding = false;
+		
 		for (Subject s : subjects) {
 			if (!s.getId().equals(currentId)) {
 				if (s.getId().equals(editedId)) {
@@ -199,18 +201,32 @@ public class SubjectsCollection {
 		return matchingIdFinding;
 	}
 	
-	public ArrayList<Subject> getFailedSubjectsOfStudent(String indexNumber) {
-		ArrayList<Subject> failedSubjectsOfOneStudent = new ArrayList<Subject>();
+	public ArrayList<Subject> getPassedSubjectsOfStudentWith(String indexNumber) {
+		ArrayList<Subject> passedSubjectsOfOneStudent = new ArrayList<Subject>();
 		
 		for (Subject sbj : subjects) {
 			for (Student std : sbj.getFailedSubject()) {
 				if (std.getIndexNumber().equals(indexNumber)) {
-					failedSubjectsOfOneStudent.add(sbj);
+					passedSubjectsOfOneStudent.add(sbj);
 				}
 			}
 		}
 		
-		return failedSubjectsOfOneStudent;
+		return passedSubjectsOfOneStudent;
+	}
+	
+	public ArrayList<Subject> getNonPassedSubjectsOfStudentWith(String indexNumber) {
+		ArrayList<Subject> nonPassedSubjectsOfOneStudent = new ArrayList<Subject>();
+		
+		for (Subject sbj : subjects) {
+			for (Student std : sbj.getFailedSubject()) {
+				if (std.getIndexNumber().equals(indexNumber)) {
+					nonPassedSubjectsOfOneStudent.add(sbj);
+				}
+			}
+		}
+		
+		return nonPassedSubjectsOfOneStudent;
 	}
 	
 	public ArrayList<Subject> getTeachingSubjectsOfProfessorWith(String nationalId) {

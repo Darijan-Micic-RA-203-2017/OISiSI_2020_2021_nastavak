@@ -74,32 +74,20 @@ public class StudentsController {
 		MainFrame.getInstance().refreshView("ADDED STUDENT", -1);
 	}
 	
-	public void deleteStudent(int rowSelectedIndex) {
-		Student student = StudentsCollection.getInstance().getRow(rowSelectedIndex);
+	public void deleteStudent(int selectedRowIndex) {
+		Student student = StudentsCollection.getInstance().getRow(selectedRowIndex);
+		String indexNumberOfStudent = student.getIndexNumber();
 		
 		// Izmena modela:
-		StudentsCollection.getInstance().deleteStudent(student.getIndexNumber());
-		
-		ArrayList<Long> gradesIdsOfStudent = new ArrayList<Long>();
-		ArrayList<String> passedSubjectsIdsOfStudent = new ArrayList<String>();
-		for (Grade g : student.getPassedSubjects()) {
-			gradesIdsOfStudent.add(g.getId());
-			passedSubjectsIdsOfStudent.add(g.getSubject().getId());
-		}
-		
-		ArrayList<String> nonPassedSubjectsIdsOfStudent = new ArrayList<String>();
-		for (Subject s : student.getNonPassedSubjects()) {
-			nonPassedSubjectsIdsOfStudent.add(s.getId());
-		}
-		
-		GradesCollection.getInstance().deleteGradesOfStudent(gradesIdsOfStudent);
-		
 		SubjectsCollection.getInstance().
-				deleteStudentFromSubjectsRecords(student.getIndexNumber(), 
-						passedSubjectsIdsOfStudent, nonPassedSubjectsIdsOfStudent);
-
+				deleteStudentFromSubjectsRecords(indexNumberOfStudent);
+		
+		GradesCollection.getInstance().deleteGradesOfStudent(indexNumberOfStudent);
+		
+		StudentsCollection.getInstance().deleteStudent(indexNumberOfStudent);
+		
 		// Osvežavanje prikaza:
-		MainFrame.getInstance().refreshView("DELETED STUDENT", rowSelectedIndex);
+		MainFrame.getInstance().refreshView("DELETED STUDENT", selectedRowIndex);
 	}
 	
 	public void editStudentNonGradesData(int selectedRowIndex, 

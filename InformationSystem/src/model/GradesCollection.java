@@ -180,11 +180,9 @@ public class GradesCollection {
 		}
 	}
 	
-	public void deleteGradesOfStudent(ArrayList<Long> gradesIdsOfStudent) {
-		for (long gId : gradesIdsOfStudent) {
-			Grade grade = findById(gId);
-			grades.remove(grade);
-		}
+	public void deleteGradesOfStudent(String indexNumberOfStudent) {
+		ArrayList<Grade> gradesOfStudent = getGradesOfStudent(indexNumberOfStudent);
+		grades.removeAll(gradesOfStudent);
 	}
 	
 	public void deleteGradesForSubject(String subjectId) {

@@ -53,7 +53,7 @@ public class AbstractFailedSubjectsTableModel extends AbstractTableModel {
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		ArrayList<Subject> studentSubjects =
-				SubjectsCollection.getInstance().getFailedSubjectsOfStudent(indexNumber);
+				SubjectsCollection.getInstance().getNonPassedSubjectsOfStudentWith(indexNumber);
 		
 		Subject row = studentSubjects.get(rowIndex);
 		
