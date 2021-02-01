@@ -39,11 +39,7 @@ public class SubjectDTO {
 		this.semester = subject.getSemester();
 		this.yearOfStudy = subject.getYearOfStudy();
 		if (subject.getProfessor() != null) {
-			if (subject.getProfessor().getNationalID() != null) {
-				this.nationalIdOfProfessor = subject.getProfessor().getNationalID();
-			} else {
-				this.nationalIdOfProfessor = "";
-			}
+			this.nationalIdOfProfessor = subject.getProfessor().getNationalID();
 		} else {
 			this.nationalIdOfProfessor = "";
 		}

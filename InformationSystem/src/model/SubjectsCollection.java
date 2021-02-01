@@ -6,7 +6,7 @@ public class SubjectsCollection {
 	private static SubjectsCollection instance = null;
 	
 	public static SubjectsCollection getInstance() {
-		if(instance == null) {
+		if (instance == null) {
 			instance = new SubjectsCollection();
 		}
 		
@@ -87,8 +87,8 @@ public class SubjectsCollection {
 	}
 	
 	public void deleteSubject(String id) {
-		for(Subject s : subjects) {
-			if(s.getId().equals(id)) {
+		for (Subject s : subjects) {
+			if (s.getId().equals(id)) {
 				subjects.remove(s);
 				break;
 			}
@@ -197,31 +197,29 @@ public class SubjectsCollection {
 		return matchingIdFinding;
 	}
 	
-	public ArrayList<Subject> getFailedSubjectsOfStudent(String indexNumber){
+	public ArrayList<Subject> getFailedSubjectsOfStudent(String indexNumber) {
 		ArrayList<Subject> failedSubjectsOfOneStudent = new ArrayList<Subject>();
 		
-		for(Subject s : subjects) {
-			for(Student s1 : s.getFailedSubject()) {
-				if(s1.getIndexNumber().equals(indexNumber)) {
-					failedSubjectsOfOneStudent.add(s);
+		for (Subject sbj : subjects) {
+			for (Student std : sbj.getFailedSubject()) {
+				if (std.getIndexNumber().equals(indexNumber)) {
+					failedSubjectsOfOneStudent.add(sbj);
 				}
 			}
 		}
+		
 		return failedSubjectsOfOneStudent;
 	}
 	
-	public ArrayList<Subject> getTeachingSubjects(String nationalId){
+	public ArrayList<Subject> getTeachingSubjects(String nationalId) {
 		ArrayList<Subject> teachingSubjectsOfProfessor = new ArrayList<Subject>();
 		
-		for(Subject s : subjects) {
-			if(s.getProfessor() != null) {
-				if(s.getProfessor().getNationalID() != null) {
-					if(s.getProfessor().getNationalID().equals(nationalId)) {
-						teachingSubjectsOfProfessor.add(s);
-					}
+		for (Subject s : subjects) {
+			if (s.getProfessor() != null) {
+				if (s.getProfessor().getNationalID().equals(nationalId)) {
+					teachingSubjectsOfProfessor.add(s);
 				}
 			}
-			
 		}
 		
 		return teachingSubjectsOfProfessor;

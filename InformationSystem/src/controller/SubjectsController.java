@@ -24,10 +24,8 @@ public class SubjectsController {
 		return instance;
 	}
 	
-	// Konstruktor:
 	private SubjectsController() {}
 	
-	// Radnje:
 	public void addSubject(SubjectAddingDialog subjectAddingDialog) {
 		SubjectNonStudentsDataPanel subjectNonStudentsDataPanel = 
 				subjectAddingDialog.getSubjectNonStudentsDataPanel();
