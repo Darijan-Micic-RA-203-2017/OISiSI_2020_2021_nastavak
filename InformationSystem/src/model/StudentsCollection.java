@@ -20,7 +20,6 @@ public class StudentsCollection {
 	private ArrayList<Student> students;
 	private ArrayList<String> columns;
 	
-	// Konstruktor:
 	private StudentsCollection() {
 		//initStudents();
 

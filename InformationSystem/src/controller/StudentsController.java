@@ -29,10 +29,8 @@ public class StudentsController {
 		return instance;
 	}
 	
-	// Konstruktor:
 	private StudentsController() {}
 	
-	// Radnje:
 	public void addStudent(StudentAddingDialog studentAddingDialog) {
 		StudentNonGradesDataPanel studentNonGradesDataPanel = 
 				studentAddingDialog.getStudentNonGradesDataPanel();
@@ -104,54 +102,52 @@ public class StudentsController {
 		MainFrame.getInstance().refreshView("DELETED STUDENT", rowSelectedIndex);
 	}
 	
-	public void editStudentNonGradesData(int rowSelectedIndex, 
+	public void editStudentNonGradesData(int selectedRowIndex, 
 			StudentEditingDialog studentEditingDialog) {
-		if (rowSelectedIndex >= 0) {
-			// Izmena modela:
-			Student student = StudentsCollection.getInstance().getRow(rowSelectedIndex);
-			
-			StudentNonGradesDataPanel studentNonGradesDataPanel = studentEditingDialog.
-					getStudentEditingTabbedPane().getStudentNonGradesDataPanel();
-			
-			String lastName = studentNonGradesDataPanel.getLastNameTextField().getText();
-			String firstName = studentNonGradesDataPanel.getFirstNameTextField().getText();
-			String dateOfBirthStringRepresentation = 
-					studentNonGradesDataPanel.getDateOfBirthTextField().getText();
-			/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
-			SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy.");
-			Date dateOfBirth = null;
-			try {
-				dateOfBirth = sdf.parse(dateOfBirthStringRepresentation);
-			} catch (ParseException pE) {
-				pE.printStackTrace();
-			}
-			String residence = studentNonGradesDataPanel.getAddressTextField().getText();
-			String contactPhone = studentNonGradesDataPanel.getContactPhoneTextField().getText();
-			String emailAddress = studentNonGradesDataPanel.getEmailAddressTextField().getText();
-			String newIndexNumber = studentNonGradesDataPanel.getIndexNumberTextField().getText();
-			String yearOfEnrollmentStringRepresentation = 
-					studentNonGradesDataPanel.getYearOfEnrollmentTextField().getText();
-			int yearOfEnrollment = Integer.parseInt(yearOfEnrollmentStringRepresentation);
-			int currentYearOfStudyComboBoxSelectedIndex = 
-					studentNonGradesDataPanel.getCurrentYearOfStudyComboBox().getSelectedIndex();
-			int currentYearOfStudy = currentYearOfStudyComboBoxSelectedIndex + 1;
-			int statusOfStudentComboBoxSelectedIndex = 
-					studentNonGradesDataPanel.getStatusOfStudentComboBox().getSelectedIndex();
-			StatusOfStudent statusOfStudent = null;
-			if (statusOfStudentComboBoxSelectedIndex == 0) {
-				statusOfStudent = StatusOfStudent.B;
-			} else {
-				statusOfStudent = StatusOfStudent.S;
-			}
-			
-			String oldIndexNumber = student.getIndexNumber();
-			StudentsCollection.getInstance().editStudentNonGradesData(oldIndexNumber, lastName, 
-					firstName, dateOfBirth, residence, contactPhone, emailAddress, 
-					newIndexNumber, yearOfEnrollment, currentYearOfStudy, statusOfStudent);
-			
-			// Osvežavanje prikaza:
-			MainFrame.getInstance().refreshView(null, -1);
+		Student student = StudentsCollection.getInstance().getRow(selectedRowIndex);
+		
+		// Izmena modela:
+		StudentNonGradesDataPanel studentNonGradesDataPanel = studentEditingDialog.
+				getStudentEditingTabbedPane().getStudentNonGradesDataPanel();
+		
+		String lastName = studentNonGradesDataPanel.getLastNameTextField().getText();
+		String firstName = studentNonGradesDataPanel.getFirstNameTextField().getText();
+		String dateOfBirthStringRepresentation = 
+				studentNonGradesDataPanel.getDateOfBirthTextField().getText();
+		/** REFERENCA: https://www.javatpoint.com/java-string-to-date */
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy.");
+		Date dateOfBirth = null;
+		try {
+			dateOfBirth = sdf.parse(dateOfBirthStringRepresentation);
+		} catch (ParseException pE) {
+			pE.printStackTrace();
 		}
+		String residence = studentNonGradesDataPanel.getAddressTextField().getText();
+		String contactPhone = studentNonGradesDataPanel.getContactPhoneTextField().getText();
+		String emailAddress = studentNonGradesDataPanel.getEmailAddressTextField().getText();
+		String newIndexNumber = studentNonGradesDataPanel.getIndexNumberTextField().getText();
+		String yearOfEnrollmentStringRepresentation = 
+				studentNonGradesDataPanel.getYearOfEnrollmentTextField().getText();
+		int yearOfEnrollment = Integer.parseInt(yearOfEnrollmentStringRepresentation);
+		int currentYearOfStudyComboBoxSelectedIndex = 
+				studentNonGradesDataPanel.getCurrentYearOfStudyComboBox().getSelectedIndex();
+		int currentYearOfStudy = currentYearOfStudyComboBoxSelectedIndex + 1;
+		int statusOfStudentComboBoxSelectedIndex = 
+				studentNonGradesDataPanel.getStatusOfStudentComboBox().getSelectedIndex();
+		StatusOfStudent statusOfStudent = null;
+		if (statusOfStudentComboBoxSelectedIndex == 0) {
+			statusOfStudent = StatusOfStudent.B;
+		} else {
+			statusOfStudent = StatusOfStudent.S;
+		}
+		
+		String oldIndexNumber = student.getIndexNumber();
+		StudentsCollection.getInstance().editStudentNonGradesData(oldIndexNumber, lastName, 
+				firstName, dateOfBirth, residence, contactPhone, emailAddress, 
+				newIndexNumber, yearOfEnrollment, currentYearOfStudy, statusOfStudent);
+		
+		// Osvežavanje prikaza:
+		MainFrame.getInstance().refreshView("EDITED STUDENT", selectedRowIndex);
 	}
 	
 	public void cancelGrade(String indexNumber, long cancelledGradeId) {
