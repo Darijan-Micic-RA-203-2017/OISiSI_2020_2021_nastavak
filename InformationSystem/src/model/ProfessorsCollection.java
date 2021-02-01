@@ -102,7 +102,8 @@ public class ProfessorsCollection {
 			String residence, String contactPhone, String emailAddress, String officeAddress,
 			String id, TitleOfProfessor title, CallingOfProfessor calling) {
 		Professor newProfessor = new Professor(lastName, firstName, dateOfBirth, residence,
-				contactPhone, emailAddress, officeAddress, id, title, calling, new ArrayList<Subject>());
+				contactPhone, emailAddress, officeAddress, id, title, calling, 
+				new ArrayList<Subject>());
 		professors.add(newProfessor);
 	}
 	

@@ -21,7 +21,7 @@ public class ProfessorsController {
 	private static ProfessorsController instance = null;
 	
 	public static ProfessorsController getInstance() {
-		if(instance == null) {
+		if (instance == null) {
 			instance = new ProfessorsController();
 		}
 		
@@ -33,6 +33,7 @@ public class ProfessorsController {
 	public void addProfessor(ProfessorAddingDialog professorAddingDialog) {
 		ProfessorNonSubjectsDataPanel professorNonSubjectsDataPanel =
 				professorAddingDialog.getProfessorNonSubjectDataPanel();
+		
 		String lastName = professorNonSubjectsDataPanel.getLastNameTextField().getText();
 		String firstName = professorNonSubjectsDataPanel.getFirstNameTextField().getText();
 		String dateOfBirthStringRepresentation = professorNonSubjectsDataPanel.getDateOfBirthMessageTextField().getText();
@@ -51,38 +52,41 @@ public class ProfessorsController {
 		String nationalId = professorNonSubjectsDataPanel.getNationalIdTextField().getText();
 		int titleComboBoxSelectedIndex = professorNonSubjectsDataPanel.getTitleComboBox().getSelectedIndex();
 		TitleOfProfessor title = null;
-		if(titleComboBoxSelectedIndex == 0) {
+		if (titleComboBoxSelectedIndex == 0) {
 			title = TitleOfProfessor.BSC;
-		} else if(titleComboBoxSelectedIndex == 1) {
+		} else if (titleComboBoxSelectedIndex == 1) {
 			title = TitleOfProfessor.MSC;
-		} else if(titleComboBoxSelectedIndex == 2) {
+		} else if (titleComboBoxSelectedIndex == 2) {
 			title = TitleOfProfessor.MR;
-		} else if(titleComboBoxSelectedIndex == 3) {
+		} else if (titleComboBoxSelectedIndex == 3) {
 			title = TitleOfProfessor.DR;
-		} else if(titleComboBoxSelectedIndex == 4) {
+		} else if (titleComboBoxSelectedIndex == 4) {
 			title = TitleOfProfessor.PROF_DR;
 		}
 		int callingComboBoxSelectedIndex = professorNonSubjectsDataPanel.getCallingComboBox().getSelectedIndex();
 		CallingOfProfessor calling = null;
-		if(callingComboBoxSelectedIndex == 0) {
+		if (callingComboBoxSelectedIndex == 0) {
 			calling = CallingOfProfessor.SARADNIK_U_NASTAVI;
-		} else if(callingComboBoxSelectedIndex == 1) {
+		} else if (callingComboBoxSelectedIndex == 1) {
 			calling = CallingOfProfessor.ASISTENT;
-		} else if(callingComboBoxSelectedIndex == 2) {
+		} else if (callingComboBoxSelectedIndex == 2) {
 			calling = CallingOfProfessor.ASISTENT_SA_DOKTORATOM;
-		} else if(callingComboBoxSelectedIndex == 3) {
+		} else if (callingComboBoxSelectedIndex == 3) {
 			calling = CallingOfProfessor.DOCENT;
-		} else if(callingComboBoxSelectedIndex == 4) {
+		} else if (callingComboBoxSelectedIndex == 4) {
 			calling = CallingOfProfessor.VANREDNI_PROFESOR;
-		} else if(callingComboBoxSelectedIndex == 5) {
+		} else if (callingComboBoxSelectedIndex == 5) {
 			calling = CallingOfProfessor.REDOVNI_PROFESOR;
-		} else if(callingComboBoxSelectedIndex == 6) {
+		} else if (callingComboBoxSelectedIndex == 6) {
 			calling = CallingOfProfessor.PROFESOR_EMERITUS;
 		}
 		
-		ProfessorsCollection.getInstance().addProfessor(lastName, firstName, dateOfBirth, residence, contactPhone, emailAddress, officeAddress, nationalId, title, calling);
+		ProfessorsCollection.getInstance().addProfessor(lastName, firstName, dateOfBirth, 
+				residence, contactPhone, emailAddress, officeAddress, nationalId, 
+				title, calling);
 		
-		MainFrame.getInstance().refreshView("ADDED", -1);
+		// Osvežavanje prikaza:
+		MainFrame.getInstance().refreshView("ADDED PROFESSOR", -1);
 	}
 	
 	public void deleteProfessor(int rowSelectedIndex) {
