@@ -13,11 +13,10 @@ import controller.AddEntityAction;
 import controller.DeleteEntityAction;
 import controller.EditEntityAction;
 import listeners.AboutDialogOpeningListener;
-import listeners.EntitiesWritingToFilesListener;
+import listeners.CloseMenuItemSelectListener;
 import listeners.HelpDialogOpeningListener;
 
 public class MenuBar extends JMenuBar {
-	// Polja:
 	private JMenu fileMenu;
 	private JMenuItem newMenuItem;
 	private JMenuItem closeMenuItem;
@@ -28,14 +27,12 @@ public class MenuBar extends JMenuBar {
 	private JMenuItem helpMenuItem;
 	private JMenuItem aboutMenuItem;
 	
-	// Konstruktor:
 	public MenuBar() {
 		setUpFileMenu();
 		setUpEditMenu();
 		setUpHelpMenu();
 	}
 	
-	// Ostale radnje:
 	private void setUpFileMenu() {
 		String imagePath = getImagePath("File_icon.png");
 		ImageIcon fileMenuIcon = ImageIconScaler.scaleImageIcon(imagePath, 16, 16);
@@ -72,9 +69,8 @@ public class MenuBar extends JMenuBar {
 		closeMenuItem.setMnemonic(KeyEvent.VK_C);
 		closeMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, KeyEvent.CTRL_DOWN_MASK));
 		
-		EntitiesWritingToFilesListener entitiesWritingToFilesListener = 
-				new EntitiesWritingToFilesListener();
-		closeMenuItem.addActionListener(entitiesWritingToFilesListener);
+		CloseMenuItemSelectListener closeMenuItemSelectListener = new CloseMenuItemSelectListener();
+		closeMenuItem.addActionListener(closeMenuItemSelectListener);
 	}
 	
 	private void setUpEditMenu() {
@@ -157,7 +153,6 @@ public class MenuBar extends JMenuBar {
 		aboutMenuItem.addActionListener(aboutDialogOpeningListener);
 	}
 	
-	// Radnja za izgradnju putanje do slike:
 	private String getImagePath(String nameOfImage) {
 		StringBuilder imagePathBuilder = new StringBuilder("images");
 		imagePathBuilder.append(File.separator).append("menuBar");

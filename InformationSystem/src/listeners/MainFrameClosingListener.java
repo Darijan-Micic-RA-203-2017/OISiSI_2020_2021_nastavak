@@ -21,9 +21,7 @@ public class MainFrameClosingListener implements WindowListener {
 	
 	@Override
 	public void windowClosing(WindowEvent arg0) {
-		MainFrame mainFrame = (MainFrame) arg0.getComponent();
-		
-		int selectedOption = JOptionPane.showConfirmDialog(mainFrame, 
+		int selectedOption = JOptionPane.showConfirmDialog(MainFrame.getInstance(), 
 				"Da li ste sigurni da želite da zatvorite aplikaciju?", "Zatvaranje aplikacije", 
 				JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 		
@@ -40,9 +38,9 @@ public class MainFrameClosingListener implements WindowListener {
 			GradesRepository gradeDAO = new GradesRepository();
 			gradeDAO.writeToFile();
 			
-			mainFrame.setDefaultCloseOperation(MainFrame.EXIT_ON_CLOSE);
+			MainFrame.getInstance().setDefaultCloseOperation(MainFrame.EXIT_ON_CLOSE);
 		} else {
-			mainFrame.setDefaultCloseOperation(MainFrame.DO_NOTHING_ON_CLOSE);
+			MainFrame.getInstance().setDefaultCloseOperation(MainFrame.DO_NOTHING_ON_CLOSE);
 		}
 	}
 	
