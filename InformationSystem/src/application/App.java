@@ -34,6 +34,6 @@ public class App {
 		SubjectsController.getInstance();
 		GradesController.getInstance();
 		
-		MainFrame.getInstance();
+		MainFrame.getInstance().setVisible(true);
 	}
 }
